@@ -31,6 +31,15 @@ public class AttributeUtil {
         }
     }
 
+    public static boolean hasAttributeModifier(LivingEntity entity, Attribute attribute, UUID uuid) {
+        AttributeInstance instance = entity.getAttribute(attribute);
+        if (instance != null) {
+            AttributeModifier modifier = instance.getModifier(uuid);
+            return modifier != null;
+        }
+        return false;
+    }
+
     public static void removeAttributeModifier(LivingEntity entity, Attribute attribute, UUID uuid) {
         AttributeInstance instance = entity.getAttribute(attribute);
         if (instance != null) {
