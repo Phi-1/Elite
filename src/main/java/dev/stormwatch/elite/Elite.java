@@ -1,6 +1,9 @@
 package dev.stormwatch.elite;
 
 import com.mojang.logging.LogUtils;
+import dev.stormwatch.elite.items.armor.ShimmeringArmorItem;
+import dev.stormwatch.elite.networking.EliteNetworking;
+import dev.stormwatch.elite.registry.EliteItems;
 import dev.stormwatch.elite.systems.MonsterEnhancer;
 import dev.stormwatch.elite.systems.PlayerEnhancer;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -27,20 +30,29 @@ public class Elite {
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::addCreative);
 
+        EliteItems.register(modEventBus);
+
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(MonsterEnhancer.class);
         MinecraftForge.EVENT_BUS.register(PlayerEnhancer.class);
+        MinecraftForge.EVENT_BUS.register(ShimmeringArmorItem.class);
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-
+        event.enqueueWork(() -> {
+            EliteNetworking.register();
+        });
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
-
+        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(EliteItems.SHIMMERING_SCALE);
+        }
+        if (event.getTabKey() == CreativeModeTabs.COMBAT) {
+            event.accept(EliteItems.SHIMMERING_BOOTS);
+            event.accept(EliteItems.SHIMMERING_LEGGINGS);
         }
     }
 

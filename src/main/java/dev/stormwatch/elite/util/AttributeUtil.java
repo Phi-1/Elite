@@ -23,11 +23,21 @@ public class AttributeUtil {
     public static void setPermanentAttribute(LivingEntity entity, Attribute attribute, String name, UUID uuid, double amount, AttributeModifier.Operation operation) {
         AttributeInstance instance = entity.getAttribute(attribute);
         if (instance != null) {
-            AttributeModifier modifier =  instance.getModifier(uuid);
+            AttributeModifier modifier = instance.getModifier(uuid);
             if (modifier != null) {
                 instance.removeModifier(uuid);
             }
             instance.addPermanentModifier(new AttributeModifier(uuid, name, amount, operation));
+        }
+    }
+
+    public static void removeAttributeModifier(LivingEntity entity, Attribute attribute, UUID uuid) {
+        AttributeInstance instance = entity.getAttribute(attribute);
+        if (instance != null) {
+            AttributeModifier modifier = instance.getModifier(uuid);
+            if (modifier != null) {
+                instance.removeModifier(uuid);
+            }
         }
     }
 
