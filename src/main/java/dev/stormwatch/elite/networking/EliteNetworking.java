@@ -1,9 +1,11 @@
 package dev.stormwatch.elite.networking;
 
 import dev.stormwatch.elite.Elite;
+import dev.stormwatch.elite.networking.packets.ActivateCharmAbilityC2SPacket;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.chunk.LevelChunk;
+import net.minecraftforge.network.NetworkDirection;
 import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.PacketDistributor;
 import net.minecraftforge.network.simple.SimpleChannel;
@@ -22,6 +24,12 @@ public class EliteNetworking {
                 .clientAcceptedVersions(s -> true)
                 .serverAcceptedVersions(s -> true)
                 .simpleChannel();
+
+        INSTANCE.messageBuilder(ActivateCharmAbilityC2SPacket.class, id(), NetworkDirection.PLAY_TO_SERVER)
+                .decoder(ActivateCharmAbilityC2SPacket::new)
+                .encoder(ActivateCharmAbilityC2SPacket::toBytes)
+                .consumerMainThread(ActivateCharmAbilityC2SPacket::handle)
+                .add();
     }
 
     public static <MSG> void sendToServer(MSG message) {

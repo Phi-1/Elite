@@ -11,6 +11,8 @@ public class EliteLanguageProvider extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
+        // TODO: items
         // TODO: elite monster names
+        // TODO: hotkeys
     }
 }
