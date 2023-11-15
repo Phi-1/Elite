@@ -46,6 +46,7 @@ public class ClientShimmeringArmorAbilities {
     private static boolean shouldPlayerWaterWalk(LocalPlayer player, Level level) {
         return !player.isInFluidType()
                 && countsAsWater(level.getBlockState(player.blockPosition().below()))
+                && player.getDeltaMovement().y > -1 // TODO: get more precise value for falling fast
                 && !player.input.shiftKeyDown;
     }
 

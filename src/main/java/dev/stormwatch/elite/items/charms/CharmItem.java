@@ -7,11 +7,15 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import top.theillusivec4.curios.api.SlotContext;
+import top.theillusivec4.curios.api.event.CurioEquipEvent;
 import top.theillusivec4.curios.api.type.capability.ICurio;
 import top.theillusivec4.curios.api.type.capability.ICurioItem;
+
+import java.util.Objects;
 
 public class CharmItem extends Item implements ICurioItem {
 
@@ -29,8 +33,7 @@ public class CharmItem extends Item implements ICurioItem {
 
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        // FIXME: slotContext.identifier == "elite_charm" doesnt work
-        return true;
+        return Objects.equals(slotContext.identifier(), "elite_charm");
     }
 
     @NotNull

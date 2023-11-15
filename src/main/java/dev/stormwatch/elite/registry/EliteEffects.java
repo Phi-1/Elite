@@ -2,6 +2,7 @@ package dev.stormwatch.elite.registry;
 
 import dev.stormwatch.elite.Elite;
 import dev.stormwatch.elite.effects.ExpansionEffect;
+import dev.stormwatch.elite.effects.SwiftSwimEffect;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -13,6 +14,7 @@ public class EliteEffects {
     public static final DeferredRegister<MobEffect> EFFECTS = DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, Elite.MOD_ID);
 
     public static final RegistryObject<MobEffect> EXPANSION = EFFECTS.register("expansion", ExpansionEffect::new);
+    public static final RegistryObject<MobEffect> SWIFT_SWIM = EFFECTS.register("swift_swim", SwiftSwimEffect::new);
 
     public static void register(IEventBus eventBus) {
         EFFECTS.register(eventBus);

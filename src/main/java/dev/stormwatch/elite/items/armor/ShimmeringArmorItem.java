@@ -4,8 +4,11 @@ import dev.stormwatch.elite.client.abilities.ClientShimmeringArmorAbilities;
 import dev.stormwatch.elite.doc.SlotIndices;
 import dev.stormwatch.elite.doc.TickRates;
 import dev.stormwatch.elite.registry.EliteArmorMaterials;
+import dev.stormwatch.elite.registry.EliteEffects;
 import dev.stormwatch.elite.registry.EliteItems;
 import dev.stormwatch.elite.util.AttributeUtil;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.player.Player;
@@ -44,23 +47,38 @@ public class ShimmeringArmorItem extends ArmorItem {
             if (level.isClientSide()) {
                 ClientShimmeringArmorAbilities.processBootsAbility(level);
             }
-        } if (slotIndex == SlotIndices.HELMET) {
-            // TODO: when underwater, water breathing and night vision, + something else cool
+        } else if (slotIndex == SlotIndices.LEGGINGS) {
+            processLeggingsAbility(player, level);
+        } else if (slotIndex == SlotIndices.CHESTPLATE) {
+            processChestplateAbility(player, level);
+        } else if (slotIndex == SlotIndices.HELMET) {
+            processHelmetAbility(player, level);
+        }
+
+        // TODO: armor set abilty
+    }
+
+    private void processLeggingsAbility(Player player, Level level) {
+        if (level.isClientSide()) return;
+        if (!(level.getGameTime() % TickRates.HIGH == 0)) return;
+        if (player.isInFluidType()) {
+            player.addEffect(new MobEffectInstance(EliteEffects.SWIFT_SWIM.get(), 200, 1, true, false, true));
         }
     }
 
-    @SubscribeEvent
-    public static void processLeggingsAbility(TickEvent.PlayerTickEvent event) {
-        if (event.player.level().isClientSide()) return;
-        if (event.phase == TickEvent.Phase.END) return;
-        if (!(event.player.level().getGameTime() % TickRates.LOW == 0)) return;
+    private void processChestplateAbility(Player player, Level level) {
+        if (level.isClientSide()) return;
+        if (!(level.getGameTime() % TickRates.HIGH == 0)) return;
+        if (player.isInFluidType()) {
+            player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 200, 1, true, false, true));
+        }
+    }
 
-        if (event.player.getInventory().getArmor(SlotIndices.LEGGINGS).is(EliteItems.SHIMMERING_LEGGINGS.get())) {
-            if (!AttributeUtil.hasAttributeModifier(event.player, ForgeMod.SWIM_SPEED.get(), LEGGINGS_SWIM_SPEED_INFO.uuid())) {
-                AttributeUtil.setTransientAttribute(event.player, ForgeMod.SWIM_SPEED.get(), LEGGINGS_SWIM_SPEED_INFO.name(), LEGGINGS_SWIM_SPEED_INFO.uuid(), LEGGINGS_SWIM_SPEED_MODIFIER, AttributeModifier.Operation.MULTIPLY_BASE);
-            }
-        } else if (AttributeUtil.hasAttributeModifier(event.player, ForgeMod.SWIM_SPEED.get(), LEGGINGS_SWIM_SPEED_INFO.uuid())) {
-            AttributeUtil.removeAttributeModifier(event.player, ForgeMod.SWIM_SPEED.get(), LEGGINGS_SWIM_SPEED_INFO.uuid());
+    private void processHelmetAbility(Player player, Level level) {
+        if (level.isClientSide()) return;
+        if (!(level.getGameTime() % TickRates.HIGH == 0)) return;
+        if (player.isInFluidType()) {
+            player.addEffect(new MobEffectInstance(MobEffects.CONDUIT_POWER, 200, 0, true, false, true));
         }
     }
 

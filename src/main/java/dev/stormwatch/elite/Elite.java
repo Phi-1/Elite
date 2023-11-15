@@ -48,7 +48,6 @@ public class Elite {
         MinecraftForge.EVENT_BUS.register(GameRuleSettings.class);
         MinecraftForge.EVENT_BUS.register(MonsterEnhancer.class);
         MinecraftForge.EVENT_BUS.register(PlayerEnhancer.class);
-        MinecraftForge.EVENT_BUS.register(ShimmeringArmorItem.class);
         MinecraftForge.EVENT_BUS.register(CharmItem.class);
         MinecraftForge.EVENT_BUS.register(ExpansionEffect.class);
 
@@ -72,9 +71,12 @@ public class Elite {
         if (event.getTabKey() == CreativeModeTabs.COMBAT) {
             event.accept(EliteItems.SHIMMERING_BOOTS);
             event.accept(EliteItems.SHIMMERING_LEGGINGS);
+            event.accept(EliteItems.SHIMMERING_CHESTPLATE);
+            event.accept(EliteItems.SHIMMERING_HELMET);
         }
         if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
             event.accept(EliteItems.PHANTOM_WING);
+            event.accept(EliteItems.ELDER_EYE);
         }
     }
 

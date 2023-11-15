@@ -2,6 +2,7 @@ package dev.stormwatch.elite.registry;
 
 import dev.stormwatch.elite.Elite;
 import dev.stormwatch.elite.items.armor.ShimmeringArmorItem;
+import dev.stormwatch.elite.items.charms.ElderEyeCharmItem;
 import dev.stormwatch.elite.items.charms.PhantomWingCharmItem;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
@@ -23,10 +24,16 @@ public class EliteItems {
             () -> new ShimmeringArmorItem(ArmorItem.Type.BOOTS));
     public static final RegistryObject<Item> SHIMMERING_LEGGINGS = ITEMS.register("shimmering_leggings",
             () -> new ShimmeringArmorItem(ArmorItem.Type.LEGGINGS));
+    public static final RegistryObject<Item> SHIMMERING_CHESTPLATE = ITEMS.register("shimmering_chestplate",
+            () -> new ShimmeringArmorItem(ArmorItem.Type.CHESTPLATE));
+    public static final RegistryObject<Item> SHIMMERING_HELMET = ITEMS.register("shimmering_helmet",
+            () -> new ShimmeringArmorItem(ArmorItem.Type.HELMET));
 
     // Charms
     public static final RegistryObject<Item> PHANTOM_WING = ITEMS.register("phantom_wing",
             PhantomWingCharmItem::new);
+    public static final RegistryObject<Item> ELDER_EYE = ITEMS.register("elder_eye",
+            ElderEyeCharmItem::new);
 
 
     public static void register(IEventBus eventBus) {

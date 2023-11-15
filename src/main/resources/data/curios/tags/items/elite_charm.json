@@ -1,6 +1,7 @@
 {
     "replace": false,
     "values": [
-        "elite:phantom_wing"
+        "elite:phantom_wing",
+        "elite:elder_eye"
     ]
 }
