@@ -1,6 +1,9 @@
 package dev.stormwatch.elite.items.charms;
 
+import dev.stormwatch.elite.capabilities.ToggleMarker;
+import dev.stormwatch.elite.capabilities.ToggleMarkerProvider;
 import dev.stormwatch.elite.doc.TickRates;
+import dev.stormwatch.elite.items.ToggleAbilityItem;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.monster.Monster;
@@ -13,7 +16,7 @@ import top.theillusivec4.curios.api.SlotContext;
 
 import java.util.List;
 
-public class ElderEyeCharmItem extends CharmItem {
+public class ElderEyeCharmItem extends CharmItem implements ToggleAbilityItem {
 
     public static final int EFFECT_RADIUS = 10;
 
@@ -30,7 +33,10 @@ public class ElderEyeCharmItem extends CharmItem {
         if (player.level().isClientSide()) return;
         if (!(player.level().getGameTime() % TickRates.HIGH == 0)) return;
 
-        // TODO: consider making this a toggle that consumes something for every mob it affects. In that case increase wither amp?
+        ToggleMarker toggleMarker = stack.getCapability(ToggleMarkerProvider.CAPABILITY_TYPE).orElseThrow(() -> new IllegalStateException("Toggle ability item does not have a toggle marker"));
+        if (!toggleMarker.isActive()) return;
+
+        // TODO: consider making this consume something for every mob it affects. In that case increase wither amp?
 
         List<Monster> nearbyMonsters = player.level().getEntitiesOfClass(Monster.class, new AABB(player.getBlockX() - EFFECT_RADIUS, player.getBlockY() - EFFECT_RADIUS, player.getBlockZ() - EFFECT_RADIUS, player.getBlockX() + EFFECT_RADIUS, player.getBlockY() + EFFECT_RADIUS, player.getBlockZ() + EFFECT_RADIUS));
         for (Monster monster : nearbyMonsters) {
@@ -42,4 +48,11 @@ public class ElderEyeCharmItem extends CharmItem {
             }
         }
     }
+
+    @Override
+    public void activateAbility(ItemStack stack, Player player) {
+        ToggleMarker toggleMarker = stack.getCapability(ToggleMarkerProvider.CAPABILITY_TYPE).orElseThrow(() -> new IllegalStateException("Toggle ability item does not have a toggle marker"));
+        toggleMarker.toggle();
+    }
+
 }

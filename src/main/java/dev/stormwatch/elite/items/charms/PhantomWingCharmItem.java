@@ -42,4 +42,5 @@ public class PhantomWingCharmItem extends CharmItem implements CooldownAbilityIt
     public int getCooldownMillis() {
         return COOLDOWN_MILLISECONDS;
     }
+
 }

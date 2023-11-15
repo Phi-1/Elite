@@ -1,7 +1,9 @@
 package dev.stormwatch.elite.items.charms;
 
 import dev.stormwatch.elite.capabilities.CooldownMarkerProvider;
+import dev.stormwatch.elite.capabilities.ToggleMarkerProvider;
 import dev.stormwatch.elite.items.CooldownAbilityItem;
+import dev.stormwatch.elite.items.ToggleAbilityItem;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.Item;
@@ -27,6 +29,8 @@ public class CharmItem extends Item implements ICurioItem {
     public @Nullable ICapabilityProvider initCapabilities(ItemStack stack, @Nullable CompoundTag nbt) {
         if (this instanceof CooldownAbilityItem) {
             return new CooldownMarkerProvider();
+        } else if (this instanceof ToggleAbilityItem) {
+            return new ToggleMarkerProvider();
         }
         return super.initCapabilities(stack, nbt);
     }
