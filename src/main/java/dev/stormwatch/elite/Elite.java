@@ -7,8 +7,10 @@ import dev.stormwatch.elite.effects.ExpansionEffect;
 import dev.stormwatch.elite.items.CooldownAbilityItem;
 import dev.stormwatch.elite.items.armor.ShimmeringArmorItem;
 import dev.stormwatch.elite.items.charms.CharmItem;
+import dev.stormwatch.elite.items.weapons.HungeringBladeItem;
 import dev.stormwatch.elite.networking.EliteNetworking;
 import dev.stormwatch.elite.registry.EliteEffects;
+import dev.stormwatch.elite.registry.EliteEntityTypes;
 import dev.stormwatch.elite.registry.EliteItems;
 import dev.stormwatch.elite.systems.GameRuleSettings;
 import dev.stormwatch.elite.systems.MonsterEnhancer;
@@ -43,12 +45,14 @@ public class Elite {
 
         EliteItems.register(modEventBus);
         EliteEffects.register(modEventBus);
+        EliteEntityTypes.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(GameRuleSettings.class);
         MinecraftForge.EVENT_BUS.register(MonsterEnhancer.class);
         MinecraftForge.EVENT_BUS.register(PlayerEnhancer.class);
         MinecraftForge.EVENT_BUS.register(CharmItem.class);
+        MinecraftForge.EVENT_BUS.register(HungeringBladeItem.class);
         MinecraftForge.EVENT_BUS.register(ExpansionEffect.class);
 
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
@@ -67,8 +71,11 @@ public class Elite {
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             event.accept(EliteItems.SHIMMERING_SCALE);
+            event.accept(EliteItems.HUNGERING_SPIRIT);
         }
         if (event.getTabKey() == CreativeModeTabs.COMBAT) {
+            event.accept(EliteItems.HUNGERING_BLADE);
+
             event.accept(EliteItems.SHIMMERING_BOOTS);
             event.accept(EliteItems.SHIMMERING_LEGGINGS);
             event.accept(EliteItems.SHIMMERING_CHESTPLATE);
@@ -77,6 +84,7 @@ public class Elite {
         if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
             event.accept(EliteItems.PHANTOM_WING);
             event.accept(EliteItems.ELDER_EYE);
+            event.accept(EliteItems.ENRAGED_WORM);
         }
     }
 

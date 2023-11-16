@@ -55,7 +55,7 @@ public class ShimmeringArmorItem extends ArmorItem {
             processHelmetAbility(player, level);
         }
 
-        // TODO: armor set abilty
+        // TODO: armor set abilty. EntityType.GUARDIAN
     }
 
     private void processLeggingsAbility(Player player, Level level) {

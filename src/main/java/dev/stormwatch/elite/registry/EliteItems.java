@@ -4,6 +4,8 @@ import dev.stormwatch.elite.Elite;
 import dev.stormwatch.elite.items.armor.ShimmeringArmorItem;
 import dev.stormwatch.elite.items.charms.ElderEyeCharmItem;
 import dev.stormwatch.elite.items.charms.PhantomWingCharmItem;
+import dev.stormwatch.elite.items.charms.EnragedWormCharmItem;
+import dev.stormwatch.elite.items.weapons.HungeringBladeItem;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -18,6 +20,12 @@ public class EliteItems {
     // Materials
     public static final RegistryObject<Item> SHIMMERING_SCALE = ITEMS.register("shimmering_scale",
             () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> HUNGERING_SPIRIT = ITEMS.register("hungering_spirit",
+            () -> new Item(new Item.Properties()));
+
+    // Weapons
+    public static final RegistryObject<Item> HUNGERING_BLADE = ITEMS.register("hungering_blade",
+            HungeringBladeItem::new);
 
     // Armor
     public static final RegistryObject<Item> SHIMMERING_BOOTS = ITEMS.register("shimmering_boots",
@@ -30,6 +38,8 @@ public class EliteItems {
             () -> new ShimmeringArmorItem(ArmorItem.Type.HELMET));
 
     // Charms
+    public static final RegistryObject<Item> ENRAGED_WORM = ITEMS.register("enraged_worm",
+            EnragedWormCharmItem::new);
     public static final RegistryObject<Item> PHANTOM_WING = ITEMS.register("phantom_wing",
             PhantomWingCharmItem::new);
     public static final RegistryObject<Item> ELDER_EYE = ITEMS.register("elder_eye",
