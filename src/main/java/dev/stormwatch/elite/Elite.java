@@ -6,6 +6,7 @@ import dev.stormwatch.elite.client.EliteKeyMappings;
 import dev.stormwatch.elite.effects.ExpansionEffect;
 import dev.stormwatch.elite.items.CooldownAbilityItem;
 import dev.stormwatch.elite.items.armor.ShimmeringArmorItem;
+import dev.stormwatch.elite.items.charms.BezoarCharmItem;
 import dev.stormwatch.elite.items.charms.CharmItem;
 import dev.stormwatch.elite.items.weapons.HungeringBladeItem;
 import dev.stormwatch.elite.networking.EliteNetworking;
@@ -52,6 +53,7 @@ public class Elite {
         MinecraftForge.EVENT_BUS.register(MonsterEnhancer.class);
         MinecraftForge.EVENT_BUS.register(PlayerEnhancer.class);
         MinecraftForge.EVENT_BUS.register(CharmItem.class);
+        MinecraftForge.EVENT_BUS.register(BezoarCharmItem.class);
         MinecraftForge.EVENT_BUS.register(HungeringBladeItem.class);
         MinecraftForge.EVENT_BUS.register(ExpansionEffect.class);
 
@@ -85,6 +87,9 @@ public class Elite {
             event.accept(EliteItems.PHANTOM_WING);
             event.accept(EliteItems.ELDER_EYE);
             event.accept(EliteItems.ENRAGED_WORM);
+            event.accept(EliteItems.ELEMENT_115);
+            event.accept(EliteItems.TECHNICIAN_GUS);
+            event.accept(EliteItems.BEZOAR);
         }
     }
 

@@ -2,9 +2,7 @@ package dev.stormwatch.elite.registry;
 
 import dev.stormwatch.elite.Elite;
 import dev.stormwatch.elite.items.armor.ShimmeringArmorItem;
-import dev.stormwatch.elite.items.charms.ElderEyeCharmItem;
-import dev.stormwatch.elite.items.charms.PhantomWingCharmItem;
-import dev.stormwatch.elite.items.charms.EnragedWormCharmItem;
+import dev.stormwatch.elite.items.charms.*;
 import dev.stormwatch.elite.items.weapons.HungeringBladeItem;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
@@ -44,6 +42,12 @@ public class EliteItems {
             PhantomWingCharmItem::new);
     public static final RegistryObject<Item> ELDER_EYE = ITEMS.register("elder_eye",
             ElderEyeCharmItem::new);
+    public static final RegistryObject<Item> ELEMENT_115 = ITEMS.register("element_115",
+            Element115CharmItem::new);
+    public static final RegistryObject<Item> TECHNICIAN_GUS = ITEMS.register("technician_gus",
+            TechnicianGusCharmItem::new);
+    public static final RegistryObject<Item> BEZOAR = ITEMS.register("bezoar",
+            BezoarCharmItem::new);
 
 
     public static void register(IEventBus eventBus) {

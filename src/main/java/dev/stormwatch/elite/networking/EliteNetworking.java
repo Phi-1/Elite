@@ -2,6 +2,7 @@ package dev.stormwatch.elite.networking;
 
 import dev.stormwatch.elite.Elite;
 import dev.stormwatch.elite.networking.packets.ActivateCharmAbilityC2SPacket;
+import dev.stormwatch.elite.networking.packets.PlaySoundS2CPacket;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.chunk.LevelChunk;
@@ -29,6 +30,12 @@ public class EliteNetworking {
                 .decoder(ActivateCharmAbilityC2SPacket::new)
                 .encoder(ActivateCharmAbilityC2SPacket::toBytes)
                 .consumerMainThread(ActivateCharmAbilityC2SPacket::handle)
+                .add();
+
+        INSTANCE.messageBuilder(PlaySoundS2CPacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
+                .decoder(PlaySoundS2CPacket::new)
+                .encoder(PlaySoundS2CPacket::toBytes)
+                .consumerMainThread(PlaySoundS2CPacket::handle)
                 .add();
     }
 
