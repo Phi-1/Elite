@@ -100,6 +100,7 @@ public class Elite {
             event.accept(EliteItems.TECHNICIAN_GUS);
             event.accept(EliteItems.BEZOAR);
             event.accept(EliteItems.ARIADNES_THREAD);
+            event.accept(EliteItems.POTION_BELT);
         }
     }
 

@@ -56,8 +56,6 @@ public class DarkIronArmorItem extends ArmorItem {
         if (slotIndex == SlotIndices.BOOTS) {
             processBootsAbility(player);
         }
-
-        // TODO: armor set abilty, bleed on axe damage, missing health damage on arrow damage
     }
 
     @SubscribeEvent
