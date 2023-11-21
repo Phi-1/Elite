@@ -33,6 +33,8 @@ public class DarkIronArmorItem extends ArmorItem {
     private static final AttributeUtil.AttributeInfo LEGGINGS_SPEED_INFO = new AttributeUtil.AttributeInfo("dark_iron_leggings_speed", UUID.fromString("34a4aee7-a5da-47bf-9f96-bc6535b7d250"));
     private static final double LEGGINGS_SPEED_AMOUNT = 0.15;
     private static final float CHESTPLATE_DAMAGE_NEGATION_CHANCE = 0.3f;
+    private static final float HELMET_CRIT_CHANCE = 0.1f;
+    private static final float HELMET_CRIT_DAMAGE_MULTIPLIER = 3f;
 
     public DarkIronArmorItem(Type type) {
         super(EliteArmorMaterials.DARK_IRON, type, new Item.Properties()
@@ -74,6 +76,18 @@ public class DarkIronArmorItem extends ArmorItem {
         if (ThreadLocalRandom.current().nextFloat() <= CHESTPLATE_DAMAGE_NEGATION_CHANCE) {
             event.setAmount(0);
             EliteNetworking.sendToPlayer(new PlaySoundS2CPacket(SoundEventIndices.NEGATE_DAMAGE), player);
+        }
+    }
+
+    @SubscribeEvent
+    public static void processHelmetAbility(LivingHurtEvent event) {
+        if (!(event.getSource().getEntity() instanceof ServerPlayer player)) return;
+        if (!InventoryUtil.hasArmorEquipped(player, EliteItems.DARK_IRON_HELMET.get(), SlotIndices.HELMET)) return;
+        // FIXME: this can crit if damage came from anything but player is also holding a bow or axe
+        if (InventoryUtil.getHeldItemOfType(player, AxeItem.class) == null && InventoryUtil.getHeldItemOfType(player, ProjectileWeaponItem.class) == null) return;
+        if (ThreadLocalRandom.current().nextFloat() <= HELMET_CRIT_CHANCE) {
+            event.setAmount(event.getAmount() * HELMET_CRIT_DAMAGE_MULTIPLIER);
+            EliteNetworking.sendToPlayer(new PlaySoundS2CPacket(SoundEventIndices.DEAL_CRIT_DAMAGE), player);
         }
     }
 
