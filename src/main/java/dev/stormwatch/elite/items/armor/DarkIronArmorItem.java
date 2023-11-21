@@ -2,9 +2,11 @@ package dev.stormwatch.elite.items.armor;
 
 import dev.stormwatch.elite.doc.SlotIndices;
 import dev.stormwatch.elite.doc.SoundEventIndices;
+import dev.stormwatch.elite.effects.ExecutionEffect;
 import dev.stormwatch.elite.networking.EliteNetworking;
 import dev.stormwatch.elite.networking.packets.PlaySoundS2CPacket;
 import dev.stormwatch.elite.registry.EliteArmorMaterials;
+import dev.stormwatch.elite.registry.EliteEffects;
 import dev.stormwatch.elite.registry.EliteItems;
 import dev.stormwatch.elite.util.AttributeUtil;
 import dev.stormwatch.elite.util.InventoryUtil;
@@ -13,7 +15,11 @@ import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.DamageTypeTags;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.damagesource.DamageSources;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -47,17 +53,15 @@ public class DarkIronArmorItem extends ArmorItem {
         super.inventoryTick(stack, level, entity, slotIndex, isSelected);
         if (!(entity instanceof Player player)) return;
 
-        if (slotIndex == SlotIndices.LEGGINGS) {
-            processLeggingsAbility(player);
-        } else if (slotIndex == SlotIndices.HELMET) {
-            // TODO: chance to crit axe / arrow damage
+        if (slotIndex == SlotIndices.BOOTS) {
+            processBootsAbility(player);
         }
 
         // TODO: armor set abilty, bleed on axe damage, missing health damage on arrow damage
     }
 
     @SubscribeEvent
-    public static void processBootsAbility(BlockEvent.BreakEvent event) {
+    public static void processLeggingsAbility(BlockEvent.BreakEvent event) {
         if (event.getLevel().isClientSide()) return;
         if (!InventoryUtil.hasArmorEquipped(event.getPlayer(), EliteItems.DARK_IRON_BOOTS.get(), SlotIndices.BOOTS)) return;
         ItemStack axeItem = InventoryUtil.getHeldItemOfType(event.getPlayer(), AxeItem.class);
@@ -83,11 +87,33 @@ public class DarkIronArmorItem extends ArmorItem {
     public static void processHelmetAbility(LivingHurtEvent event) {
         if (!(event.getSource().getEntity() instanceof ServerPlayer player)) return;
         if (!InventoryUtil.hasArmorEquipped(player, EliteItems.DARK_IRON_HELMET.get(), SlotIndices.HELMET)) return;
-        // FIXME: this can crit if damage came from anything but player is also holding a bow or axe
-        if (InventoryUtil.getHeldItemOfType(player, AxeItem.class) == null && InventoryUtil.getHeldItemOfType(player, ProjectileWeaponItem.class) == null) return;
+
+        if (!(player.getItemInHand(InteractionHand.MAIN_HAND).getItem() instanceof AxeItem) && !(event.getSource().is(DamageTypeTags.IS_PROJECTILE))) return;
         if (ThreadLocalRandom.current().nextFloat() <= HELMET_CRIT_CHANCE) {
             event.setAmount(event.getAmount() * HELMET_CRIT_DAMAGE_MULTIPLIER);
             EliteNetworking.sendToPlayer(new PlaySoundS2CPacket(SoundEventIndices.DEAL_CRIT_DAMAGE), player);
+        }
+    }
+
+    @SubscribeEvent
+    public static void processArmorSetAbility(LivingHurtEvent event) {
+        if (!(event.getSource().getEntity() instanceof ServerPlayer player)) return;
+        if (!(InventoryUtil.hasArmorEquipped(player, EliteItems.DARK_IRON_BOOTS.get(), SlotIndices.BOOTS)
+                && InventoryUtil.hasArmorEquipped(player, EliteItems.DARK_IRON_LEGGINGS.get(), SlotIndices.LEGGINGS)
+                && InventoryUtil.hasArmorEquipped(player, EliteItems.DARK_IRON_CHESTPLATE.get(), SlotIndices.CHESTPLATE)
+                && InventoryUtil.hasArmorEquipped(player, EliteItems.DARK_IRON_HELMET.get(), SlotIndices.HELMET))
+        ) return;
+        if (event.getSource().is(DamageTypeTags.IS_PROJECTILE)) {
+            if (!event.getEntity().hasEffect(EliteEffects.EXECUTION.get())) {
+                event.getEntity().addEffect(new MobEffectInstance(EliteEffects.EXECUTION.get(), ExecutionEffect.DURATION, 0, true, false, true));
+            }
+        } else if (player.getItemInHand(InteractionHand.MAIN_HAND).getItem() instanceof AxeItem) {
+            int amplifier = -1;
+            MobEffectInstance currentBleed = event.getEntity().getEffect(EliteEffects.BLEED.get());
+            if (currentBleed != null) {
+                amplifier = currentBleed.getAmplifier();
+            }
+            event.getEntity().addEffect(new MobEffectInstance(EliteEffects.BLEED.get(), 180, amplifier + 1));
         }
     }
 
@@ -105,10 +131,10 @@ public class DarkIronArmorItem extends ArmorItem {
         }
     }
 
-    private void processLeggingsAbility(Player player) {
+    private void processBootsAbility(Player player) {
         if (player.level().isClientSide) return;
 
-        if (InventoryUtil.hasArmorEquipped(player, EliteItems.DARK_IRON_LEGGINGS.get(), SlotIndices.LEGGINGS)
+        if (InventoryUtil.hasArmorEquipped(player, EliteItems.DARK_IRON_BOOTS.get(), SlotIndices.BOOTS)
             && (InventoryUtil.getHeldItemOfType(player, AxeItem.class) != null
                 || InventoryUtil.getHeldItemOfType(player, ProjectileWeaponItem.class) != null)) {
             AttributeUtil.setTransientAttribute(player, Attributes.MOVEMENT_SPEED, LEGGINGS_SPEED_INFO.name(), LEGGINGS_SPEED_INFO.uuid(), LEGGINGS_SPEED_AMOUNT, AttributeModifier.Operation.MULTIPLY_BASE);
