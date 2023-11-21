@@ -5,6 +5,7 @@ import dev.stormwatch.elite.client.EliteInputHandler;
 import dev.stormwatch.elite.client.EliteKeyMappings;
 import dev.stormwatch.elite.effects.ExpansionEffect;
 import dev.stormwatch.elite.items.CooldownAbilityItem;
+import dev.stormwatch.elite.items.armor.DarkIronArmorItem;
 import dev.stormwatch.elite.items.armor.ShimmeringArmorItem;
 import dev.stormwatch.elite.items.charms.BezoarCharmItem;
 import dev.stormwatch.elite.items.charms.CharmItem;
@@ -55,6 +56,7 @@ public class Elite {
         MinecraftForge.EVENT_BUS.register(CharmItem.class);
         MinecraftForge.EVENT_BUS.register(BezoarCharmItem.class);
         MinecraftForge.EVENT_BUS.register(HungeringBladeItem.class);
+        MinecraftForge.EVENT_BUS.register(DarkIronArmorItem.class);
         MinecraftForge.EVENT_BUS.register(ExpansionEffect.class);
 
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
@@ -73,6 +75,8 @@ public class Elite {
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             event.accept(EliteItems.SHIMMERING_SCALE);
+            event.accept(EliteItems.DARK_IRON_SCRAP);
+            event.accept(EliteItems.DARK_IRON_INGOT);
             event.accept(EliteItems.HUNGERING_SPIRIT);
         }
         if (event.getTabKey() == CreativeModeTabs.COMBAT) {
@@ -82,6 +86,11 @@ public class Elite {
             event.accept(EliteItems.SHIMMERING_LEGGINGS);
             event.accept(EliteItems.SHIMMERING_CHESTPLATE);
             event.accept(EliteItems.SHIMMERING_HELMET);
+
+            event.accept(EliteItems.DARK_IRON_BOOTS);
+            event.accept(EliteItems.DARK_IRON_LEGGINGS);
+            event.accept(EliteItems.DARK_IRON_CHESTPLATE);
+            event.accept(EliteItems.DARK_IRON_HELMET);
         }
         if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
             event.accept(EliteItems.PHANTOM_WING);
@@ -90,6 +99,7 @@ public class Elite {
             event.accept(EliteItems.ELEMENT_115);
             event.accept(EliteItems.TECHNICIAN_GUS);
             event.accept(EliteItems.BEZOAR);
+            event.accept(EliteItems.ARIADNES_THREAD);
         }
     }
 

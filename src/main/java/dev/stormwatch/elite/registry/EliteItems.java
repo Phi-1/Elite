@@ -1,6 +1,7 @@
 package dev.stormwatch.elite.registry;
 
 import dev.stormwatch.elite.Elite;
+import dev.stormwatch.elite.items.armor.DarkIronArmorItem;
 import dev.stormwatch.elite.items.armor.ShimmeringArmorItem;
 import dev.stormwatch.elite.items.charms.*;
 import dev.stormwatch.elite.items.weapons.HungeringBladeItem;
@@ -17,6 +18,10 @@ public class EliteItems {
 
     // Materials
     public static final RegistryObject<Item> SHIMMERING_SCALE = ITEMS.register("shimmering_scale",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> DARK_IRON_SCRAP = ITEMS.register("dark_iron_scrap",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> DARK_IRON_INGOT = ITEMS.register("dark_iron_ingot",
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> HUNGERING_SPIRIT = ITEMS.register("hungering_spirit",
             () -> new Item(new Item.Properties()));
@@ -35,6 +40,15 @@ public class EliteItems {
     public static final RegistryObject<Item> SHIMMERING_HELMET = ITEMS.register("shimmering_helmet",
             () -> new ShimmeringArmorItem(ArmorItem.Type.HELMET));
 
+    public static final RegistryObject<Item> DARK_IRON_BOOTS = ITEMS.register("dark_iron_boots",
+            () -> new DarkIronArmorItem(ArmorItem.Type.BOOTS));
+    public static final RegistryObject<Item> DARK_IRON_LEGGINGS = ITEMS.register("dark_iron_leggings",
+            () -> new DarkIronArmorItem(ArmorItem.Type.LEGGINGS));
+    public static final RegistryObject<Item> DARK_IRON_CHESTPLATE = ITEMS.register("dark_iron_chestplate",
+            () -> new DarkIronArmorItem(ArmorItem.Type.CHESTPLATE));
+    public static final RegistryObject<Item> DARK_IRON_HELMET = ITEMS.register("dark_iron_helmet",
+            () -> new DarkIronArmorItem(ArmorItem.Type.HELMET));
+
     // Charms
     public static final RegistryObject<Item> ENRAGED_WORM = ITEMS.register("enraged_worm",
             EnragedWormCharmItem::new);
@@ -48,6 +62,8 @@ public class EliteItems {
             TechnicianGusCharmItem::new);
     public static final RegistryObject<Item> BEZOAR = ITEMS.register("bezoar",
             BezoarCharmItem::new);
+    public static final RegistryObject<Item> ARIADNES_THREAD = ITEMS.register("ariadnes_thread",
+            AriadnesThreadCharmItem::new);
 
 
     public static void register(IEventBus eventBus) {

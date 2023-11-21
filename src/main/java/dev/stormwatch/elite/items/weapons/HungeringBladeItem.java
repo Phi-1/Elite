@@ -1,8 +1,10 @@
 package dev.stormwatch.elite.items.weapons;
 
+import dev.stormwatch.elite.Elite;
 import dev.stormwatch.elite.doc.TickRates;
 import dev.stormwatch.elite.registry.EliteItems;
 import dev.stormwatch.elite.util.AttributeUtil;
+import dev.stormwatch.elite.util.InventoryUtil;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
@@ -50,7 +52,7 @@ public class HungeringBladeItem extends SwordItem {
             }
         } else {
             // don't remove if player has two blades, one in inventory ticking and other in hand
-            if (!player.getItemInHand(InteractionHand.MAIN_HAND).is(EliteItems.HUNGERING_BLADE.get()) && !player.getItemInHand(InteractionHand.OFF_HAND).is(EliteItems.HUNGERING_BLADE.get())) {
+            if (!InventoryUtil.isHoldingItem(player, EliteItems.HUNGERING_BLADE.get())) {
                 AttributeUtil.removeAttributeModifier(player, Attributes.MOVEMENT_SPEED, SPEED_MODIFIER_INFO.uuid());
 
             }
@@ -61,7 +63,7 @@ public class HungeringBladeItem extends SwordItem {
     public static void onHurtEnemy(LivingHurtEvent event) {
         if (!(event.getSource().getEntity() instanceof Player player)) return;
         if (player.level().isClientSide()) return;
-        if (player.getItemInHand(InteractionHand.MAIN_HAND).is(EliteItems.HUNGERING_BLADE.get()) || player.getItemInHand(InteractionHand.OFF_HAND).is(EliteItems.HUNGERING_BLADE.get())) {
+        if (InventoryUtil.isHoldingItem(player, EliteItems.HUNGERING_BLADE.get())) {
             double healthFraction = player.getHealth() / player.getMaxHealth();
             float bonusDamage = (float) ((1 - healthFraction) * MAX_MISSING_HEALTH_DAMAGE);
             event.setAmount(event.getAmount() + bonusDamage);

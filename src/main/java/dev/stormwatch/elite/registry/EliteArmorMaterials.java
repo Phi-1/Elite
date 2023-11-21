@@ -14,13 +14,22 @@ import java.util.function.Supplier;
 
 public enum EliteArmorMaterials implements StringRepresentable, ArmorMaterial {
 
-    SHIMMERING("shimmering", 40, Util.make(new EnumMap<>(ArmorItem.Type.class), (protection) -> {
+    SHIMMERING("shimmering", 30, Util.make(new EnumMap<>(ArmorItem.Type.class), (protection) -> {
         protection.put(ArmorItem.Type.BOOTS, 3);
         protection.put(ArmorItem.Type.LEGGINGS, 6);
         protection.put(ArmorItem.Type.CHESTPLATE, 8);
         protection.put(ArmorItem.Type.HELMET, 3);
     }), 20, SoundEvents.ARMOR_EQUIP_TURTLE, 2.0F, 0.0F, () -> {
         return Ingredient.of(EliteItems.SHIMMERING_SCALE.get());
+    }),
+
+    DARK_IRON("dark_iron", 20, Util.make(new EnumMap<>(ArmorItem.Type.class), (protection) -> {
+        protection.put(ArmorItem.Type.BOOTS, 2);
+        protection.put(ArmorItem.Type.LEGGINGS, 5);
+        protection.put(ArmorItem.Type.CHESTPLATE, 6);
+        protection.put(ArmorItem.Type.HELMET, 2);
+    }), 8, SoundEvents.ARMOR_EQUIP_CHAIN, 1.0F, 0.1F, () -> {
+        return Ingredient.of(EliteItems.DARK_IRON_SCRAP.get());
     });
 
 
