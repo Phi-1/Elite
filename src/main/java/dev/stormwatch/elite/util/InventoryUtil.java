@@ -18,7 +18,7 @@ public class InventoryUtil {
     }
 
     @Nullable
-    public static <T extends Item> ItemStack isHoldingItemOfType(Player player, Class<T> type) {
+    public static <T extends Item> ItemStack getHeldItemOfType(Player player, Class<T> type) {
         if (type.isInstance(player.getItemInHand(InteractionHand.MAIN_HAND).getItem())) {
             return player.getItemInHand(InteractionHand.MAIN_HAND);
         }

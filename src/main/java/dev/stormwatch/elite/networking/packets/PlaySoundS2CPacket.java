@@ -33,7 +33,7 @@ public class PlaySoundS2CPacket {
             DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
                 LocalPlayer player = Minecraft.getInstance().player;
                 if (player == null) return;
-                player.level().playSound(player, player.blockPosition(), Feedback.getSoundForIndex(this.soundIndex), SoundSource.PLAYERS, 1.0f, 1.0f);
+                player.level().playSound(player, player.blockPosition(), SoundEventIndices.getSoundForIndex(this.soundIndex), SoundSource.PLAYERS, 1.0f, 1.0f);
             });
         });
         context.get().setPacketHandled(true);
