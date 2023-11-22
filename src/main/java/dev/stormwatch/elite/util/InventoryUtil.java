@@ -70,4 +70,14 @@ public class InventoryUtil {
         return null;
     }
 
+    public static boolean hasRoomForItemInInventory(Player player, ItemStack item) {
+        for (ItemStack stack : player.getInventory().items) {
+            if (stack.isEmpty()) return true;
+            if (ItemStack.isSameItemSameTags(item, stack) && stack.getCount() < stack.getMaxStackSize()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
