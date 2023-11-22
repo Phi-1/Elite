@@ -9,6 +9,7 @@ import dev.stormwatch.elite.items.armor.DarkIronArmorItem;
 import dev.stormwatch.elite.items.armor.ShimmeringArmorItem;
 import dev.stormwatch.elite.items.charms.BezoarCharmItem;
 import dev.stormwatch.elite.items.charms.CharmItem;
+import dev.stormwatch.elite.items.charms.MarksmansMedalCharmItem;
 import dev.stormwatch.elite.items.weapons.HungeringBladeItem;
 import dev.stormwatch.elite.networking.EliteNetworking;
 import dev.stormwatch.elite.registry.EliteEffects;
@@ -55,6 +56,7 @@ public class Elite {
         MinecraftForge.EVENT_BUS.register(PlayerEnhancer.class);
         MinecraftForge.EVENT_BUS.register(CharmItem.class);
         MinecraftForge.EVENT_BUS.register(BezoarCharmItem.class);
+        MinecraftForge.EVENT_BUS.register(MarksmansMedalCharmItem.class);
         MinecraftForge.EVENT_BUS.register(HungeringBladeItem.class);
         MinecraftForge.EVENT_BUS.register(DarkIronArmorItem.class);
         MinecraftForge.EVENT_BUS.register(ExpansionEffect.class);
@@ -101,6 +103,7 @@ public class Elite {
             event.accept(EliteItems.BEZOAR);
             event.accept(EliteItems.ARIADNES_THREAD);
             event.accept(EliteItems.POTION_BELT);
+            event.accept(EliteItems.MARKSMANS_MEDAL);
         }
     }
 

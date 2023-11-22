@@ -51,6 +51,7 @@ public class ElderEyeCharmItem extends CharmItem implements ToggleAbilityItem {
 
     @Override
     public void activateAbility(ItemStack stack, Player player) {
+        // TODO: sound
         ToggleMarker toggleMarker = stack.getCapability(ToggleMarkerProvider.CAPABILITY_TYPE).orElseThrow(() -> new IllegalStateException("Toggle ability item does not have a toggle marker"));
         toggleMarker.toggle();
     }

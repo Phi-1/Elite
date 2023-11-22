@@ -66,6 +66,8 @@ public class EliteItems {
             AriadnesThreadCharmItem::new);
     public static final RegistryObject<Item> POTION_BELT = ITEMS.register("potion_belt",
             PotionBeltCharmItem::new);
+    public static final RegistryObject<Item> MARKSMANS_MEDAL = ITEMS.register("marksmans_medal",
+            MarksmansMedalCharmItem::new);
 
 
     public static void register(IEventBus eventBus) {
