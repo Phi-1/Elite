@@ -4,9 +4,7 @@ import com.mojang.logging.LogUtils;
 import dev.stormwatch.elite.client.EliteInputHandler;
 import dev.stormwatch.elite.client.EliteKeyMappings;
 import dev.stormwatch.elite.effects.ExpansionEffect;
-import dev.stormwatch.elite.items.CooldownAbilityItem;
 import dev.stormwatch.elite.items.armor.DarkIronArmorItem;
-import dev.stormwatch.elite.items.armor.ShimmeringArmorItem;
 import dev.stormwatch.elite.items.charms.BezoarCharmItem;
 import dev.stormwatch.elite.items.charms.CharmItem;
 import dev.stormwatch.elite.items.charms.MarksmansMedalCharmItem;
@@ -15,6 +13,7 @@ import dev.stormwatch.elite.networking.EliteNetworking;
 import dev.stormwatch.elite.registry.EliteEffects;
 import dev.stormwatch.elite.registry.EliteEntityTypes;
 import dev.stormwatch.elite.registry.EliteItems;
+import dev.stormwatch.elite.systems.BlockFaceHitListener;
 import dev.stormwatch.elite.systems.GameRuleSettings;
 import dev.stormwatch.elite.systems.MonsterEnhancer;
 import dev.stormwatch.elite.systems.PlayerEnhancer;
@@ -23,7 +22,6 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
-import net.minecraftforge.event.server.ServerStartedEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
@@ -54,6 +52,7 @@ public class Elite {
         MinecraftForge.EVENT_BUS.register(GameRuleSettings.class);
         MinecraftForge.EVENT_BUS.register(MonsterEnhancer.class);
         MinecraftForge.EVENT_BUS.register(PlayerEnhancer.class);
+        MinecraftForge.EVENT_BUS.register(BlockFaceHitListener.class);
         MinecraftForge.EVENT_BUS.register(CharmItem.class);
         MinecraftForge.EVENT_BUS.register(BezoarCharmItem.class);
         MinecraftForge.EVENT_BUS.register(MarksmansMedalCharmItem.class);
@@ -95,6 +94,8 @@ public class Elite {
             event.accept(EliteItems.DARK_IRON_HELMET);
         }
         if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
+            event.accept(EliteItems.SLEDGEHAMMER);
+
             event.accept(EliteItems.PHANTOM_WING);
             event.accept(EliteItems.ELDER_EYE);
             event.accept(EliteItems.ENRAGED_WORM);

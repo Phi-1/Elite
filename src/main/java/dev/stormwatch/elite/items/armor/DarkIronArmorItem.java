@@ -21,6 +21,7 @@ import net.minecraft.world.damagesource.DamageSources;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
@@ -120,7 +121,9 @@ public class DarkIronArmorItem extends ArmorItem {
             for (BlockPos.MutableBlockPos spiralPos : BlockPos.spiralAround(new BlockPos(pos.getX(), pos.getY() + i, pos.getZ()), 1, Direction.EAST, Direction.SOUTH)) {
                 if (level.getBlockState(spiralPos).is(BlockTags.LOGS)) {
                     level.destroyBlock(spiralPos, true);
-                    axeItem.hurtAndBreak(1, player, (p) -> {});
+                    axeItem.hurtAndBreak(1, player, (p) -> {
+                        p.broadcastBreakEvent(EquipmentSlot.MAINHAND);
+                    });
                     // TODO: test that axe isn't broken, rest of tree should still be destroyed though because that makes sense
                     // TODO: though it doesn't seem to cause an issue if the axe breaks halfway through?
                     destroyLogsAround(spiralPos, level, axeItem, player);

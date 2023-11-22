@@ -4,6 +4,7 @@ import dev.stormwatch.elite.Elite;
 import dev.stormwatch.elite.items.armor.DarkIronArmorItem;
 import dev.stormwatch.elite.items.armor.ShimmeringArmorItem;
 import dev.stormwatch.elite.items.charms.*;
+import dev.stormwatch.elite.items.tools.SledgeHammerPickaxeItem;
 import dev.stormwatch.elite.items.weapons.HungeringBladeItem;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
@@ -25,6 +26,10 @@ public class EliteItems {
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> HUNGERING_SPIRIT = ITEMS.register("hungering_spirit",
             () -> new Item(new Item.Properties()));
+
+    // Tools
+    public static final RegistryObject<Item> SLEDGEHAMMER = ITEMS.register("sledgehammer",
+            SledgeHammerPickaxeItem::new);
 
     // Weapons
     public static final RegistryObject<Item> HUNGERING_BLADE = ITEMS.register("hungering_blade",
