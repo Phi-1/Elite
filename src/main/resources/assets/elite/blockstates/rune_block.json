@@ -1,0 +1,13 @@
+{
+    "variants": {
+        "rune_type=0": {
+            "model": "elite:block/rune-overload"
+        },
+        "rune_type=1": {
+            "model": "elite:block/rune-overload"
+        },
+        "rune_type=2": {
+            "model": "elite:block/rune-overload"
+        }
+    }
+}

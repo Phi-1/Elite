@@ -4,12 +4,14 @@ import com.mojang.logging.LogUtils;
 import dev.stormwatch.elite.client.EliteInputHandler;
 import dev.stormwatch.elite.client.EliteKeyMappings;
 import dev.stormwatch.elite.effects.ExpansionEffect;
+import dev.stormwatch.elite.effects.OverloadedEffect;
 import dev.stormwatch.elite.items.armor.DarkIronArmorItem;
 import dev.stormwatch.elite.items.charms.BezoarCharmItem;
 import dev.stormwatch.elite.items.charms.CharmItem;
 import dev.stormwatch.elite.items.charms.MarksmansMedalCharmItem;
 import dev.stormwatch.elite.items.weapons.HungeringBladeItem;
 import dev.stormwatch.elite.networking.EliteNetworking;
+import dev.stormwatch.elite.registry.EliteBlocks;
 import dev.stormwatch.elite.registry.EliteEffects;
 import dev.stormwatch.elite.registry.EliteEntityTypes;
 import dev.stormwatch.elite.registry.EliteItems;
@@ -45,6 +47,7 @@ public class Elite {
         modEventBus.addListener(this::addCreative);
 
         EliteItems.register(modEventBus);
+        EliteBlocks.register(modEventBus);
         EliteEffects.register(modEventBus);
         EliteEntityTypes.register(modEventBus);
 
@@ -59,6 +62,7 @@ public class Elite {
         MinecraftForge.EVENT_BUS.register(HungeringBladeItem.class);
         MinecraftForge.EVENT_BUS.register(DarkIronArmorItem.class);
         MinecraftForge.EVENT_BUS.register(ExpansionEffect.class);
+        MinecraftForge.EVENT_BUS.register(OverloadedEffect.class);
 
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
             MinecraftForge.EVENT_BUS.register(EliteInputHandler.class);
