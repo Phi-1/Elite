@@ -14,7 +14,7 @@ public class TheHeraldItem extends AxeItem {
     private static final int EFFECT_RADIUS = 16;
 
     public TheHeraldItem() {
-        super(Tiers.DIAMOND, 6.0f, -4f, new Item.Properties()
+        super(Tiers.DIAMOND, 6.0f, -3.5f, new Item.Properties()
                 .stacksTo(1)
                 .rarity(Rarity.EPIC)
                 .fireResistant());
@@ -33,6 +33,7 @@ public class TheHeraldItem extends AxeItem {
 //            this.addFreshEntity(lightningbolt);
 //        }
         // TODO: in timertask check everything for null
+
 
         return super.hurtEnemy(stack, target, attacker);
     }

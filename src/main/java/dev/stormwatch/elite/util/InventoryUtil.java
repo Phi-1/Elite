@@ -50,6 +50,18 @@ public class InventoryUtil {
         return null;
     }
 
+    public static boolean hasCharmEquipped(Player player, CharmItem charm) {
+        ICuriosItemHandler curios = CuriosApi.getCuriosInventory(player).orElseThrow(() -> new IllegalStateException("Player does not have a curios inventory"));
+        ICurioStacksHandler charms = curios.getCurios().get("elite_charm");
+        for (int slot = 0; slot < charms.getSlots(); slot++) {
+            ItemStack stack = charms.getStacks().getStackInSlot(slot);
+            if (stack.is(charm)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Nullable
     public static ItemStack getItemInInventory(Player player, Item item) {
         for (ItemStack stack : player.getInventory().items) {

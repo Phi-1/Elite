@@ -12,7 +12,9 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
+import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.monster.Phantom;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.AABB;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
@@ -54,14 +56,16 @@ public class MonsterEnhancer {
     }
 
     @SubscribeEvent
-    public static void onMonsterSpawn(MobSpawnEvent.FinalizeSpawn event) {
+    public static void onEnemySpawn(MobSpawnEvent.FinalizeSpawn event) {
         if (event.getEntity().level().isClientSide()) return;
-        if (!(event.getEntity() instanceof Monster monster)) return;
+        if (!(event.getEntity() instanceof Enemy enemy)) return;
 
-        setMonsterBaseStats(monster);
+        // TODO
+//        setMonsterBaseStats(enemy);
 
         if (ThreadLocalRandom.current().nextDouble() <= Config.getEliteMonsterSpawnChance()) {
-            makeElite(monster);
+            // TODO
+//            makeElite(enemy);
         }
     }
 

@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import dev.stormwatch.elite.client.EliteInputHandler;
 import dev.stormwatch.elite.client.EliteKeyMappings;
 import dev.stormwatch.elite.client.renderers.ResonantArrowRenderer;
+import dev.stormwatch.elite.effects.AlchemizedEffect;
 import dev.stormwatch.elite.effects.ExpansionEffect;
 import dev.stormwatch.elite.effects.OverloadedEffect;
 import dev.stormwatch.elite.items.armor.DarkIronArmorItem;
@@ -39,6 +40,7 @@ import org.slf4j.Logger;
 
 @Mod(Elite.MOD_ID)
 public class Elite {
+    // FIXME: HIGH PRIORITY, replace all Monster references with Enemy
 
     public static final String MOD_ID = "elite";
     private static final Logger LOGGER = LogUtils.getLogger();
@@ -67,6 +69,7 @@ public class Elite {
         MinecraftForge.EVENT_BUS.register(DarkIronArmorItem.class);
         MinecraftForge.EVENT_BUS.register(ExpansionEffect.class);
         MinecraftForge.EVENT_BUS.register(OverloadedEffect.class);
+        MinecraftForge.EVENT_BUS.register(AlchemizedEffect.class);
 
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
             MinecraftForge.EVENT_BUS.register(EliteInputHandler.class);

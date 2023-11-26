@@ -4,8 +4,10 @@ import dev.stormwatch.elite.capabilities.CooldownMarkerProvider;
 import dev.stormwatch.elite.capabilities.ToggleMarkerProvider;
 import dev.stormwatch.elite.items.CooldownAbilityItem;
 import dev.stormwatch.elite.items.ToggleAbilityItem;
+import dev.stormwatch.elite.util.InventoryUtil;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
@@ -37,7 +39,10 @@ public class CharmItem extends Item implements ICurioItem {
 
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return Objects.equals(slotContext.identifier(), "elite_charm");
+        if (!(slotContext.entity() instanceof Player player)
+                || !(stack.getItem() instanceof CharmItem charm)) return false;
+        return Objects.equals(slotContext.identifier(), "elite_charm")
+                && !InventoryUtil.hasCharmEquipped(player, charm);
     }
 
     @NotNull

@@ -64,7 +64,6 @@ public class BaseRuneStaffItem extends Item {
             }
         }
 
-        // TODO: only put on cooldown if runes were placed
         player.getCooldowns().addCooldown(this, RUNE_TYPE_COOLDOWNS.getOrDefault(this.runeType, 20));
         return InteractionResult.SUCCESS;
     }
@@ -79,21 +78,19 @@ public class BaseRuneStaffItem extends Item {
 
     private List<Supplier<BlockPos>> getOverloadPlacement(BlockPos centerPos) {
         return List.of(
-                () -> centerPos,
-
-                () -> centerPos.relative(Direction.NORTH).relative(Direction.EAST),
+                () -> centerPos.relative(Direction.NORTH),
                 () -> centerPos.relative(Direction.NORTH, 2).relative(Direction.EAST, 2),
                 () -> centerPos.relative(Direction.NORTH, 3).relative(Direction.EAST, 3),
 
-                () -> centerPos.relative(Direction.EAST).relative(Direction.SOUTH),
+                () -> centerPos.relative(Direction.EAST),
                 () -> centerPos.relative(Direction.EAST, 2).relative(Direction.SOUTH, 2),
                 () -> centerPos.relative(Direction.EAST, 3).relative(Direction.SOUTH, 3),
 
-                () -> centerPos.relative(Direction.SOUTH).relative(Direction.WEST),
+                () -> centerPos.relative(Direction.SOUTH),
                 () -> centerPos.relative(Direction.SOUTH, 2).relative(Direction.WEST, 2),
                 () -> centerPos.relative(Direction.SOUTH, 3).relative(Direction.WEST, 3),
 
-                () -> centerPos.relative(Direction.WEST).relative(Direction.NORTH),
+                () -> centerPos.relative(Direction.WEST),
                 () -> centerPos.relative(Direction.WEST, 2).relative(Direction.NORTH, 2),
                 () -> centerPos.relative(Direction.WEST, 3).relative(Direction.NORTH, 3)
         );

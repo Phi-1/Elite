@@ -26,7 +26,7 @@ public class RuneBlock extends Block {
                 .instabreak()
                 .explosionResistance(1200f)
                 .mapColor(MapColor.COLOR_CYAN)
-                .sound(SoundType.AMETHYST)
+                .sound(SoundType.GLASS)
                 .lightLevel((state) -> 3));
     }
 
