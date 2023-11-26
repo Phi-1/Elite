@@ -35,6 +35,7 @@ public class PhantomWingCharmItem extends CharmItem implements CooldownAbilityIt
         player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, EFFECT_DURATION_SECONDS, 2, true, true, true));
         player.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, EFFECT_DURATION_SECONDS, 0, true, true, true));
         cooldownMarker.putOnCooldown();
+        player.getCooldowns().addCooldown(this, this.getCooldownMillis() / 50);
         // TODO: sound
     }
 

@@ -1,11 +1,14 @@
 package dev.stormwatch.elite.registry;
 
 import dev.stormwatch.elite.Elite;
+import dev.stormwatch.elite.doc.RuneTypes;
 import dev.stormwatch.elite.items.armor.DarkIronArmorItem;
 import dev.stormwatch.elite.items.armor.ShimmeringArmorItem;
 import dev.stormwatch.elite.items.charms.*;
 import dev.stormwatch.elite.items.tools.SledgeHammerPickaxeItem;
+import dev.stormwatch.elite.items.weapons.BaseRuneStaffItem;
 import dev.stormwatch.elite.items.weapons.HungeringBladeItem;
+import dev.stormwatch.elite.items.weapons.TheHeraldItem;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -34,6 +37,13 @@ public class EliteItems {
     // Weapons
     public static final RegistryObject<Item> HUNGERING_BLADE = ITEMS.register("hungering_blade",
             HungeringBladeItem::new);
+    public static final RegistryObject<Item> THE_HERALD = ITEMS.register("the_herald",
+            TheHeraldItem::new);
+    public static final RegistryObject<Item> RUNE_STAFF_OF_OVERLOADING = ITEMS.register("rune_staff_of_overloading",
+            () -> new BaseRuneStaffItem(RuneTypes.OVERLOADING));
+    public static final RegistryObject<Item> RUNE_STAFF_OF_ALCHEMIZING = ITEMS.register("rune_staff_of_alchemizing",
+            () -> new BaseRuneStaffItem(RuneTypes.ALCHEMIZING));
+    // TODO: unknown staff
 
     // Armor
     public static final RegistryObject<Item> SHIMMERING_BOOTS = ITEMS.register("shimmering_boots",

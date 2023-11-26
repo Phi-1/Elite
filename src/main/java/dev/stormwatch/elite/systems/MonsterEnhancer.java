@@ -10,17 +10,23 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.goal.Goal;
+import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.phys.AABB;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.living.MobSpawnEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
+import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class MonsterEnhancer {
+
+    // TODO: put all elite abilities that trigger on events in one single eventlistener with a switch statement, so that it doesnt have to check if mob is an elite and then which elite type for every mob for every elite type
 
     private static final AttributeUtil.AttributeInfo BASE_MONSTER_HEALTH_INFO =
             new AttributeUtil.AttributeInfo("base_monster_health", UUID.fromString("e8622f37-6b00-4cb0-be6e-f4fe0c5a517c"));
@@ -48,7 +54,7 @@ public class MonsterEnhancer {
     }
 
     @SubscribeEvent
-    public static void onMonsterSpawn(MobSpawnEvent event) {
+    public static void onMonsterSpawn(MobSpawnEvent.FinalizeSpawn event) {
         if (event.getEntity().level().isClientSide()) return;
         if (!(event.getEntity() instanceof Monster monster)) return;
 

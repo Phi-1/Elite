@@ -1,16 +1,19 @@
 package dev.stormwatch.elite.items.weapons;
 
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LightningBolt;
+import dev.stormwatch.elite.registry.EliteItems;
+import dev.stormwatch.elite.util.InventoryUtil;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.*;
-import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 
-public class TheHerald extends AxeItem {
+public class TheHeraldItem extends AxeItem {
 
     private static final int EFFECT_RADIUS = 16;
 
-    public TheHerald() {
+    public TheHeraldItem() {
         super(Tiers.DIAMOND, 6.0f, -4f, new Item.Properties()
                 .stacksTo(1)
                 .rarity(Rarity.EPIC)
@@ -29,7 +32,18 @@ public class TheHerald extends AxeItem {
 //            lightningbolt.setVisualOnly(flag1);
 //            this.addFreshEntity(lightningbolt);
 //        }
+        // TODO: in timertask check everything for null
 
         return super.hurtEnemy(stack, target, attacker);
     }
+
+    @SubscribeEvent
+    public static void negateLightningDamage(LivingHurtEvent event) {
+        if (!event.getSource().is(DamageTypeTags.IS_LIGHTNING)) return;
+        if (!(event.getEntity() instanceof ServerPlayer player)) return;
+        if (InventoryUtil.isHoldingItem(player, EliteItems.THE_HERALD.get())) {
+            event.setAmount(0);
+        }
+    }
+
 }

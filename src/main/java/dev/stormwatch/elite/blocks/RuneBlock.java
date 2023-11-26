@@ -1,13 +1,10 @@
 package dev.stormwatch.elite.blocks;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -22,9 +19,6 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class RuneBlock extends Block {
 
-    public static final int OVERLOAD_RUNE = 0; // Freeze and take bonus damage
-    public static final int ALCHEMIZING_RUNE = 1; // Looting and gold
-    public static final int UNKNOWN_RUNE = 2; // TODO
     public static final IntegerProperty RUNE_TYPE = IntegerProperty.create("rune_type", 0, 2);
 
     public RuneBlock() {
@@ -53,7 +47,7 @@ public class RuneBlock extends Block {
 
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return Shapes.empty();
+        return Shapes.box(0, 0, 0, 1, 0.1, 1);
     }
 
     @Override
@@ -62,8 +56,8 @@ public class RuneBlock extends Block {
     }
 
     @Override
-    public boolean useShapeForLightOcclusion(BlockState pState) {
-        return true;
+    public VoxelShape getOcclusionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
+        return Shapes.empty();
     }
 
     @Override

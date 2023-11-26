@@ -25,6 +25,7 @@ public class Config {
     private static double baseMonsterDamageIncrease;
     private static double baseMonsterMovementSpeedIncrease;
 
+    private static double monsterSpawnRateIncrease;
     private static double eliteMonsterSpawnChance;
 
     private static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
@@ -55,6 +56,9 @@ public class Config {
             .comment("The base movement speed increase of every hostile mob. 0.1 = 10% extra, 0.5 = 50% and so on")
             .defineInRange("baseMonsterMovementSpeedIncrease", 0.1, 0,  Double.MAX_VALUE);
 
+    private static final ForgeConfigSpec.DoubleValue MONSTER_SPAWN_RATE_INCREASE = BUILDER
+            .comment("The chance that an additional monster spawns with each monster spawn")
+            .defineInRange("monsterSpawnRateIncrease", 0.5, 0,  Double.MAX_VALUE);
     private static final ForgeConfigSpec.DoubleValue ELITE_MONSTER_SPAWN_CHANCE = BUILDER
             .comment("The chance for each hostile mob to become an elite. 0.1 = 10%, 0.5 = 50% and so on")
             .defineInRange("eliteMonsterSpawnChance", 0.01, 0,  Double.MAX_VALUE);
@@ -73,6 +77,7 @@ public class Config {
         baseMonsterDamageIncrease = BASE_MONSTER_DAMAGE_INCREASE.get();
         baseMonsterMovementSpeedIncrease = BASE_MONSTER_MOVEMENT_SPEED_INCREASE.get();
 
+        monsterSpawnRateIncrease = MONSTER_SPAWN_RATE_INCREASE.get();
         eliteMonsterSpawnChance = ELITE_MONSTER_SPAWN_CHANCE.get();
     }
 
@@ -110,5 +115,9 @@ public class Config {
 
     public static double getEliteMonsterSpawnChance() {
         return eliteMonsterSpawnChance;
+    }
+
+    public static double getMonsterSpawnRateIncrease() {
+        return monsterSpawnRateIncrease;
     }
 }
