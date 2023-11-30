@@ -5,6 +5,7 @@ import dev.stormwatch.elite.doc.RuneTypes;
 import dev.stormwatch.elite.items.armor.DarkIronArmorItem;
 import dev.stormwatch.elite.items.armor.ShimmeringArmorItem;
 import dev.stormwatch.elite.items.charms.*;
+import dev.stormwatch.elite.items.tools.PearlescentCrystalStaffItem;
 import dev.stormwatch.elite.items.tools.SledgeHammerPickaxeItem;
 import dev.stormwatch.elite.items.weapons.BaseRuneStaffItem;
 import dev.stormwatch.elite.items.weapons.HungeringBladeItem;
@@ -33,6 +34,8 @@ public class EliteItems {
     // Tools
     public static final RegistryObject<Item> SLEDGEHAMMER = ITEMS.register("sledgehammer",
             SledgeHammerPickaxeItem::new);
+    public static final RegistryObject<Item> PEARLESCENT_CRYSTAL_STAFF = ITEMS.register("pearlescent_crystal_staff",
+            PearlescentCrystalStaffItem::new);
 
     // Weapons
     public static final RegistryObject<Item> HUNGERING_BLADE = ITEMS.register("hungering_blade",

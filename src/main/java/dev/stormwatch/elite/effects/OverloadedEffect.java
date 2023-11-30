@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.UUID;
 
 public class OverloadedEffect extends MobEffect {
+    // TODO: amplifier
 
     private static final AttributeUtil.AttributeInfo SLOW_INFO = new AttributeUtil.AttributeInfo("overloaded_slow", UUID.fromString("a55132e8-8919-464a-9d01-cdc05d13ba9d"));
     private static final float PRIMARY_TARGET_DAMAGE_INCREASE = 1.2f;
@@ -38,7 +39,7 @@ public class OverloadedEffect extends MobEffect {
     public static void applyEffect(LivingHurtEvent event) {
         if (event.getEntity().level().isClientSide()) return;
         if (!event.getEntity().hasEffect(EliteEffects.OVERLOADED.get())) return;
-        if (event.getSource().is(DamageTypeTags.IS_LIGHTNING)) return;
+        if (event.getSource().is(DamageTypeTags.IS_LIGHTNING) || event.getSource().is(DamageTypeTags.IS_FIRE)) return;
 
         hitSurroundingOverloadedEntitiesWithLightning(event.getEntity().level(), event.getEntity());
 

@@ -11,6 +11,9 @@ public class SoundEventIndices {
     public static final int DEAL_CRIT_DAMAGE = 2;
     public static final int EXECUTION_TRIGGER = 3;
     public static final int POTION_BELT_ACTIVATE = 4;
+    public static final int RUNE_STAFF_ACTIVATE = 5;
+    public static final int ITEM_USE_FAIL = 6;
+    public static final int PEARLESCENT_STAFF_ACTIVATE = 7;
 
     private static final ImmutableMap<Integer, SoundEvent> SOUND_EVENTS = new ImmutableMap.Builder<Integer, SoundEvent>()
             .put(BEZOAR_ACTIVATE, SoundEvents.AMETHYST_BLOCK_HIT)
@@ -18,6 +21,9 @@ public class SoundEventIndices {
             .put(DEAL_CRIT_DAMAGE, SoundEvents.TRIDENT_HIT_GROUND)
             .put(EXECUTION_TRIGGER, SoundEvents.TRIDENT_RIPTIDE_1)
             .put(POTION_BELT_ACTIVATE, SoundEvents.BREWING_STAND_BREW)
+            .put(RUNE_STAFF_ACTIVATE, SoundEvents.ENDER_DRAGON_SHOOT)
+            .put(ITEM_USE_FAIL, SoundEvents.BAMBOO_BREAK)
+            .put(PEARLESCENT_STAFF_ACTIVATE, SoundEvents.AMETHYST_BLOCK_BREAK)
             .build();
     private static final SoundEvent DEFAULT_SOUND = SoundEvents.ALLAY_AMBIENT_WITH_ITEM;
 

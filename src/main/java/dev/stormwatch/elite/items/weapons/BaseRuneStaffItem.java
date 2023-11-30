@@ -4,6 +4,9 @@ import com.google.common.collect.AbstractIterator;
 import com.google.common.collect.ImmutableMap;
 import dev.stormwatch.elite.blocks.RuneBlock;
 import dev.stormwatch.elite.doc.RuneTypes;
+import dev.stormwatch.elite.doc.SoundEventIndices;
+import dev.stormwatch.elite.networking.EliteNetworking;
+import dev.stormwatch.elite.networking.packets.PlaySoundS2CPacket;
 import dev.stormwatch.elite.registry.EliteBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -65,6 +68,7 @@ public class BaseRuneStaffItem extends Item {
         }
 
         player.getCooldowns().addCooldown(this, RUNE_TYPE_COOLDOWNS.getOrDefault(this.runeType, 20));
+        EliteNetworking.sendToPlayer(new PlaySoundS2CPacket(SoundEventIndices.RUNE_STAFF_ACTIVATE), player);
         return InteractionResult.SUCCESS;
     }
 
