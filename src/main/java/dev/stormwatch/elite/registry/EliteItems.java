@@ -9,6 +9,7 @@ import dev.stormwatch.elite.items.tools.PearlescentCrystalStaffItem;
 import dev.stormwatch.elite.items.tools.SledgeHammerPickaxeItem;
 import dev.stormwatch.elite.items.weapons.BaseRuneStaffItem;
 import dev.stormwatch.elite.items.weapons.HungeringBladeItem;
+import dev.stormwatch.elite.items.weapons.PhantasmItem;
 import dev.stormwatch.elite.items.weapons.TheHeraldItem;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
@@ -47,6 +48,8 @@ public class EliteItems {
     public static final RegistryObject<Item> RUNE_STAFF_OF_ALCHEMIZING = ITEMS.register("rune_staff_of_alchemizing",
             () -> new BaseRuneStaffItem(RuneTypes.ALCHEMIZING));
     // TODO: unknown staff
+    public static final RegistryObject<Item> PHANTASM = ITEMS.register("phantasm",
+            PhantasmItem::new);
 
     // Armor
     public static final RegistryObject<Item> SHIMMERING_BOOTS = ITEMS.register("shimmering_boots",

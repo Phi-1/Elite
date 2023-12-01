@@ -1,0 +1,6 @@
+{
+    "parent": "elite:item/phantasm",
+    "textures": {
+        "layer0": "elite:item/phantasm_pulling_1"
+    }
+}

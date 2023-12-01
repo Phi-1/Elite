@@ -2,11 +2,13 @@ package dev.stormwatch.elite;
 
 import com.mojang.logging.LogUtils;
 import dev.stormwatch.elite.client.EliteInputHandler;
+import dev.stormwatch.elite.client.EliteItemProperties;
 import dev.stormwatch.elite.client.EliteKeyMappings;
 import dev.stormwatch.elite.client.renderers.ResonantArrowRenderer;
 import dev.stormwatch.elite.effects.AlchemizedEffect;
 import dev.stormwatch.elite.effects.ExpansionEffect;
 import dev.stormwatch.elite.effects.OverloadedEffect;
+import dev.stormwatch.elite.entities.projectiles.ResonantArrow;
 import dev.stormwatch.elite.items.armor.DarkIronArmorItem;
 import dev.stormwatch.elite.items.charms.BezoarCharmItem;
 import dev.stormwatch.elite.items.charms.CharmItem;
@@ -31,6 +33,7 @@ import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
@@ -59,6 +62,7 @@ public class Elite {
         MinecraftForge.EVENT_BUS.register(MonsterEnhancer.class);
         MinecraftForge.EVENT_BUS.register(PlayerEnhancer.class);
         MinecraftForge.EVENT_BUS.register(BlockFaceHitListener.class);
+        MinecraftForge.EVENT_BUS.register(ResonantArrow.class);
         MinecraftForge.EVENT_BUS.register(CharmItem.class);
         MinecraftForge.EVENT_BUS.register(BezoarCharmItem.class);
         MinecraftForge.EVENT_BUS.register(MarksmansMedalCharmItem.class);
@@ -97,6 +101,7 @@ public class Elite {
             event.accept(EliteItems.THE_HERALD);
             event.accept(EliteItems.RUNE_STAFF_OF_OVERLOADING);
             event.accept(EliteItems.RUNE_STAFF_OF_ALCHEMIZING);
+            event.accept(EliteItems.PHANTASM);
 
             event.accept(EliteItems.SHIMMERING_BOOTS);
             event.accept(EliteItems.SHIMMERING_LEGGINGS);
@@ -138,6 +143,18 @@ public class Elite {
             event.register(EliteKeyMappings.CHARM_ABILITY_2.get());
             event.register(EliteKeyMappings.CHARM_ABILITY_3.get());
         }
+
+        @SubscribeEvent
+        public static void clientSetup(FMLClientSetupEvent event) {
+            EliteItemProperties.register();
+        }
+
+    }
+
+    @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE, value = Dist.CLIENT)
+    public static class ClientForgeEvents {
+
+
 
     }
 }

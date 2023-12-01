@@ -13,7 +13,7 @@ public class ResonantArrowRenderer extends ArrowRenderer<ResonantArrow> {
     }
 
     @Override
-    public ResourceLocation getTextureLocation(ResonantArrow pEntity) {
+    public ResourceLocation getTextureLocation(ResonantArrow entity) {
         return new ResourceLocation(Elite.MOD_ID, "textures/projectiles/resonant_arrow.png");
     }
 
