@@ -94,6 +94,7 @@ public class Elite {
             event.accept(EliteItems.SHIMMERING_SCALE);
             event.accept(EliteItems.DARK_IRON_SCRAP);
             event.accept(EliteItems.DARK_IRON_INGOT);
+            event.accept(EliteItems.GILDED_PLATE);
             event.accept(EliteItems.HUNGERING_SPIRIT);
         }
         if (event.getTabKey() == CreativeModeTabs.COMBAT) {

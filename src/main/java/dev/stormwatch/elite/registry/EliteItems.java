@@ -29,6 +29,8 @@ public class EliteItems {
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> DARK_IRON_INGOT = ITEMS.register("dark_iron_ingot",
             () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> GILDED_PLATE = ITEMS.register("gilded_plate",
+            () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> HUNGERING_SPIRIT = ITEMS.register("hungering_spirit",
             () -> new Item(new Item.Properties()));
 
