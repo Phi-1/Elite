@@ -14,6 +14,7 @@ public class SoundEventIndices {
     public static final int RUNE_STAFF_ACTIVATE = 5;
     public static final int ITEM_USE_FAIL = 6;
     public static final int PEARLESCENT_STAFF_ACTIVATE = 7;
+    public static final int GILDED_ARMOR_SET_BONUS_ACTIVATE = 8;
 
     private static final ImmutableMap<Integer, SoundEvent> SOUND_EVENTS = new ImmutableMap.Builder<Integer, SoundEvent>()
             .put(BEZOAR_ACTIVATE, SoundEvents.AMETHYST_BLOCK_HIT)
@@ -24,6 +25,7 @@ public class SoundEventIndices {
             .put(RUNE_STAFF_ACTIVATE, SoundEvents.ENDER_DRAGON_SHOOT)
             .put(ITEM_USE_FAIL, SoundEvents.BAMBOO_BREAK)
             .put(PEARLESCENT_STAFF_ACTIVATE, SoundEvents.AMETHYST_BLOCK_BREAK)
+            .put(GILDED_ARMOR_SET_BONUS_ACTIVATE, SoundEvents.BEACON_ACTIVATE)
             .build();
     private static final SoundEvent DEFAULT_SOUND = SoundEvents.ALLAY_AMBIENT_WITH_ITEM;
 

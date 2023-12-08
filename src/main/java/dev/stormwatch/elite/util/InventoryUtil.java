@@ -15,6 +15,8 @@ import top.theillusivec4.curios.api.type.capability.ICuriosItemHandler;
 import top.theillusivec4.curios.api.type.inventory.ICurioStacksHandler;
 
 import javax.annotation.Nullable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class InventoryUtil {
 
@@ -70,6 +72,16 @@ public class InventoryUtil {
             }
         }
         return null;
+    }
+
+    public static List<ItemStack> getAllStacksOfItemInInventory(Player player, Item item) {
+        List<ItemStack> stacks = new ArrayList<>();
+        for (ItemStack stack : player.getInventory().items) {
+            if (stack.is(item)) {
+                stacks.add(stack);
+            }
+        }
+        return stacks;
     }
 
     @Nullable

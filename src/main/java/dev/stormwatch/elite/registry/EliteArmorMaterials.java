@@ -32,13 +32,12 @@ public enum EliteArmorMaterials implements StringRepresentable, ArmorMaterial {
         return Ingredient.of(EliteItems.DARK_IRON_SCRAP.get());
     }),
 
-    // TODO
-    GILDED("gilded", 20, Util.make(new EnumMap<>(ArmorItem.Type.class), (protection) -> {
-        protection.put(ArmorItem.Type.BOOTS, 2);
-        protection.put(ArmorItem.Type.LEGGINGS, 5);
-        protection.put(ArmorItem.Type.CHESTPLATE, 6);
-        protection.put(ArmorItem.Type.HELMET, 2);
-    }), 8, SoundEvents.ARMOR_EQUIP_GOLD, 1.0F, 0.1F, () -> {
+    GILDED("gilded", 40, Util.make(new EnumMap<>(ArmorItem.Type.class), (protection) -> {
+        protection.put(ArmorItem.Type.BOOTS, 3);
+        protection.put(ArmorItem.Type.LEGGINGS, 6);
+        protection.put(ArmorItem.Type.CHESTPLATE, 8);
+        protection.put(ArmorItem.Type.HELMET, 3);
+    }), 30, SoundEvents.ARMOR_EQUIP_GOLD, 0.0F, 0.0F, () -> {
         return Ingredient.of(EliteItems.GILDED_PLATE.get());
     });
 

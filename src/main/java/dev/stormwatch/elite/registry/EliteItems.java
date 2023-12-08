@@ -3,6 +3,7 @@ package dev.stormwatch.elite.registry;
 import dev.stormwatch.elite.Elite;
 import dev.stormwatch.elite.doc.RuneTypes;
 import dev.stormwatch.elite.items.armor.DarkIronArmorItem;
+import dev.stormwatch.elite.items.armor.GildedArmorItem;
 import dev.stormwatch.elite.items.armor.ShimmeringArmorItem;
 import dev.stormwatch.elite.items.charms.*;
 import dev.stormwatch.elite.items.tools.PearlescentCrystalStaffItem;
@@ -71,6 +72,15 @@ public class EliteItems {
             () -> new DarkIronArmorItem(ArmorItem.Type.CHESTPLATE));
     public static final RegistryObject<Item> DARK_IRON_HELMET = ITEMS.register("dark_iron_helmet",
             () -> new DarkIronArmorItem(ArmorItem.Type.HELMET));
+
+    public static final RegistryObject<Item> GILDED_BOOTS = ITEMS.register("gilded_boots",
+            () -> new GildedArmorItem(ArmorItem.Type.BOOTS));
+    public static final RegistryObject<Item> GILDED_LEGGINGS = ITEMS.register("gilded_leggings",
+            () -> new GildedArmorItem(ArmorItem.Type.LEGGINGS));
+    public static final RegistryObject<Item> GILDED_CHESTPLATE = ITEMS.register("gilded_chestplate",
+            () -> new GildedArmorItem(ArmorItem.Type.CHESTPLATE));
+    public static final RegistryObject<Item> GILDED_HELMET = ITEMS.register("gilded_helmet",
+            () -> new GildedArmorItem(ArmorItem.Type.HELMET));
 
     // Charms
     public static final RegistryObject<Item> ENRAGED_WORM = ITEMS.register("enraged_worm",

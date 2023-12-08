@@ -10,6 +10,7 @@ import dev.stormwatch.elite.effects.ExpansionEffect;
 import dev.stormwatch.elite.effects.OverloadedEffect;
 import dev.stormwatch.elite.entities.projectiles.ResonantArrow;
 import dev.stormwatch.elite.items.armor.DarkIronArmorItem;
+import dev.stormwatch.elite.items.armor.GildedArmorItem;
 import dev.stormwatch.elite.items.charms.BezoarCharmItem;
 import dev.stormwatch.elite.items.charms.CharmItem;
 import dev.stormwatch.elite.items.charms.MarksmansMedalCharmItem;
@@ -69,6 +70,7 @@ public class Elite {
         MinecraftForge.EVENT_BUS.register(HungeringBladeItem.class);
         MinecraftForge.EVENT_BUS.register(TheHeraldItem.class);
         MinecraftForge.EVENT_BUS.register(DarkIronArmorItem.class);
+        MinecraftForge.EVENT_BUS.register(GildedArmorItem.class);
         MinecraftForge.EVENT_BUS.register(ExpansionEffect.class);
         MinecraftForge.EVENT_BUS.register(OverloadedEffect.class);
         MinecraftForge.EVENT_BUS.register(AlchemizedEffect.class);
@@ -113,6 +115,11 @@ public class Elite {
             event.accept(EliteItems.DARK_IRON_LEGGINGS);
             event.accept(EliteItems.DARK_IRON_CHESTPLATE);
             event.accept(EliteItems.DARK_IRON_HELMET);
+
+            event.accept(EliteItems.GILDED_BOOTS);
+            event.accept(EliteItems.GILDED_LEGGINGS);
+            event.accept(EliteItems.GILDED_CHESTPLATE);
+            event.accept(EliteItems.GILDED_HELMET);
         }
         if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
             event.accept(EliteItems.SLEDGEHAMMER);
