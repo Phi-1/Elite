@@ -16,14 +16,18 @@ import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
-import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.function.Predicate;
+import java.util.function.ToIntFunction;
 
 public class GildedArmorItem extends ArmorItem {
+
+    private static final int NUGGET_VALUE = 1;
+    private static final int INGOT_VALUE = 9;
+    private static final int BLOCK_VALUE = 81;
 
     public GildedArmorItem(Type type) {
         super(EliteArmorMaterials.GILDED, type, new Item.Properties()
@@ -32,8 +36,6 @@ public class GildedArmorItem extends ArmorItem {
                 .fireResistant());
     }
     // TODO: gold costs should have high maximums so its a strategic choice what to use gold on
-
-    // TODO: helmet makes enemies drop gold on death
 
     // TODO: chestplate reduces damage taken by consuming gold
 
@@ -64,6 +66,33 @@ public class GildedArmorItem extends ArmorItem {
     }
 
     @SubscribeEvent
+    public static void processChestplateAbility(LivingHurtEvent event) {
+        // TODO: test. it seems to consume a weird amount of gold
+        if (!(event.getEntity() instanceof Player player)
+                || player.level().isClientSide()
+                || !InventoryUtil.hasArmorEquipped(player, EliteItems.GILDED_CHESTPLATE.get(), SlotIndices.CHESTPLATE)) return;
+
+        final float maxPercentageDamageReduction = 0.8f;
+        final float goldConsumptionPercent = 0.3f;
+        final int goldValuePerPointOfDamageReduction = 4 * INGOT_VALUE;
+
+        float damageTaken = event.getAmount();
+        float maxReducibleDamage = damageTaken * maxPercentageDamageReduction;
+
+        int goldConsumed = consumeGold(player, (value) -> {
+            int toConsume = (int) (value * goldConsumptionPercent);
+            if (toConsume > maxReducibleDamage * goldValuePerPointOfDamageReduction) {
+                return (int) (maxReducibleDamage * goldValuePerPointOfDamageReduction);
+            }
+            return toConsume;
+        });
+
+        float damageReduction = (float) goldConsumed / goldValuePerPointOfDamageReduction;
+        event.setAmount(damageTaken - damageReduction);
+        EliteNetworking.sendToPlayer(new PlaySoundS2CPacket(SoundEventIndices.GILDED_ARMOR_CHESTPLATE_REDUCE_DAMAGE), (ServerPlayer) player);
+    }
+
+    @SubscribeEvent
     public static void processSetAbility(LivingDeathEvent event) {
         if (!(event.getEntity() instanceof Player player)
                 || player.level().isClientSide()
@@ -72,16 +101,16 @@ public class GildedArmorItem extends ArmorItem {
                     && InventoryUtil.hasArmorEquipped(player, EliteItems.GILDED_CHESTPLATE.get(), SlotIndices.CHESTPLATE)
                     && InventoryUtil.hasArmorEquipped(player, EliteItems.GILDED_HELMET.get(), SlotIndices.HELMET))) return;
 
-        final int minGoldValueTrigger = 576; // 64 ingots
+        final int minGoldValueTrigger = 64 * INGOT_VALUE;
 
-        int goldValue = getTotalGoldValue(player, (value) -> value >= minGoldValueTrigger);
+        int goldValue = consumeGold(player, (value) -> value >= minGoldValueTrigger ? value : 0);
         if (goldValue < minGoldValueTrigger) return;
 
-        final int goldPerAmpLevel = 3 * 567;
+        final int goldPerAmpLevel = 3 * INGOT_VALUE;
         final float durationTicksPerGold = 0.3f;
 
         int ampLevel = goldValue / goldPerAmpLevel;
-        int duration = (int) (goldValue * durationTicksPerGold);
+        int duration = Math.round(goldValue * durationTicksPerGold);
 
         player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, duration, ampLevel));
         player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, duration, ampLevel));
@@ -97,33 +126,41 @@ public class GildedArmorItem extends ArmorItem {
         event.setCanceled(true);
     }
 
-    private static int getTotalGoldValue(Player player, Predicate<Integer> shouldConsume) {
-        final int nuggetValue = 1;
-        final int ingotValue = 9;
-        final int blockValue = 81;
-
+    private static int consumeGold(Player player, ToIntFunction<Integer> toConsume) {
         int goldValue = 0;
 
         List<ItemStack> nuggets = InventoryUtil.getAllStacksOfItemInInventory(player, Items.GOLD_NUGGET);
         List<ItemStack> ingots = InventoryUtil.getAllStacksOfItemInInventory(player, Items.GOLD_INGOT);
         List<ItemStack> blocks = InventoryUtil.getAllStacksOfItemInInventory(player, Items.GOLD_BLOCK);
 
-        for (ItemStack stack : nuggets) goldValue += stack.getCount() * nuggetValue;
-        for (ItemStack stack : ingots)  goldValue += stack.getCount() * ingotValue;
-        for (ItemStack stack : blocks)  goldValue += stack.getCount() * blockValue;
+        for (ItemStack stack : nuggets) goldValue += stack.getCount() * NUGGET_VALUE;
+        for (ItemStack stack : ingots)  goldValue += stack.getCount() * INGOT_VALUE;
+        for (ItemStack stack : blocks)  goldValue += stack.getCount() * BLOCK_VALUE;
 
-        if (shouldConsume.test(goldValue)) {
+        int goldToConsume = Math.min(toConsume.applyAsInt(goldValue), goldValue);
+        if (goldToConsume == goldValue) {
             for (ItemStack stack : nuggets) stack.setCount(0);
             for (ItemStack stack : ingots)  stack.setCount(0);
             for (ItemStack stack : blocks)  stack.setCount(0);
+            return goldValue;
         }
 
-        return goldValue;
+        int goldConsumed = 0;
+        goldConsumed = tickDownGoldStacks(blocks, BLOCK_VALUE, goldToConsume, goldConsumed);
+        goldConsumed = tickDownGoldStacks(ingots, INGOT_VALUE, goldToConsume, goldConsumed);
+        goldConsumed = tickDownGoldStacks(nuggets, NUGGET_VALUE, goldToConsume, goldConsumed);
+
+        return goldConsumed;
     }
 
-    private static int consumeGold(Player player, float basePercentage, int max) {
-        // TODO
-        return 0;
+    private static int tickDownGoldStacks(List<ItemStack> stacks, int valuePerItem, int maxValue, int currentValue) {
+        for (ItemStack stack : stacks) {
+            while (stack.getCount() > 0 && maxValue - currentValue >= valuePerItem) {
+                stack.shrink(1);
+                currentValue += valuePerItem;
+            }
+        }
+        return currentValue;
     }
 
     @Override

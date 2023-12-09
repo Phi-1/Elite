@@ -32,7 +32,7 @@ public class Element115CharmItem extends CharmItem {
         List<ItemEntity> items = player.level().getEntitiesOfClass(ItemEntity.class, AABB.ofSize(player.blockPosition().getCenter(), EFFECT_DIAMETER, EFFECT_DIAMETER, EFFECT_DIAMETER));
         for (ItemEntity item : items) {
             if (!InventoryUtil.hasRoomForItemInInventory(player, item.getItem())) continue;
-            Vec3 direction = player.position().subtract(item.position()).normalize();
+            Vec3 direction = player.getEyePosition().subtract(item.position()).normalize();
             Vec3 speed = direction.scale(PULL_SPEED);
             item.setDeltaMovement(item.getDeltaMovement().x + speed.x, item.getDeltaMovement().y + speed.y, item.getDeltaMovement().z + speed.z);
             item.hurtMarked = true;
