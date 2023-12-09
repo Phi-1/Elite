@@ -20,6 +20,8 @@ public class PlaySoundS2CPacket {
         this.soundIndex = soundIndex;
     }
 
+    // TODO: constructor override with volume and pitch
+
     public PlaySoundS2CPacket(FriendlyByteBuf buffer) {
         this.soundIndex = buffer.readInt();
     }

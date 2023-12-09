@@ -6,20 +6,34 @@ import dev.stormwatch.elite.networking.EliteNetworking;
 import dev.stormwatch.elite.networking.packets.PlaySoundS2CPacket;
 import dev.stormwatch.elite.registry.EliteArmorMaterials;
 import dev.stormwatch.elite.registry.EliteItems;
+import dev.stormwatch.elite.util.AttributeUtil;
 import dev.stormwatch.elite.util.InventoryUtil;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.tags.DamageTypeTags;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.function.ToIntFunction;
 
@@ -28,6 +42,12 @@ public class GildedArmorItem extends ArmorItem {
     private static final int NUGGET_VALUE = 1;
     private static final int INGOT_VALUE = 9;
     private static final int BLOCK_VALUE = 81;
+
+    public static final AttributeUtil.AttributeInfo BOOTS_MOVEMENTSPEED = new AttributeUtil.AttributeInfo("gilded_boots_movementspeed", UUID.fromString("1f4b2f64-a4a4-4b1b-adcd-799554267013"));
+    public static final AttributeUtil.AttributeInfo BOOTS_STEPHEIGHT = new AttributeUtil.AttributeInfo("gilded_boots_stepheight", UUID.fromString("f17f7606-ae9c-4d28-b11b-5710b24b1cfa"));
+    private static final double BOOTS_MOVEMENTSPEED_AMOUNT = 0.4;
+    private static final double BOOTS_STEPHEIGHT_AMOUNT = 0.5;
+    private static final int BOOTS_HEAL_INTERVAL = 5 * 20;
 
     public GildedArmorItem(Type type) {
         super(EliteArmorMaterials.GILDED, type, new Item.Properties()
@@ -42,6 +62,17 @@ public class GildedArmorItem extends ArmorItem {
     // TODO: leggings increases melee damage dealt by consuming gold
 
     // TODO: absurd movement speed, jump height, step height, and fall damage immunity on gold blocks
+
+
+    @Override
+    public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotIndex, boolean isSelected) {
+        super.inventoryTick(stack, level, entity, slotIndex, isSelected);
+        if (!(entity instanceof Player player)) return;
+
+        if (slotIndex == SlotIndices.BOOTS) {
+            processBootsSpeedAndStepHeightAbility(player, level);
+        }
+    }
 
     @SubscribeEvent
     public static void processHelmetAbility(LivingDeathEvent event) {
@@ -90,6 +121,49 @@ public class GildedArmorItem extends ArmorItem {
         float damageReduction = (float) goldConsumed / goldValuePerPointOfDamageReduction;
         event.setAmount(damageTaken - damageReduction);
         EliteNetworking.sendToPlayer(new PlaySoundS2CPacket(SoundEventIndices.GILDED_ARMOR_CHESTPLATE_REDUCE_DAMAGE), (ServerPlayer) player);
+    }
+
+    private void processBootsSpeedAndStepHeightAbility(Player player, Level level) {
+        if (isNearGold(player)) {
+            if (level.getGameTime() % BOOTS_HEAL_INTERVAL == 0) {
+                player.heal(1);
+            }
+            AttributeUtil.setTransientAttribute(player, Attributes.MOVEMENT_SPEED, BOOTS_MOVEMENTSPEED.name(), BOOTS_MOVEMENTSPEED.uuid(), BOOTS_MOVEMENTSPEED_AMOUNT, AttributeModifier.Operation.MULTIPLY_BASE);
+            AttributeUtil.setTransientAttribute(player, ForgeMod.STEP_HEIGHT_ADDITION.get(), BOOTS_STEPHEIGHT.name(), BOOTS_STEPHEIGHT.uuid(), BOOTS_STEPHEIGHT_AMOUNT, AttributeModifier.Operation.ADDITION);
+        } else {
+            AttributeUtil.removeAttributeModifier(player, Attributes.MOVEMENT_SPEED, BOOTS_MOVEMENTSPEED.uuid());
+            AttributeUtil.removeAttributeModifier(player, ForgeMod.STEP_HEIGHT_ADDITION.get(), BOOTS_STEPHEIGHT.uuid());
+        }
+    }
+
+    @SubscribeEvent
+    public static void bootsNegateFallDamageOnGold(LivingHurtEvent event) {
+        if (!(event.getEntity() instanceof Player player)
+                || player.level().isClientSide()
+                || !InventoryUtil.hasArmorEquipped(player, EliteItems.GILDED_BOOTS.get(), SlotIndices.BOOTS)
+                || !event.getSource().is(DamageTypeTags.IS_FALL)
+                || !countsAsGoldBlock(player.level().getBlockState(player.blockPosition().below()))) return;
+
+        event.setAmount(0);
+    }
+
+    private static boolean countsAsGoldBlock(BlockState state) {
+        return state.is(Blocks.GOLD_BLOCK) || state.is(Blocks.GOLD_ORE) || state.is(Blocks.RAW_GOLD_BLOCK) || state.is(Blocks.NETHER_GOLD_ORE)
+                || state.is(Blocks.DEEPSLATE_GOLD_ORE) || state.is(Blocks.GILDED_BLACKSTONE);
+    }
+
+    private static boolean isNearGold(Player player) {
+        final int radius = 5;
+        BlockPos.MutableBlockPos center = player.blockPosition().relative(Direction.UP, radius).mutable();
+        for (int i = 0; i < radius * 2 + 1; i++) {
+            for (BlockPos spiralPos : BlockPos.spiralAround(center, radius, Direction.EAST, Direction.NORTH)) {
+                if (countsAsGoldBlock(player.level().getBlockState(spiralPos))) {
+                    return true;
+                }
+            }
+            center.move(Direction.DOWN);
+        }
+        return false;
     }
 
     @SubscribeEvent

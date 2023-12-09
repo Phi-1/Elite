@@ -54,7 +54,6 @@ public class HungeringBladeItem extends SwordItem {
             // don't remove if player has two blades, one in inventory ticking and other in hand
             if (!InventoryUtil.isHoldingItem(player, EliteItems.HUNGERING_BLADE.get())) {
                 AttributeUtil.removeAttributeModifier(player, Attributes.MOVEMENT_SPEED, SPEED_MODIFIER_INFO.uuid());
-
             }
         }
     }
