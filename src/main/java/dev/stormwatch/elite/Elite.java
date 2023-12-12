@@ -89,6 +89,11 @@ public class Elite {
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
+        if (event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS) {
+            event.accept(EliteItems.LESSER_BLOOD_SHARD);
+            event.accept(EliteItems.GREATER_BLOOD_SHARD);
+            event.accept(EliteItems.GRAND_BLOOD_SHARD);
+        }
         if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
             event.accept(EliteBlocks.PEARLESCENT_CRYSTAL);
         }

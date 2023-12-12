@@ -6,6 +6,7 @@ import dev.stormwatch.elite.items.armor.DarkIronArmorItem;
 import dev.stormwatch.elite.items.armor.GildedArmorItem;
 import dev.stormwatch.elite.items.armor.ShimmeringArmorItem;
 import dev.stormwatch.elite.items.charms.*;
+import dev.stormwatch.elite.items.consumables.BaseBloodShardItem;
 import dev.stormwatch.elite.items.tools.PearlescentCrystalStaffItem;
 import dev.stormwatch.elite.items.tools.SledgeHammerPickaxeItem;
 import dev.stormwatch.elite.items.weapons.BaseRuneStaffItem;
@@ -14,6 +15,7 @@ import dev.stormwatch.elite.items.weapons.PhantasmItem;
 import dev.stormwatch.elite.items.weapons.TheHeraldItem;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Rarity;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -101,6 +103,14 @@ public class EliteItems {
             PotionBeltCharmItem::new);
     public static final RegistryObject<Item> MARKSMANS_MEDAL = ITEMS.register("marksmans_medal",
             MarksmansMedalCharmItem::new);
+
+    // Consumables
+    public static final RegistryObject<Item> LESSER_BLOOD_SHARD = ITEMS.register("lesser_blood_shard",
+            () -> new BaseBloodShardItem(1.0f, Rarity.COMMON));
+    public static final RegistryObject<Item> GREATER_BLOOD_SHARD = ITEMS.register("greater_blood_shard",
+            () -> new BaseBloodShardItem(6.0f, Rarity.UNCOMMON));
+    public static final RegistryObject<Item> GRAND_BLOOD_SHARD = ITEMS.register("grand_blood_shard",
+            () -> new BaseBloodShardItem(12.0f, Rarity.RARE));
 
 
     public static void register(IEventBus eventBus) {
