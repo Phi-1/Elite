@@ -118,9 +118,34 @@ public class GildedArmorItem extends ArmorItem {
             return toConsume;
         });
 
+        if (goldConsumed == 0) return;
+
         float damageReduction = (float) goldConsumed / goldValuePerPointOfDamageReduction;
         event.setAmount(damageTaken - damageReduction);
         EliteNetworking.sendToPlayer(new PlaySoundS2CPacket(SoundEventIndices.GILDED_ARMOR_CHESTPLATE_REDUCE_DAMAGE), (ServerPlayer) player);
+    }
+
+    @SubscribeEvent
+    public static void processLeggingsAbility(LivingHurtEvent event) {
+        // TODO: test. With 3 gold blocks in inventory it doesn't consume anything
+        if (!(event.getSource().getEntity() instanceof Player player)
+                || event.getSource().is(DamageTypeTags.IS_PROJECTILE)
+                || player.level().isClientSide()
+                || !InventoryUtil.hasArmorEquipped(player, EliteItems.GILDED_LEGGINGS.get(), SlotIndices.LEGGINGS)) return;
+
+        final float maxPercentageDamageReduction = 0.8f;
+        final float goldConsumptionPercent = 0.3f;
+        final float goldValuePerPercentOfBonusDamage = (float) (64 * INGOT_VALUE) / 100;
+
+        int goldConsumed = consumeGold(player, (value) -> {
+            return (int) (value * goldConsumptionPercent);
+        });
+
+        if (goldConsumed == 0) return;
+
+        float damageModifier = 1 + goldConsumed * goldValuePerPercentOfBonusDamage / 100;
+        event.setAmount(event.getAmount() * damageModifier);
+        EliteNetworking.sendToPlayer(new PlaySoundS2CPacket(SoundEventIndices.GILDED_ARMOR_LEGGINGS_INCREASE_DAMAGE), (ServerPlayer) player);
     }
 
     private void processBootsSpeedAndStepHeightAbility(Player player, Level level) {
