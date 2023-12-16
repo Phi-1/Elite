@@ -14,5 +14,6 @@ public class EliteLanguageProvider extends LanguageProvider {
         // TODO: items
         // TODO: elite monster names
         // TODO: hotkeys
+        // TODO: brick layer modes
     }
 }

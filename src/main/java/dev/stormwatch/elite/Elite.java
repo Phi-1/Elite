@@ -12,16 +12,18 @@ import dev.stormwatch.elite.entities.projectiles.ResonantArrow;
 import dev.stormwatch.elite.items.armor.DarkIronArmorItem;
 import dev.stormwatch.elite.items.armor.GildedArmorItem;
 import dev.stormwatch.elite.items.charms.BezoarCharmItem;
+import dev.stormwatch.elite.items.charms.BrickLayerCharmItem;
 import dev.stormwatch.elite.items.charms.CharmItem;
 import dev.stormwatch.elite.items.charms.MarksmansMedalCharmItem;
 import dev.stormwatch.elite.items.weapons.HungeringBladeItem;
 import dev.stormwatch.elite.items.weapons.TheHeraldItem;
 import dev.stormwatch.elite.networking.EliteNetworking;
 import dev.stormwatch.elite.registry.*;
-import dev.stormwatch.elite.systems.BlockFaceHitListener;
+import dev.stormwatch.elite.systems.BlockFaceClickListener;
 import dev.stormwatch.elite.systems.GameRuleSettings;
 import dev.stormwatch.elite.systems.MonsterEnhancer;
 import dev.stormwatch.elite.systems.PlayerEnhancer;
+import dev.stormwatch.elite.util.TickTimers;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
@@ -59,14 +61,16 @@ public class Elite {
         EliteBlockEntityTypes.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
+        MinecraftForge.EVENT_BUS.register(TickTimers.class);
         MinecraftForge.EVENT_BUS.register(GameRuleSettings.class);
         MinecraftForge.EVENT_BUS.register(MonsterEnhancer.class);
         MinecraftForge.EVENT_BUS.register(PlayerEnhancer.class);
-        MinecraftForge.EVENT_BUS.register(BlockFaceHitListener.class);
+        MinecraftForge.EVENT_BUS.register(BlockFaceClickListener.class);
         MinecraftForge.EVENT_BUS.register(ResonantArrow.class);
         MinecraftForge.EVENT_BUS.register(CharmItem.class);
         MinecraftForge.EVENT_BUS.register(BezoarCharmItem.class);
         MinecraftForge.EVENT_BUS.register(MarksmansMedalCharmItem.class);
+        MinecraftForge.EVENT_BUS.register(BrickLayerCharmItem.class);
         MinecraftForge.EVENT_BUS.register(HungeringBladeItem.class);
         MinecraftForge.EVENT_BUS.register(TheHeraldItem.class);
         MinecraftForge.EVENT_BUS.register(DarkIronArmorItem.class);
@@ -139,6 +143,7 @@ public class Elite {
             event.accept(EliteItems.ARIADNES_THREAD);
             event.accept(EliteItems.POTION_BELT);
             event.accept(EliteItems.MARKSMANS_MEDAL);
+            event.accept(EliteItems.BRICKLAYER);
         }
     }
 

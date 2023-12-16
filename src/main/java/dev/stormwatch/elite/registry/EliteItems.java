@@ -103,6 +103,8 @@ public class EliteItems {
             PotionBeltCharmItem::new);
     public static final RegistryObject<Item> MARKSMANS_MEDAL = ITEMS.register("marksmans_medal",
             MarksmansMedalCharmItem::new);
+    public static final RegistryObject<Item> BRICKLAYER = ITEMS.register("bricklayer",
+            BrickLayerCharmItem::new);
 
     // Consumables
     public static final RegistryObject<Item> LESSER_BLOOD_SHARD = ITEMS.register("lesser_blood_shard",

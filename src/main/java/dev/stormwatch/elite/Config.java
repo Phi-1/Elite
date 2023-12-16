@@ -16,6 +16,7 @@ import java.util.stream.Collectors;
 public class Config {
 
     private static double startingHearts;
+    private static double startingMovementSpeed;
     private static double heartsPerLevel;
     private static double movementSpeedPerLevel;
     private static double miningSpeedPerLevel;
@@ -33,6 +34,9 @@ public class Config {
     private static final ForgeConfigSpec.DoubleValue STARTING_HEARTS = BUILDER
             .comment("The number of hearts each player starts out with. Can be a fractional value")
             .defineInRange("startingHearts", 3, 0.5,  Double.MAX_VALUE);
+    private static final ForgeConfigSpec.DoubleValue STARTING_MOVEMENT_SPEED = BUILDER
+            .comment("The amount of movement speed each player starts out with. 1 = regular speed.")
+            .defineInRange("startingMovementSpeed", 0.8, 0.1,  Double.MAX_VALUE);
     private static final ForgeConfigSpec.DoubleValue HEARTS_PER_LEVEL = BUILDER
             .comment("The number of hearts each player gains per elite level. Can be a fractional value")
             .defineInRange("heartsPerLevel", 1, 0,  Double.MAX_VALUE);
@@ -68,6 +72,7 @@ public class Config {
     @SubscribeEvent
     static void onLoad(final ModConfigEvent event) {
         startingHearts = STARTING_HEARTS.get();
+        startingMovementSpeed = STARTING_MOVEMENT_SPEED.get();
         heartsPerLevel = HEARTS_PER_LEVEL.get();
         movementSpeedPerLevel = MOVEMENT_SPEED_PER_LEVEL.get();
         miningSpeedPerLevel = MINING_SPEED_PER_LEVEL.get();
@@ -119,5 +124,9 @@ public class Config {
 
     public static double getMonsterSpawnRateIncrease() {
         return monsterSpawnRateIncrease;
+    }
+
+    public static double getStartingMovementSpeed() {
+        return startingMovementSpeed;
     }
 }

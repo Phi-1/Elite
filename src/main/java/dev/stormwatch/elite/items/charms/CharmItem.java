@@ -1,8 +1,10 @@
 package dev.stormwatch.elite.items.charms;
 
 import dev.stormwatch.elite.capabilities.CooldownMarkerProvider;
+import dev.stormwatch.elite.capabilities.ModeSelectorMarkerProvider;
 import dev.stormwatch.elite.capabilities.ToggleMarkerProvider;
 import dev.stormwatch.elite.items.CooldownAbilityItem;
+import dev.stormwatch.elite.items.ModeAbilityItem;
 import dev.stormwatch.elite.items.ToggleAbilityItem;
 import dev.stormwatch.elite.util.InventoryUtil;
 import net.minecraft.nbt.CompoundTag;
@@ -33,6 +35,8 @@ public class CharmItem extends Item implements ICurioItem {
             return new CooldownMarkerProvider();
         } else if (this instanceof ToggleAbilityItem) {
             return new ToggleMarkerProvider();
+        } else if (this instanceof ModeAbilityItem) {
+            return new ModeSelectorMarkerProvider(((ModeAbilityItem) this).getModes());
         }
         return super.initCapabilities(stack, nbt);
     }

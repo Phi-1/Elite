@@ -1,7 +1,7 @@
 package dev.stormwatch.elite.items.tools;
 
 import dev.stormwatch.elite.registry.EliteTiers;
-import dev.stormwatch.elite.systems.BlockFaceHitListener;
+import dev.stormwatch.elite.systems.BlockFaceClickListener;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.Tuple;
@@ -31,7 +31,7 @@ public class SledgeHammerPickaxeItem extends PickaxeItem {
 
         if (!level.isClientSide && state.getDestroySpeed(level, pos) != 0.0F) {
             int blocksBroken = 1;
-            Direction blockFace = BlockFaceHitListener.getLastHitFace(player);
+            Direction blockFace = BlockFaceClickListener.getLastLeftClickedFace(player);
             if (blockFace == null) blockFace = player.getDirection();
             Tuple<Direction, Direction> directions = getRotationAndExpansionDirections(blockFace);
             for (BlockPos.MutableBlockPos spiralPos : BlockPos.spiralAround(pos, 1, directions.getA(), directions.getB())) {

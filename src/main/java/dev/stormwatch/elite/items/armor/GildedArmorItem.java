@@ -45,7 +45,7 @@ public class GildedArmorItem extends ArmorItem {
 
     public static final AttributeUtil.AttributeInfo BOOTS_MOVEMENTSPEED = new AttributeUtil.AttributeInfo("gilded_boots_movementspeed", UUID.fromString("1f4b2f64-a4a4-4b1b-adcd-799554267013"));
     public static final AttributeUtil.AttributeInfo BOOTS_STEPHEIGHT = new AttributeUtil.AttributeInfo("gilded_boots_stepheight", UUID.fromString("f17f7606-ae9c-4d28-b11b-5710b24b1cfa"));
-    private static final double BOOTS_MOVEMENTSPEED_AMOUNT = 0.4;
+    private static final double BOOTS_MOVEMENTSPEED_AMOUNT = 0.2;
     private static final double BOOTS_STEPHEIGHT_AMOUNT = 0.5;
     private static final int BOOTS_HEAL_INTERVAL = 5 * 20;
 
