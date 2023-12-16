@@ -4,6 +4,7 @@ import dev.stormwatch.elite.doc.SoundEventIndices;
 import dev.stormwatch.elite.networking.EliteNetworking;
 import dev.stormwatch.elite.networking.packets.PlaySoundS2CPacket;
 import dev.stormwatch.elite.registry.EliteBlocks;
+import dev.stormwatch.elite.util.TickTimers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerPlayer;
@@ -68,7 +69,10 @@ public class PearlescentCrystalStaffItem extends Item {
                     bridgeCursor.move(facing);
                     continue;
                 }
-                level.setBlock(bridgeCursor, EliteBlocks.PEARLESCENT_CRYSTAL.get().defaultBlockState(), 3);
+                final BlockPos toPlace = bridgeCursor.immutable();
+                TickTimers.schedule(() -> {
+                    level.setBlock(toPlace, EliteBlocks.PEARLESCENT_CRYSTAL.get().defaultBlockState(), 3);
+                }, i + j * 2 + 1);
                 bridgeCursor.move(facing);
             }
             bridgeCursor = leftColumnStart.mutable().move(facing.getClockWise(), i + 1);
