@@ -113,6 +113,7 @@ public class Elite {
         }
         if (event.getTabKey() == CreativeModeTabs.COMBAT) {
             event.accept(EliteItems.HUNGERING_BLADE);
+            event.accept(EliteItems.GLASS_SWORD);
             event.accept(EliteItems.THE_HERALD);
             event.accept(EliteItems.RUNE_STAFF_OF_OVERLOADING);
             event.accept(EliteItems.RUNE_STAFF_OF_ALCHEMIZING);

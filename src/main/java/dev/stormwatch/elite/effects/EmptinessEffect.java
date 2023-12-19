@@ -18,6 +18,7 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class EmptinessEffect extends MobEffect {
 
@@ -59,9 +60,8 @@ public class EmptinessEffect extends MobEffect {
             // divide along unit circle, multiply by radius, add player position
             double offset = 2 * Math.PI / nBubbles;
             for (int bubble = 0; bubble < nBubbles; bubble++) {
-                // TODO: random variation
-                double z = Math.cos(bubble * offset);
-                double x = Math.sin(bubble * offset);
+                double z = Math.cos(bubble * offset) + ThreadLocalRandom.current().nextFloat(-1, 1);
+                double x = Math.sin(bubble * offset) + ThreadLocalRandom.current().nextFloat(-1, 1);
                 level.addParticle(ParticleTypes.SOUL_FIRE_FLAME, center.getX() + x * radiusPerRing * (ring + 1), center.getY(), center.getZ() + z * radiusPerRing * (ring + 1), z, 0.2, z);
             }
         }

@@ -12,7 +12,10 @@ import javax.annotation.Nullable;
 import java.util.function.Supplier;
 
 public enum EliteTiers implements Tier {
-
+    GLASS(3, 750, 12.0F, 0.0F, 1,
+            () -> Ingredient.of(EliteItems.UNKNOWN_METAL_SHARD.get()),
+            () -> BlockTags.NEEDS_DIAMOND_TOOL
+    ),
     SLEDGEHAMMER(3, 2000, 2.0F, 4.0F, 10,
             () -> Ingredient.of(EliteItems.UNKNOWN_METAL_SHARD.get()),
             () -> BlockTags.NEEDS_DIAMOND_TOOL

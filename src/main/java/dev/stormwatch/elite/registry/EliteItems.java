@@ -9,10 +9,7 @@ import dev.stormwatch.elite.items.charms.*;
 import dev.stormwatch.elite.items.consumables.BaseBloodShardItem;
 import dev.stormwatch.elite.items.tools.PearlescentCrystalStaffItem;
 import dev.stormwatch.elite.items.tools.SledgeHammerPickaxeItem;
-import dev.stormwatch.elite.items.weapons.BaseRuneStaffItem;
-import dev.stormwatch.elite.items.weapons.HungeringBladeItem;
-import dev.stormwatch.elite.items.weapons.PhantasmItem;
-import dev.stormwatch.elite.items.weapons.TheHeraldItem;
+import dev.stormwatch.elite.items.weapons.*;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
@@ -48,6 +45,8 @@ public class EliteItems {
     // Weapons
     public static final RegistryObject<Item> HUNGERING_BLADE = ITEMS.register("hungering_blade",
             HungeringBladeItem::new);
+    public static final RegistryObject<Item> GLASS_SWORD = ITEMS.register("glass_sword",
+            GlassSwordItem::new);
     public static final RegistryObject<Item> THE_HERALD = ITEMS.register("the_herald",
             TheHeraldItem::new);
     public static final RegistryObject<Item> RUNE_STAFF_OF_OVERLOADING = ITEMS.register("rune_staff_of_overloading",
