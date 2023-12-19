@@ -22,7 +22,8 @@ public class SledgeHammerPickaxeItem extends PickaxeItem {
     public SledgeHammerPickaxeItem() {
         super(EliteTiers.SLEDGEHAMMER, 5, -3.2f, new Item.Properties()
                 .stacksTo(1)
-                .rarity(Rarity.RARE)); // TODO: adapt this when you figure out what it's made of, maybe add fire resistance
+                .fireResistant()
+                .rarity(Rarity.RARE));
     }
 
     @Override

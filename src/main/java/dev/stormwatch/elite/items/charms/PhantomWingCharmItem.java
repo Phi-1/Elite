@@ -7,7 +7,6 @@ import dev.stormwatch.elite.items.CooldownAbilityItem;
 import dev.stormwatch.elite.registry.EliteEffects;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -27,7 +26,7 @@ public class PhantomWingCharmItem extends CharmItem implements CooldownAbilityIt
     @Override
     public void activateAbility(ItemStack stack, Player player) {
         CooldownMarker cooldownMarker = stack.getCapability(CooldownMarkerProvider.CAPABILITY_TYPE).orElseThrow(() -> new IllegalStateException("Phantom Wing does not have a cooldown marker"));
-        if (cooldownMarker.onCooldown(this.getCooldownMillis())) {
+        if (cooldownMarker.isOnCooldown(this.getCooldownMillis())) {
             Feedback.onItemIsOnCooldown();
             return;
         }

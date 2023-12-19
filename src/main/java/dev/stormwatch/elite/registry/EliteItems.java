@@ -32,6 +32,8 @@ public class EliteItems {
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> DARK_IRON_INGOT = ITEMS.register("dark_iron_ingot",
             () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> UNKNOWN_METAL_SHARD = ITEMS.register("unknown_metal_shard",
+            () -> new Item(new Item.Properties().fireResistant())); // TODO: found commonly in ancient city chests
     public static final RegistryObject<Item> GILDED_PLATE = ITEMS.register("gilded_plate",
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> HUNGERING_SPIRIT = ITEMS.register("hungering_spirit",
@@ -105,6 +107,8 @@ public class EliteItems {
             MarksmansMedalCharmItem::new);
     public static final RegistryObject<Item> BRICKLAYER = ITEMS.register("bricklayer",
             BrickLayerCharmItem::new);
+    public static final RegistryObject<Item> EMPTINESS = ITEMS.register("emptiness",
+            EmptinessCharmItem::new);
 
     // Consumables
     public static final RegistryObject<Item> LESSER_BLOOD_SHARD = ITEMS.register("lesser_blood_shard",

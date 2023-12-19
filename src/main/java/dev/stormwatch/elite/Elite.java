@@ -6,6 +6,7 @@ import dev.stormwatch.elite.client.EliteItemProperties;
 import dev.stormwatch.elite.client.EliteKeyMappings;
 import dev.stormwatch.elite.client.renderers.ResonantArrowRenderer;
 import dev.stormwatch.elite.effects.AlchemizedEffect;
+import dev.stormwatch.elite.effects.EmptinessEffect;
 import dev.stormwatch.elite.effects.ExpansionEffect;
 import dev.stormwatch.elite.effects.OverloadedEffect;
 import dev.stormwatch.elite.entities.projectiles.ResonantArrow;
@@ -78,6 +79,7 @@ public class Elite {
         MinecraftForge.EVENT_BUS.register(ExpansionEffect.class);
         MinecraftForge.EVENT_BUS.register(OverloadedEffect.class);
         MinecraftForge.EVENT_BUS.register(AlchemizedEffect.class);
+        MinecraftForge.EVENT_BUS.register(EmptinessEffect.class);
 
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
             MinecraftForge.EVENT_BUS.register(EliteInputHandler.class);
@@ -105,6 +107,7 @@ public class Elite {
             event.accept(EliteItems.SHIMMERING_SCALE);
             event.accept(EliteItems.DARK_IRON_SCRAP);
             event.accept(EliteItems.DARK_IRON_INGOT);
+            event.accept(EliteItems.UNKNOWN_METAL_SHARD);
             event.accept(EliteItems.GILDED_PLATE);
             event.accept(EliteItems.HUNGERING_SPIRIT);
         }
@@ -144,6 +147,7 @@ public class Elite {
             event.accept(EliteItems.POTION_BELT);
             event.accept(EliteItems.MARKSMANS_MEDAL);
             event.accept(EliteItems.BRICKLAYER);
+            event.accept(EliteItems.EMPTINESS);
         }
     }
 

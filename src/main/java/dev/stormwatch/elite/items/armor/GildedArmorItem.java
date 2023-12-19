@@ -169,7 +169,7 @@ public class GildedArmorItem extends ArmorItem {
                 || !event.getSource().is(DamageTypeTags.IS_FALL)
                 || !countsAsGoldBlock(player.level().getBlockState(player.blockPosition().below()))) return;
 
-        event.setAmount(0);
+        event.setCanceled(true);
     }
 
     private static boolean countsAsGoldBlock(BlockState state) {

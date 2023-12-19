@@ -6,7 +6,7 @@ public class CooldownMarker {
 
     private long lastUsed = System.currentTimeMillis();
 
-    public boolean onCooldown(int cooldownMilliseconds) {
+    public boolean isOnCooldown(int cooldownMilliseconds) {
         return cooldownMilliseconds > System.currentTimeMillis() - this.lastUsed;
     }
 

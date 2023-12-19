@@ -2,6 +2,7 @@ package dev.stormwatch.elite.networking;
 
 import dev.stormwatch.elite.Elite;
 import dev.stormwatch.elite.networking.packets.ActivateCharmAbilityC2SPacket;
+import dev.stormwatch.elite.networking.packets.AddEmptinessParticlesS2CPacket;
 import dev.stormwatch.elite.networking.packets.AddExplosionS2CPacket;
 import dev.stormwatch.elite.networking.packets.PlaySoundS2CPacket;
 import net.minecraft.resources.ResourceLocation;
@@ -43,6 +44,12 @@ public class EliteNetworking {
                 .decoder(AddExplosionS2CPacket::new)
                 .encoder(AddExplosionS2CPacket::toBytes)
                 .consumerMainThread(AddExplosionS2CPacket::handle)
+                .add();
+
+        INSTANCE.messageBuilder(AddEmptinessParticlesS2CPacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
+                .decoder(AddEmptinessParticlesS2CPacket::new)
+                .encoder(AddEmptinessParticlesS2CPacket::toBytes)
+                .consumerMainThread(AddEmptinessParticlesS2CPacket::handle)
                 .add();
     }
 

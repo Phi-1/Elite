@@ -13,9 +13,9 @@ import java.util.function.Supplier;
 
 public enum EliteTiers implements Tier {
 
-    SLEDGEHAMMER(3, 1500, 2.0F, 4.0F, 10,
-            () -> Ingredient.of(Items.IRON_INGOT), // TODO
-            () -> BlockTags.NEEDS_DIAMOND_TOOL // TODO: depending on what this is made of, consider adapting stats and mining level
+    SLEDGEHAMMER(3, 2000, 2.0F, 4.0F, 10,
+            () -> Ingredient.of(EliteItems.UNKNOWN_METAL_SHARD.get()),
+            () -> BlockTags.NEEDS_DIAMOND_TOOL
     );
 
     private final int level;
@@ -26,7 +26,7 @@ public enum EliteTiers implements Tier {
     private final LazyLoadedValue<Ingredient> repairIngredient;
     private final Supplier<TagKey<Block>> blockTag;
 
-    private EliteTiers(int level, int uses, float speed, float damage, int enchantmentValue, Supplier<Ingredient> repairIngredient, Supplier<TagKey<Block>> blockTag) {
+    EliteTiers(int level, int uses, float speed, float damage, int enchantmentValue, Supplier<Ingredient> repairIngredient, Supplier<TagKey<Block>> blockTag) {
         this.level = level;
         this.uses = uses;
         this.speed = speed;

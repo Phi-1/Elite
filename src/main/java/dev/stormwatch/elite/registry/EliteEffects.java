@@ -18,6 +18,7 @@ public class EliteEffects {
     public static final RegistryObject<MobEffect> EXECUTION = EFFECTS.register("execution", ExecutionEffect::new);
     public static final RegistryObject<MobEffect> OVERLOADED = EFFECTS.register("overloaded", OverloadedEffect::new);
     public static final RegistryObject<MobEffect> ALCHEMIZED = EFFECTS.register("alchemized", AlchemizedEffect::new);
+    public static final RegistryObject<MobEffect> EMPTINESS = EFFECTS.register("emptiness", EmptinessEffect::new);
 
     public static void register(IEventBus eventBus) {
         EFFECTS.register(eventBus);
