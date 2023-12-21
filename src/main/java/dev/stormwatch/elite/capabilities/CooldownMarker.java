@@ -4,7 +4,7 @@ import net.minecraft.nbt.CompoundTag;
 
 public class CooldownMarker {
 
-    private long lastUsed = System.currentTimeMillis();
+    private long lastUsed = 0;
 
     public boolean isOnCooldown(int cooldownMilliseconds) {
         return cooldownMilliseconds > System.currentTimeMillis() - this.lastUsed;

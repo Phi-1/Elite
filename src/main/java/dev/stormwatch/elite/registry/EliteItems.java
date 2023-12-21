@@ -108,6 +108,8 @@ public class EliteItems {
             BrickLayerCharmItem::new);
     public static final RegistryObject<Item> EMPTINESS = ITEMS.register("emptiness",
             EmptinessCharmItem::new);
+    public static final RegistryObject<Item> RESONANCE = ITEMS.register("resonance",
+            ResonanceCharmItem::new);
 
     // Consumables
     public static final RegistryObject<Item> LESSER_BLOOD_SHARD = ITEMS.register("lesser_blood_shard",

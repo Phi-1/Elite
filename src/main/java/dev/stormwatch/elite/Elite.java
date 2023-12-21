@@ -5,6 +5,7 @@ import dev.stormwatch.elite.client.EliteInputHandler;
 import dev.stormwatch.elite.client.EliteItemProperties;
 import dev.stormwatch.elite.client.EliteKeyMappings;
 import dev.stormwatch.elite.client.renderers.ResonantArrowRenderer;
+import dev.stormwatch.elite.client.renderers.ResonantBoomRenderer;
 import dev.stormwatch.elite.effects.AlchemizedEffect;
 import dev.stormwatch.elite.effects.EmptinessEffect;
 import dev.stormwatch.elite.effects.ExpansionEffect;
@@ -149,6 +150,7 @@ public class Elite {
             event.accept(EliteItems.MARKSMANS_MEDAL);
             event.accept(EliteItems.BRICKLAYER);
             event.accept(EliteItems.EMPTINESS);
+            event.accept(EliteItems.RESONANCE);
         }
     }
 
@@ -158,6 +160,7 @@ public class Elite {
         @SubscribeEvent
         public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
             event.registerEntityRenderer(EliteEntityTypes.RESONANT_ARROW.get(), ResonantArrowRenderer::new);
+            event.registerEntityRenderer(EliteEntityTypes.RESONANT_BOOM.get(), ResonantBoomRenderer::new);
         }
 
         @SubscribeEvent

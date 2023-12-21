@@ -23,7 +23,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class EmptinessEffect extends MobEffect {
 
     private static final int EXPLOSION_RADIUS = 5;
-    private static final float DAMAGE_MODIFIER = 1.0f;
+    private static final float DAMAGE_MODIFIER = 2.0f;
 
     public EmptinessEffect() {
         super(MobEffectCategory.BENEFICIAL, 0x6a9e9c);
