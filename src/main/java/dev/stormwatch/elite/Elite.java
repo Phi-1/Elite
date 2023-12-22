@@ -138,6 +138,7 @@ public class Elite {
         }
         if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
             event.accept(EliteItems.SLEDGEHAMMER);
+            event.accept(EliteItems.EXCAVATOR);
             event.accept(EliteItems.PEARLESCENT_CRYSTAL_STAFF);
 
             event.accept(EliteItems.PHANTOM_WING);

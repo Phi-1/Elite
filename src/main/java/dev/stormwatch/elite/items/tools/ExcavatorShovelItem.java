@@ -1,5 +1,6 @@
 package dev.stormwatch.elite.items.tools;
 
+import dev.stormwatch.elite.registry.EliteTags;
 import dev.stormwatch.elite.registry.EliteTiers;
 import dev.stormwatch.elite.systems.BlockFaceClickListener;
 import net.minecraft.core.BlockPos;
@@ -11,21 +12,20 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.PickaxeItem;
 import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.common.Tags;
 
-public class SledgeHammerPickaxeItem extends PickaxeItem {
+public class ExcavatorShovelItem extends ShovelItem {
+    // TODO: drop from elder guardian
 
-    public SledgeHammerPickaxeItem() {
-        super(EliteTiers.SLEDGEHAMMER, 5, -3.2f, new Item.Properties()
+    public ExcavatorShovelItem() {
+        super(EliteTiers.EXCAVATOR, 5, -3.2f, new Item.Properties()
+                .rarity(Rarity.EPIC)
                 .stacksTo(1)
-                .fireResistant()
-                .rarity(Rarity.RARE));
+                .fireResistant());
     }
 
     @Override
@@ -53,15 +53,7 @@ public class SledgeHammerPickaxeItem extends PickaxeItem {
     }
 
     private boolean isMineable(BlockState state) {
-        return state.is(BlockTags.MINEABLE_WITH_PICKAXE);
-//        return state.is(Tags.Blocks.STONE)
-//                || state.is(Tags.Blocks.ORES)
-//                || state.is(Tags.Blocks.COBBLESTONE)
-//                || state.is(Tags.Blocks.OBSIDIAN)
-//                || state.is(Blocks.CRYING_OBSIDIAN)
-//                || state.is(Blocks.ANCIENT_DEBRIS)
-//                || state.is(Tags.Blocks.END_STONES)
-//                || state.is(Tags.Blocks.STORAGE_BLOCKS);
+        return state.is(BlockTags.MINEABLE_WITH_SHOVEL);
     }
 
     private Tuple<Direction, Direction> getRotationAndExpansionDirections(Direction blockFace) {
@@ -75,5 +67,4 @@ public class SledgeHammerPickaxeItem extends PickaxeItem {
         };
         return new Tuple<>(rotation, expansion);
     }
-
 }

@@ -16,7 +16,7 @@ import net.minecraft.world.phys.Vec2;
 
 public class PhantasmItem extends BowItem {
 
-    // TODO: texture files (model is based on item/generated so you can go wild)
+    // TODO: repair with unknown metal shards
 
     public PhantasmItem() {
         super(new Item.Properties()

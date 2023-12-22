@@ -19,6 +19,10 @@ public enum EliteTiers implements Tier {
     SLEDGEHAMMER(3, 2000, 2.0F, 4.0F, 10,
             () -> Ingredient.of(EliteItems.UNKNOWN_METAL_SHARD.get()),
             () -> BlockTags.NEEDS_DIAMOND_TOOL
+    ),
+    EXCAVATOR(3, 2000, 2.0F, 4.0F, 20,
+            () -> Ingredient.of(EliteItems.SHIMMERING_SCALE.get()),
+            () -> BlockTags.NEEDS_DIAMOND_TOOL
     );
 
     private final int level;

@@ -15,6 +15,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 
 public class BlackForgeBlock extends BaseEntityBlock {
+    // TODO: drop from warden
 
     public BlackForgeBlock() {
         super(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)

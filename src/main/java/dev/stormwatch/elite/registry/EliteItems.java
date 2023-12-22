@@ -7,6 +7,7 @@ import dev.stormwatch.elite.items.armor.GildedArmorItem;
 import dev.stormwatch.elite.items.armor.ShimmeringArmorItem;
 import dev.stormwatch.elite.items.charms.*;
 import dev.stormwatch.elite.items.consumables.BaseBloodShardItem;
+import dev.stormwatch.elite.items.tools.ExcavatorShovelItem;
 import dev.stormwatch.elite.items.tools.PearlescentCrystalStaffItem;
 import dev.stormwatch.elite.items.tools.SledgeHammerPickaxeItem;
 import dev.stormwatch.elite.items.weapons.*;
@@ -39,6 +40,8 @@ public class EliteItems {
     // Tools
     public static final RegistryObject<Item> SLEDGEHAMMER = ITEMS.register("sledgehammer",
             SledgeHammerPickaxeItem::new);
+    public static final RegistryObject<Item> EXCAVATOR = ITEMS.register("excavator",
+            ExcavatorShovelItem::new);
     public static final RegistryObject<Item> PEARLESCENT_CRYSTAL_STAFF = ITEMS.register("pearlescent_crystal_staff",
             PearlescentCrystalStaffItem::new);
 
