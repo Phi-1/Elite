@@ -113,6 +113,8 @@ public class EliteItems {
             EmptinessCharmItem::new);
     public static final RegistryObject<Item> RESONANCE = ITEMS.register("resonance",
             ResonanceCharmItem::new);
+    public static final RegistryObject<Item> SHIMMERING_MEMBRANE = ITEMS.register("shimmering_membrane",
+            ShimmeringMembraneCharmItem::new);
 
     // Consumables
     public static final RegistryObject<Item> LESSER_BLOOD_SHARD = ITEMS.register("lesser_blood_shard",

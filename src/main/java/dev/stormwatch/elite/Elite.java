@@ -13,10 +13,7 @@ import dev.stormwatch.elite.effects.OverloadedEffect;
 import dev.stormwatch.elite.entities.projectiles.ResonantArrow;
 import dev.stormwatch.elite.items.armor.DarkIronArmorItem;
 import dev.stormwatch.elite.items.armor.GildedArmorItem;
-import dev.stormwatch.elite.items.charms.BezoarCharmItem;
-import dev.stormwatch.elite.items.charms.BrickLayerCharmItem;
-import dev.stormwatch.elite.items.charms.CharmItem;
-import dev.stormwatch.elite.items.charms.MarksmansMedalCharmItem;
+import dev.stormwatch.elite.items.charms.*;
 import dev.stormwatch.elite.items.weapons.HungeringBladeItem;
 import dev.stormwatch.elite.items.weapons.TheHeraldItem;
 import dev.stormwatch.elite.networking.EliteNetworking;
@@ -73,6 +70,7 @@ public class Elite {
         MinecraftForge.EVENT_BUS.register(BezoarCharmItem.class);
         MinecraftForge.EVENT_BUS.register(MarksmansMedalCharmItem.class);
         MinecraftForge.EVENT_BUS.register(BrickLayerCharmItem.class);
+        MinecraftForge.EVENT_BUS.register(ShimmeringMembraneCharmItem.class);
         MinecraftForge.EVENT_BUS.register(HungeringBladeItem.class);
         MinecraftForge.EVENT_BUS.register(TheHeraldItem.class);
         MinecraftForge.EVENT_BUS.register(DarkIronArmorItem.class);
@@ -153,6 +151,7 @@ public class Elite {
             event.accept(EliteItems.BRICKLAYER);
             event.accept(EliteItems.EMPTINESS);
             event.accept(EliteItems.RESONANCE);
+            event.accept(EliteItems.SHIMMERING_MEMBRANE);
         }
     }
 
