@@ -103,6 +103,7 @@ public class Elite {
         }
         if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
             event.accept(EliteBlocks.PEARLESCENT_CRYSTAL);
+            event.accept(EliteBlocks.BLACK_FORGE);
         }
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             event.accept(EliteItems.SHIMMERING_SCALE);
