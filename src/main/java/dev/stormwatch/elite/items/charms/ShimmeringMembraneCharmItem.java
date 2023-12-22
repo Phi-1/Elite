@@ -18,6 +18,8 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class ShimmeringMembraneCharmItem extends CharmItem implements CooldownAbilityItem {
 
+    // TODO: drop from elder
+
     private static final int COOLDOWN_MILLIS = 120 * 1000;
     private static final int COOLDOWN_TICKS = COOLDOWN_MILLIS / 1000 * 20;
 

@@ -1,10 +1,7 @@
 package dev.stormwatch.elite.networking;
 
 import dev.stormwatch.elite.Elite;
-import dev.stormwatch.elite.networking.packets.ActivateCharmAbilityC2SPacket;
-import dev.stormwatch.elite.networking.packets.AddEmptinessParticlesS2CPacket;
-import dev.stormwatch.elite.networking.packets.AddExplosionS2CPacket;
-import dev.stormwatch.elite.networking.packets.PlaySoundS2CPacket;
+import dev.stormwatch.elite.networking.packets.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.chunk.LevelChunk;
@@ -50,6 +47,18 @@ public class EliteNetworking {
                 .decoder(AddEmptinessParticlesS2CPacket::new)
                 .encoder(AddEmptinessParticlesS2CPacket::toBytes)
                 .consumerMainThread(AddEmptinessParticlesS2CPacket::handle)
+                .add();
+
+        INSTANCE.messageBuilder(ActivateFlightEngineC2SPacket.class, id(), NetworkDirection.PLAY_TO_SERVER)
+                .decoder(ActivateFlightEngineC2SPacket::new)
+                .encoder(ActivateFlightEngineC2SPacket::toBytes)
+                .consumerMainThread(ActivateFlightEngineC2SPacket::handle)
+                .add();
+
+        INSTANCE.messageBuilder(AddEngineParticlesS2CPacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
+                .decoder(AddEngineParticlesS2CPacket::new)
+                .encoder(AddEngineParticlesS2CPacket::toBytes)
+                .consumerMainThread(AddEngineParticlesS2CPacket::handle)
                 .add();
     }
 

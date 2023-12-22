@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import dev.stormwatch.elite.client.EliteInputHandler;
 import dev.stormwatch.elite.client.EliteItemProperties;
 import dev.stormwatch.elite.client.EliteKeyMappings;
+import dev.stormwatch.elite.client.abilities.AutoAnnihilationEngineAbility;
 import dev.stormwatch.elite.client.renderers.ResonantArrowRenderer;
 import dev.stormwatch.elite.client.renderers.ResonantBoomRenderer;
 import dev.stormwatch.elite.effects.AlchemizedEffect;
@@ -82,6 +83,7 @@ public class Elite {
 
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
             MinecraftForge.EVENT_BUS.register(EliteInputHandler.class);
+            MinecraftForge.EVENT_BUS.register(AutoAnnihilationEngineAbility.class);
         });
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
@@ -152,6 +154,7 @@ public class Elite {
             event.accept(EliteItems.EMPTINESS);
             event.accept(EliteItems.RESONANCE);
             event.accept(EliteItems.SHIMMERING_MEMBRANE);
+            event.accept(EliteItems.AUTO_ANNIHILATION_ENGINE);
         }
     }
 
