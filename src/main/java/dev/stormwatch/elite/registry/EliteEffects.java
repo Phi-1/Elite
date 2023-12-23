@@ -21,6 +21,7 @@ public class EliteEffects {
     public static final RegistryObject<MobEffect> CHARMED = EFFECTS.register("charmed", CharmedEffect::new);
     public static final RegistryObject<MobEffect> EMPTINESS = EFFECTS.register("emptiness", EmptinessEffect::new);
     public static final RegistryObject<MobEffect> SHIMMERING_CROWN_PASSIVES = EFFECTS.register("shimmering_crown_passives", ShimmeringCrownPassivesEffect::new);
+    public static final RegistryObject<MobEffect> INVINCIBILITY = EFFECTS.register("invincibility", InvincibilityEffect::new);
 
     public static void register(IEventBus eventBus) {
         EFFECTS.register(eventBus);

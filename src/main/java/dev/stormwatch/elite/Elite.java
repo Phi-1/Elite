@@ -70,6 +70,7 @@ public class Elite {
         MinecraftForge.EVENT_BUS.register(MarksmansMedalCharmItem.class);
         MinecraftForge.EVENT_BUS.register(BrickLayerCharmItem.class);
         MinecraftForge.EVENT_BUS.register(ShimmeringMembraneCharmItem.class);
+        MinecraftForge.EVENT_BUS.register(AncientWreathCharmItem.class);
         MinecraftForge.EVENT_BUS.register(HungeringBladeItem.class);
         MinecraftForge.EVENT_BUS.register(TheHeraldItem.class);
         MinecraftForge.EVENT_BUS.register(DarkIronArmorItem.class);
@@ -80,6 +81,7 @@ public class Elite {
         MinecraftForge.EVENT_BUS.register(AlchemizedEffect.class);
         MinecraftForge.EVENT_BUS.register(EmptinessEffect.class);
         MinecraftForge.EVENT_BUS.register(ShimmeringCrownPassivesEffect.class);
+        MinecraftForge.EVENT_BUS.register(InvincibilityEffect.class);
 
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
             MinecraftForge.EVENT_BUS.register(EliteInputHandler.class);
@@ -152,6 +154,7 @@ public class Elite {
             event.accept(EliteItems.POTION_BELT);
             event.accept(EliteItems.MARKSMANS_MEDAL);
             event.accept(EliteItems.BRICKLAYER);
+            event.accept(EliteItems.ANCIENT_WREATH);
             event.accept(EliteItems.EMPTINESS);
             event.accept(EliteItems.RESONANCE);
             event.accept(EliteItems.SHIMMERING_MEMBRANE);

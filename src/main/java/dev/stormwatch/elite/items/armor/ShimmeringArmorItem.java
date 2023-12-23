@@ -25,6 +25,8 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class ShimmeringArmorItem extends ArmorItem {
 
+    // TODO: helmet requires heart of the sea to craft
+
     private static final int CROWN_UNDERWATER_GAIN = 3;
     private static final int CROWN_RAIN_GAIN = 1;
     private static final int MAX_CROWN_POWER = 10 * 60 * 20 * CROWN_UNDERWATER_GAIN; // fully charges in 10 minutes underwater

@@ -110,6 +110,8 @@ public class EliteItems {
             MarksmansMedalCharmItem::new);
     public static final RegistryObject<Item> BRICKLAYER = ITEMS.register("bricklayer",
             BrickLayerCharmItem::new);
+    public static final RegistryObject<Item> ANCIENT_WREATH = ITEMS.register("ancient_wreath",
+            AncientWreathCharmItem::new);
     public static final RegistryObject<Item> EMPTINESS = ITEMS.register("emptiness",
             EmptinessCharmItem::new);
     public static final RegistryObject<Item> RESONANCE = ITEMS.register("resonance",
