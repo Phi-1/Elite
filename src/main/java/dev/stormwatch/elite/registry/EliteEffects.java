@@ -19,6 +19,7 @@ public class EliteEffects {
     public static final RegistryObject<MobEffect> OVERLOADED = EFFECTS.register("overloaded", OverloadedEffect::new);
     public static final RegistryObject<MobEffect> ALCHEMIZED = EFFECTS.register("alchemized", AlchemizedEffect::new);
     public static final RegistryObject<MobEffect> EMPTINESS = EFFECTS.register("emptiness", EmptinessEffect::new);
+    public static final RegistryObject<MobEffect> SHIMMERING_CROWN_PASSIVES = EFFECTS.register("shimmering_crown_passives", ShimmeringCrownPassivesEffect::new);
 
     public static void register(IEventBus eventBus) {
         EFFECTS.register(eventBus);

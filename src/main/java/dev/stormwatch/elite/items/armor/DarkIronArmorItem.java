@@ -100,8 +100,7 @@ public class DarkIronArmorItem extends ArmorItem {
         if (!(InventoryUtil.hasArmorEquipped(player, EliteItems.DARK_IRON_BOOTS.get(), SlotIndices.BOOTS)
                 && InventoryUtil.hasArmorEquipped(player, EliteItems.DARK_IRON_LEGGINGS.get(), SlotIndices.LEGGINGS)
                 && InventoryUtil.hasArmorEquipped(player, EliteItems.DARK_IRON_CHESTPLATE.get(), SlotIndices.CHESTPLATE)
-                && InventoryUtil.hasArmorEquipped(player, EliteItems.DARK_IRON_HELMET.get(), SlotIndices.HELMET))
-        ) return;
+                && InventoryUtil.hasArmorEquipped(player, EliteItems.DARK_IRON_HELMET.get(), SlotIndices.HELMET))) return;
         if (event.getSource().is(DamageTypeTags.IS_PROJECTILE)) {
             if (!event.getEntity().hasEffect(EliteEffects.EXECUTION.get())) {
                 event.getEntity().addEffect(new MobEffectInstance(EliteEffects.EXECUTION.get(), ExecutionEffect.DURATION, 0, true, false, true));
@@ -135,9 +134,8 @@ public class DarkIronArmorItem extends ArmorItem {
     private void processBootsAbility(Player player) {
         if (player.level().isClientSide) return;
 
-        if (InventoryUtil.hasArmorEquipped(player, EliteItems.DARK_IRON_BOOTS.get(), SlotIndices.BOOTS)
-            && (InventoryUtil.getHeldItemOfType(player, AxeItem.class) != null
-                || InventoryUtil.getHeldItemOfType(player, ProjectileWeaponItem.class) != null)) {
+        if (InventoryUtil.getHeldItemOfType(player, AxeItem.class) != null
+                || InventoryUtil.getHeldItemOfType(player, ProjectileWeaponItem.class) != null) {
             AttributeUtil.setTransientAttribute(player, Attributes.MOVEMENT_SPEED, LEGGINGS_SPEED_INFO.name(), LEGGINGS_SPEED_INFO.uuid(), LEGGINGS_SPEED_AMOUNT, AttributeModifier.Operation.MULTIPLY_BASE);
         } else {
             AttributeUtil.removeAttributeModifier(player, Attributes.MOVEMENT_SPEED, LEGGINGS_SPEED_INFO.uuid());

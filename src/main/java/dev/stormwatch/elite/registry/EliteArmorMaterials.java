@@ -27,7 +27,7 @@ public enum EliteArmorMaterials implements StringRepresentable, ArmorMaterial {
         protection.put(ArmorItem.Type.BOOTS, 2);
         protection.put(ArmorItem.Type.LEGGINGS, 5);
         protection.put(ArmorItem.Type.CHESTPLATE, 6);
-        protection.put(ArmorItem.Type.HELMET, 2);
+        protection.put(ArmorItem.Type.HELMET, 3);
     }), 8, SoundEvents.ARMOR_EQUIP_CHAIN, 1.0F, 0.1F, () -> {
         return Ingredient.of(EliteItems.DARK_IRON_SCRAP.get());
     }),

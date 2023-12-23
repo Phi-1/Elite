@@ -7,13 +7,11 @@ import dev.stormwatch.elite.client.EliteKeyMappings;
 import dev.stormwatch.elite.client.abilities.AutoAnnihilationEngineAbility;
 import dev.stormwatch.elite.client.renderers.ResonantArrowRenderer;
 import dev.stormwatch.elite.client.renderers.ResonantBoomRenderer;
-import dev.stormwatch.elite.effects.AlchemizedEffect;
-import dev.stormwatch.elite.effects.EmptinessEffect;
-import dev.stormwatch.elite.effects.ExpansionEffect;
-import dev.stormwatch.elite.effects.OverloadedEffect;
+import dev.stormwatch.elite.effects.*;
 import dev.stormwatch.elite.entities.projectiles.ResonantArrow;
 import dev.stormwatch.elite.items.armor.DarkIronArmorItem;
 import dev.stormwatch.elite.items.armor.GildedArmorItem;
+import dev.stormwatch.elite.items.armor.ShimmeringArmorItem;
 import dev.stormwatch.elite.items.charms.*;
 import dev.stormwatch.elite.items.weapons.HungeringBladeItem;
 import dev.stormwatch.elite.items.weapons.TheHeraldItem;
@@ -75,11 +73,13 @@ public class Elite {
         MinecraftForge.EVENT_BUS.register(HungeringBladeItem.class);
         MinecraftForge.EVENT_BUS.register(TheHeraldItem.class);
         MinecraftForge.EVENT_BUS.register(DarkIronArmorItem.class);
+        MinecraftForge.EVENT_BUS.register(ShimmeringArmorItem.class);
         MinecraftForge.EVENT_BUS.register(GildedArmorItem.class);
         MinecraftForge.EVENT_BUS.register(ExpansionEffect.class);
         MinecraftForge.EVENT_BUS.register(OverloadedEffect.class);
         MinecraftForge.EVENT_BUS.register(AlchemizedEffect.class);
         MinecraftForge.EVENT_BUS.register(EmptinessEffect.class);
+        MinecraftForge.EVENT_BUS.register(ShimmeringCrownPassivesEffect.class);
 
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
             MinecraftForge.EVENT_BUS.register(EliteInputHandler.class);

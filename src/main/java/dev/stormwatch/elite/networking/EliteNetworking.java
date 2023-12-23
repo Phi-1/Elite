@@ -60,6 +60,12 @@ public class EliteNetworking {
                 .encoder(AddEngineParticlesS2CPacket::toBytes)
                 .consumerMainThread(AddEngineParticlesS2CPacket::handle)
                 .add();
+
+        INSTANCE.messageBuilder(AddShimmeringFallParticlesS2CPacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
+                .decoder(AddShimmeringFallParticlesS2CPacket::new)
+                .encoder(AddShimmeringFallParticlesS2CPacket::toBytes)
+                .consumerMainThread(AddShimmeringFallParticlesS2CPacket::handle)
+                .add();
     }
 
     public static <MSG> void sendToServer(MSG message) {
