@@ -119,6 +119,7 @@ public class Elite {
             event.accept(EliteItems.THE_HERALD);
             event.accept(EliteItems.RUNE_STAFF_OF_OVERLOADING);
             event.accept(EliteItems.RUNE_STAFF_OF_ALCHEMIZING);
+            event.accept(EliteItems.RUNE_STAFF_OF_CHARMING);
             event.accept(EliteItems.PHANTASM);
 
             event.accept(EliteItems.SHIMMERING_BOOTS);

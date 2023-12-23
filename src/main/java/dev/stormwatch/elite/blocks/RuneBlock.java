@@ -59,7 +59,7 @@ public class RuneBlock extends Block {
         MobEffect effectType = switch (runeType) {
             case RuneTypes.OVERLOADING -> EliteEffects.OVERLOADED.get();
             case RuneTypes.ALCHEMIZING -> EliteEffects.ALCHEMIZED.get();
-            // TODO: last rune type
+            case RuneTypes.CHARMING -> EliteEffects.CHARMED.get();
             default -> throw new IllegalStateException("Unexpected value: " + runeType + ", rune type should be one of predefined values");
         };
 

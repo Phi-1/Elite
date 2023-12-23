@@ -56,7 +56,8 @@ public class EliteItems {
             () -> new BaseRuneStaffItem(RuneTypes.OVERLOADING));
     public static final RegistryObject<Item> RUNE_STAFF_OF_ALCHEMIZING = ITEMS.register("rune_staff_of_alchemizing",
             () -> new BaseRuneStaffItem(RuneTypes.ALCHEMIZING));
-    // TODO: unknown staff
+    public static final RegistryObject<Item> RUNE_STAFF_OF_CHARMING = ITEMS.register("rune_staff_of_charming",
+            () -> new BaseRuneStaffItem(RuneTypes.CHARMING));
     public static final RegistryObject<Item> PHANTASM = ITEMS.register("phantasm",
             PhantasmItem::new);
 

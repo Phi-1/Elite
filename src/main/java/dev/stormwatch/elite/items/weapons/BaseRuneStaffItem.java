@@ -35,7 +35,7 @@ public class BaseRuneStaffItem extends Item {
     private static final ImmutableMap<Integer, Integer> RUNE_TYPE_COOLDOWNS = new ImmutableMap.Builder<Integer, Integer>()
             .put(RuneTypes.OVERLOADING, 20)
             .put(RuneTypes.ALCHEMIZING, 20)
-            .put(RuneTypes.UNKNOWN, 20)
+            .put(RuneTypes.CHARMING, 20)
             .build();
 
 
@@ -58,6 +58,7 @@ public class BaseRuneStaffItem extends Item {
         List<Supplier<BlockPos>> runePositions = switch (this.runeType) {
             case RuneTypes.OVERLOADING -> getOverloadPlacement(centerRunePos);
             case RuneTypes.ALCHEMIZING -> getAlchemizePlacement(centerRunePos, player.getDirection());
+            case RuneTypes.CHARMING -> getCharmingPlacement(centerRunePos, player.getDirection());
             default -> throw new IllegalStateException("Unexpected value: " + this.runeType);
         };
 
@@ -125,6 +126,24 @@ public class BaseRuneStaffItem extends Item {
                 () -> centerPos.relative(facing).relative(facing.getClockWise()),
                 () -> centerPos.relative(facing).relative(facing.getClockWise(), 4),
                 () -> centerPos.relative(facing).relative(facing.getClockWise(), 6)
+        );
+    }
+
+    private List<Supplier<BlockPos>> getCharmingPlacement(BlockPos centerPos, Direction facing) {
+        return List.of(
+                () -> centerPos.relative(facing),
+                () -> centerPos.relative(facing.getClockWise()),
+                () -> centerPos.relative(facing.getOpposite()),
+                () -> centerPos.relative(facing.getCounterClockWise()),
+
+                () -> centerPos.relative(facing, 3),
+                () -> centerPos.relative(facing.getClockWise(), 2).relative(facing),
+                () -> centerPos.relative(facing.getClockWise(), 3),
+                () -> centerPos.relative(facing.getClockWise(), 2).relative(facing.getOpposite()),
+                () -> centerPos.relative(facing.getOpposite(), 3),
+                () -> centerPos.relative(facing.getCounterClockWise(), 2).relative(facing),
+                () -> centerPos.relative(facing.getCounterClockWise(), 3),
+                () -> centerPos.relative(facing.getCounterClockWise(), 2).relative(facing.getOpposite())
         );
     }
 
