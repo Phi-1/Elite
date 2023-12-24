@@ -13,6 +13,8 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class AncientWreathCharmItem extends CharmItem {
 
+    // TODO: the gods protect your right to rule
+
     private static final int RETALIATION_COOLDOWN_TICKS = 100;
 
     public AncientWreathCharmItem() {

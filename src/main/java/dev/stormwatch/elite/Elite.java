@@ -21,6 +21,7 @@ import dev.stormwatch.elite.systems.BlockFaceClickListener;
 import dev.stormwatch.elite.systems.GameRuleSettings;
 import dev.stormwatch.elite.systems.MonsterEnhancer;
 import dev.stormwatch.elite.systems.PlayerEnhancer;
+import dev.stormwatch.elite.util.TickTasks;
 import dev.stormwatch.elite.util.TickTimers;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
@@ -60,6 +61,7 @@ public class Elite {
 
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(TickTimers.class);
+        MinecraftForge.EVENT_BUS.register(TickTasks.class);
         MinecraftForge.EVENT_BUS.register(GameRuleSettings.class);
         MinecraftForge.EVENT_BUS.register(MonsterEnhancer.class);
         MinecraftForge.EVENT_BUS.register(PlayerEnhancer.class);

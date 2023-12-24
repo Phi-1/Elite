@@ -1,0 +1,267 @@
+[24Dec2023 17:56:59.621] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgedatauserdev, --assetIndex, 5, --assetsDir, C:\Users\Phi\.gradle\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 47.2.16, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, --mod, elite, --all, --output, C:\Users\Phi\Documents\Code\Java\Elite\src\generated\resources, --existing, C:\Users\Phi\Documents\Code\Java\Elite\src\main\resources]
+[24Dec2023 17:56:59.627] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.7 by Eclipse Adoptium; OS Windows 11 arch amd64 version 10.0
+[24Dec2023 17:56:59.700] [main/DEBUG] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Found launch services [fmlclientdev,forgeclient,minecraft,forgegametestserverdev,fmlserveruserdev,fmlclient,fmldatauserdev,forgeserverdev,forgeserveruserdev,forgeclientdev,forgeclientuserdev,forgeserver,forgedatadev,fmlserver,fmlclientuserdev,fmlserverdev,forgedatauserdev,testharness,forgegametestserveruserdev]
+[24Dec2023 17:56:59.716] [main/DEBUG] [cpw.mods.modlauncher.NameMappingServiceHandler/MODLAUNCHER]: Found naming services : [srgtomcp]
+[24Dec2023 17:56:59.725] [main/DEBUG] [cpw.mods.modlauncher.LaunchPluginHandler/MODLAUNCHER]: Found launch plugins: [mixin,eventbus,slf4jfixer,object_holder_definalize,runtime_enum_extender,capability_token_subclass,accesstransformer,runtimedistcleaner]
+[24Dec2023 17:56:59.734] [main/DEBUG] [cpw.mods.modlauncher.TransformationServicesHandler/MODLAUNCHER]: Discovering transformation services
+[24Dec2023 17:56:59.740] [main/DEBUG] [net.minecraftforge.fml.loading.FMLPaths/CORE]: Path GAMEDIR is C:\Users\Phi\Documents\Code\Java\Elite\run-data
+[24Dec2023 17:56:59.740] [main/DEBUG] [net.minecraftforge.fml.loading.FMLPaths/CORE]: Path MODSDIR is C:\Users\Phi\Documents\Code\Java\Elite\run-data\mods
+[24Dec2023 17:56:59.740] [main/DEBUG] [net.minecraftforge.fml.loading.FMLPaths/CORE]: Path CONFIGDIR is C:\Users\Phi\Documents\Code\Java\Elite\run-data\config
+[24Dec2023 17:56:59.740] [main/DEBUG] [net.minecraftforge.fml.loading.FMLPaths/CORE]: Path FMLCONFIG is C:\Users\Phi\Documents\Code\Java\Elite\run-data\config\fml.toml
+[24Dec2023 17:56:59.771] [main/DEBUG] [cpw.mods.modlauncher.TransformationServicesHandler/MODLAUNCHER]: Found additional transformation services from discovery services: 
+[24Dec2023 17:56:59.779] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgedatauserdev
+[24Dec2023 17:56:59.786] [main/DEBUG] [cpw.mods.modlauncher.TransformationServicesHandler/MODLAUNCHER]: Found transformer services : [mixin,fml]
+[24Dec2023 17:56:59.787] [main/DEBUG] [cpw.mods.modlauncher.TransformationServicesHandler/MODLAUNCHER]: Transformation services loading
+[24Dec2023 17:56:59.787] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Loading service mixin
+[24Dec2023 17:56:59.788] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Loaded service mixin
+[24Dec2023 17:56:59.788] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Loading service fml
+[24Dec2023 17:56:59.789] [main/DEBUG] [net.minecraftforge.fml.loading.LauncherVersion/CORE]: Found FMLLauncher version 1.0
+[24Dec2023 17:56:59.790] [main/DEBUG] [net.minecraftforge.fml.loading.FMLLoader/CORE]: FML 1.0 loading
+[24Dec2023 17:56:59.790] [main/DEBUG] [net.minecraftforge.fml.loading.FMLLoader/CORE]: FML found ModLauncher version : 10.0.9+10.0.9+main.dcd20f30
+[24Dec2023 17:56:59.790] [main/DEBUG] [net.minecraftforge.fml.loading.FMLLoader/CORE]: FML found AccessTransformer version : 8.0.4+66+master.c09db6d7
+[24Dec2023 17:56:59.791] [main/DEBUG] [net.minecraftforge.fml.loading.FMLLoader/CORE]: FML found EventBus version : 6.0.5+6.0.5+master.eb8e549b
+[24Dec2023 17:56:59.791] [main/DEBUG] [net.minecraftforge.fml.loading.FMLLoader/CORE]: Found Runtime Dist Cleaner
+[24Dec2023 17:56:59.793] [main/DEBUG] [net.minecraftforge.fml.loading.FMLLoader/CORE]: FML found CoreMod version : 5.0.1+15+master.dc5a2922
+[24Dec2023 17:56:59.793] [main/DEBUG] [net.minecraftforge.fml.loading.FMLLoader/CORE]: Found ForgeSPI package implementation version 7.0.1+7.0.1+master.d2b38bf6
+[24Dec2023 17:56:59.793] [main/DEBUG] [net.minecraftforge.fml.loading.FMLLoader/CORE]: Found ForgeSPI package specification 5
+[24Dec2023 17:56:59.794] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Loaded service fml
+[24Dec2023 17:56:59.795] [main/DEBUG] [cpw.mods.modlauncher.TransformationServicesHandler/MODLAUNCHER]: Configuring option handling for services
+[24Dec2023 17:56:59.802] [main/DEBUG] [cpw.mods.modlauncher.TransformationServicesHandler/MODLAUNCHER]: Transformation services initializing
+[24Dec2023 17:56:59.803] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Initializing transformation service mixin
+[24Dec2023 17:56:59.824] [main/DEBUG] [mixin/]: MixinService [ModLauncher] was successfully booted in cpw.mods.cl.ModuleClassLoader@17046283
+[24Dec2023 17:56:59.835] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/Users/Phi/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23128!/ Service=ModLauncher Env=CLIENT
+[24Dec2023 17:56:59.838] [main/DEBUG] [mixin/]: Initialising Mixin Platform Manager
+[24Dec2023 17:56:59.838] [main/DEBUG] [mixin/]: Adding mixin platform agents for container ModLauncher Root Container(ModLauncher:4f56a0a2)
+[24Dec2023 17:56:59.839] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentMinecraftForge for ModLauncher Root Container(ModLauncher:4f56a0a2)
+[24Dec2023 17:56:59.839] [main/DEBUG] [mixin/]: MixinPlatformAgentMinecraftForge rejected container ModLauncher Root Container(ModLauncher:4f56a0a2)
+[24Dec2023 17:56:59.840] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentDefault for ModLauncher Root Container(ModLauncher:4f56a0a2)
+[24Dec2023 17:56:59.840] [main/DEBUG] [mixin/]: MixinPlatformAgentDefault accepted container ModLauncher Root Container(ModLauncher:4f56a0a2)
+[24Dec2023 17:56:59.842] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Initialized transformation service mixin
+[24Dec2023 17:56:59.842] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Initializing transformation service fml
+[24Dec2023 17:56:59.842] [main/DEBUG] [net.minecraftforge.fml.loading.FMLServiceProvider/CORE]: Setting up basic FML game directories
+[24Dec2023 17:56:59.842] [main/DEBUG] [net.minecraftforge.fml.loading.FMLPaths/CORE]: Path GAMEDIR is C:\Users\Phi\Documents\Code\Java\Elite\run-data
+[24Dec2023 17:56:59.843] [main/DEBUG] [net.minecraftforge.fml.loading.FMLPaths/CORE]: Path MODSDIR is C:\Users\Phi\Documents\Code\Java\Elite\run-data\mods
+[24Dec2023 17:56:59.843] [main/DEBUG] [net.minecraftforge.fml.loading.FMLPaths/CORE]: Path CONFIGDIR is C:\Users\Phi\Documents\Code\Java\Elite\run-data\config
+[24Dec2023 17:56:59.843] [main/DEBUG] [net.minecraftforge.fml.loading.FMLPaths/CORE]: Path FMLCONFIG is C:\Users\Phi\Documents\Code\Java\Elite\run-data\config\fml.toml
+[24Dec2023 17:56:59.843] [main/DEBUG] [net.minecraftforge.fml.loading.FMLServiceProvider/CORE]: Loading configuration
+[24Dec2023 17:56:59.845] [main/DEBUG] [net.minecraftforge.fml.loading.FMLServiceProvider/CORE]: Preparing ModFile
+[24Dec2023 17:56:59.848] [main/DEBUG] [net.minecraftforge.fml.loading.FMLServiceProvider/CORE]: Preparing launch handler
+[24Dec2023 17:56:59.848] [main/DEBUG] [net.minecraftforge.fml.loading.FMLLoader/CORE]: Using forgedatauserdev as launch service
+[24Dec2023 17:56:59.859] [main/DEBUG] [net.minecraftforge.fml.loading.FMLLoader/CORE]: Received command line version data  : VersionInfo[forgeVersion=47.2.16, mcVersion=1.20.1, mcpVersion=20230612.114412, forgeGroup=net.minecraftforge]
+[24Dec2023 17:56:59.862] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Initialized transformation service fml
+[24Dec2023 17:56:59.862] [main/DEBUG] [cpw.mods.modlauncher.NameMappingServiceHandler/MODLAUNCHER]: Current naming domain is 'mcp'
+[24Dec2023 17:56:59.863] [main/DEBUG] [cpw.mods.modlauncher.NameMappingServiceHandler/MODLAUNCHER]: Identified name mapping providers {srg=srgtomcp:1234}
+[24Dec2023 17:56:59.863] [main/DEBUG] [cpw.mods.modlauncher.TransformationServicesHandler/MODLAUNCHER]: Transformation services begin scanning
+[24Dec2023 17:56:59.864] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Beginning scan trigger - transformation service mixin
+[24Dec2023 17:56:59.864] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: End scan trigger - transformation service mixin
+[24Dec2023 17:56:59.864] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Beginning scan trigger - transformation service fml
+[24Dec2023 17:56:59.864] [main/DEBUG] [net.minecraftforge.fml.loading.FMLServiceProvider/CORE]: Initiating mod scan
+[24Dec2023 17:56:59.875] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModListHandler/CORE]: Found mod coordinates from lists: []
+[24Dec2023 17:56:59.880] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer/CORE]: Found Mod Locators : (mods folder:null),(maven libs:null),(exploded directory:null),(minecraft:null),(userdev classpath:null)
+[24Dec2023 17:56:59.881] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer/CORE]: Found Dependency Locators : (JarInJar:null)
+[24Dec2023 17:56:59.887] [main/DEBUG] [net.minecraftforge.fml.loading.targets.CommonLaunchHandler/CORE]: Got mod coordinates elite%%C:\Users\Phi\Documents\Code\Java\Elite\build\resources\main;elite%%C:\Users\Phi\Documents\Code\Java\Elite\build\classes\java\main from env
+[24Dec2023 17:56:59.888] [main/DEBUG] [net.minecraftforge.fml.loading.targets.CommonLaunchHandler/CORE]: Found supplied mod coordinates [{elite=[C:\Users\Phi\Documents\Code\Java\Elite\build\resources\main, C:\Users\Phi\Documents\Code\Java\Elite\build\classes\java\main]}]
+[24Dec2023 17:57:00.154] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file forge-1.20.1-47.2.16_mapped_parchment_2023.09.03-1.20.1-recomp.jar with {minecraft} mods - versions {1.20.1}
+[24Dec2023 17:57:00.157] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate C:\Users\Phi\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.1-47.2.16\f577d6351d9e103670e660dbb191cabd05e2144b\javafmllanguage-1.20.1-47.2.16.jar
+[24Dec2023 17:57:00.157] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Phi\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.1-47.2.16\f577d6351d9e103670e660dbb191cabd05e2144b\javafmllanguage-1.20.1-47.2.16.jar is missing mods.toml file
+[24Dec2023 17:57:00.160] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate C:\Users\Phi\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.1-47.2.16\bda363aeb14759edae81402cdbfcd1a3bbcae360\lowcodelanguage-1.20.1-47.2.16.jar
+[24Dec2023 17:57:00.160] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Phi\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.1-47.2.16\bda363aeb14759edae81402cdbfcd1a3bbcae360\lowcodelanguage-1.20.1-47.2.16.jar is missing mods.toml file
+[24Dec2023 17:57:00.163] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate C:\Users\Phi\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.1-47.2.16\b072fa4c6b9d05781e7fc62d4c649afa6745014\mclanguage-1.20.1-47.2.16.jar
+[24Dec2023 17:57:00.163] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Phi\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.1-47.2.16\b072fa4c6b9d05781e7fc62d4c649afa6745014\mclanguage-1.20.1-47.2.16.jar is missing mods.toml file
+[24Dec2023 17:57:00.165] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate C:\Users\Phi\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.1-47.2.16\3045b348d13183b8dd93d2f00413c6cac0d36c64\fmlcore-1.20.1-47.2.16.jar
+[24Dec2023 17:57:00.165] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Phi\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.1-47.2.16\3045b348d13183b8dd93d2f00413c6cac0d36c64\fmlcore-1.20.1-47.2.16.jar is missing mods.toml file
+[24Dec2023 17:57:00.168] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate C:\Users\Phi\Documents\Code\Java\Elite\build\resources\main
+[24Dec2023 17:57:00.178] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file main with {elite} mods - versions {0.0.1-1.20.1}
+[24Dec2023 17:57:00.180] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate /
+[24Dec2023 17:57:00.182] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file  with {forge} mods - versions {47.2.16}
+[24Dec2023 17:57:00.199] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate C:\Users\Phi\.gradle\caches\forge_gradle\deobf_dependencies\top\theillusivec4\curios\curios-forge\5.4.2+1.20.1_mapped_parchment_2023.09.03-1.20.1\curios-forge-5.4.2+1.20.1_mapped_parchment_2023.09.03-1.20.1.jar
+[24Dec2023 17:57:00.206] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file curios-forge-5.4.2+1.20.1_mapped_parchment_2023.09.03-1.20.1.jar with {curios} mods - versions {5.4.2+1.20.1}
+[24Dec2023 17:57:00.208] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate C:\Users\Phi\.gradle\caches\forge_gradle\deobf_dependencies\top\theillusivec4\curios\curios-forge\5.4.2+1.20.1_mapped_parchment_2023.09.03-1.20.1\curios-forge-5.4.2+1.20.1_mapped_parchment_2023.09.03-1.20.1.jar
+[24Dec2023 17:57:00.209] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file curios-forge-5.4.2+1.20.1_mapped_parchment_2023.09.03-1.20.1.jar with {curios} mods - versions {5.4.2+1.20.1}
+[24Dec2023 17:57:00.219] [main/DEBUG] [net.minecraftforge.fml.loading.UniqueModListBuilder/]: Found 2 mods for first modid curios, selecting most recent based on version data
+[24Dec2023 17:57:00.220] [main/DEBUG] [net.minecraftforge.fml.loading.UniqueModListBuilder/]: Selected file curios-forge-5.4.2+1.20.1_mapped_parchment_2023.09.03-1.20.1.jar for modid curios with version 5.4.2+1.20.1
+[24Dec2023 17:57:00.229] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.AbstractJarFileDependencyLocator/]: Failed to load resource META-INF\jarjar\metadata.json from forge-1.20.1-47.2.16_mapped_parchment_2023.09.03-1.20.1-recomp.jar, it does not contain dependency information.
+[24Dec2023 17:57:00.230] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.AbstractJarFileDependencyLocator/]: Failed to load resource META-INF\jarjar\metadata.json from main, it does not contain dependency information.
+[24Dec2023 17:57:00.230] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.AbstractJarFileDependencyLocator/]: Failed to load resource META-INF\jarjar\metadata.json from , it does not contain dependency information.
+[24Dec2023 17:57:00.230] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.AbstractJarFileDependencyLocator/]: Failed to load resource META-INF\jarjar\metadata.json from curios-forge-5.4.2+1.20.1_mapped_parchment_2023.09.03-1.20.1.jar, it does not contain dependency information.
+[24Dec2023 17:57:00.230] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.AbstractJarFileDependencyLocator/]: Failed to load resource META-INF\jarjar\metadata.json from mclanguage-1.20.1-47.2.16.jar, it does not contain dependency information.
+[24Dec2023 17:57:00.230] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.AbstractJarFileDependencyLocator/]: Failed to load resource META-INF\jarjar\metadata.json from javafmllanguage-1.20.1-47.2.16.jar, it does not contain dependency information.
+[24Dec2023 17:57:00.230] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.AbstractJarFileDependencyLocator/]: Failed to load resource META-INF\jarjar\metadata.json from fmlcore-1.20.1-47.2.16.jar, it does not contain dependency information.
+[24Dec2023 17:57:00.230] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.AbstractJarFileDependencyLocator/]: Failed to load resource META-INF\jarjar\metadata.json from lowcodelanguage-1.20.1-47.2.16.jar, it does not contain dependency information.
+[24Dec2023 17:57:00.255] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
+[24Dec2023 17:57:00.257] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file forge-1.20.1-47.2.16_mapped_parchment_2023.09.03-1.20.1-recomp.jar with {minecraft} mods - versions {1.20.1}
+[24Dec2023 17:57:00.258] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFile/LOADING]: Loading mod file C:\Users\Phi\.gradle\caches\forge_gradle\minecraft_user_repo\net\minecraftforge\forge\1.20.1-47.2.16_mapped_parchment_2023.09.03-1.20.1\forge-1.20.1-47.2.16_mapped_parchment_2023.09.03-1.20.1-recomp.jar with languages [LanguageSpec[languageName=minecraft, acceptedVersions=1]]
+[24Dec2023 17:57:00.259] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate C:\Users\Phi\Documents\Code\Java\Elite\build\resources\main
+[24Dec2023 17:57:00.260] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file main with {elite} mods - versions {0.0.1-1.20.1}
+[24Dec2023 17:57:00.261] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFile/LOADING]: Loading mod file C:\Users\Phi\Documents\Code\Java\Elite\build\resources\main with languages [LanguageSpec[languageName=javafml, acceptedVersions=[47,)]]
+[24Dec2023 17:57:00.261] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate /
+[24Dec2023 17:57:00.262] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file  with {forge} mods - versions {47.2.16}
+[24Dec2023 17:57:00.262] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFile/LOADING]: Loading mod file / with languages [LanguageSpec[languageName=javafml, acceptedVersions=[24,]]]
+[24Dec2023 17:57:00.300] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Found coremod field_to_method with Javascript path coremods/field_to_method.js
+[24Dec2023 17:57:00.300] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Found coremod field_to_instanceof with Javascript path coremods/field_to_instanceof.js
+[24Dec2023 17:57:00.300] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Found coremod add_bouncer_method with Javascript path coremods/add_bouncer_method.js
+[24Dec2023 17:57:00.300] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Found coremod method_redirector with Javascript path coremods/method_redirector.js
+[24Dec2023 17:57:00.300] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFile/LOADING]: Found coremod coremods/field_to_method.js
+[24Dec2023 17:57:00.300] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFile/LOADING]: Found coremod coremods/field_to_instanceof.js
+[24Dec2023 17:57:00.300] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFile/LOADING]: Found coremod coremods/add_bouncer_method.js
+[24Dec2023 17:57:00.300] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFile/LOADING]: Found coremod coremods/method_redirector.js
+[24Dec2023 17:57:00.301] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate C:\Users\Phi\.gradle\caches\forge_gradle\deobf_dependencies\top\theillusivec4\curios\curios-forge\5.4.2+1.20.1_mapped_parchment_2023.09.03-1.20.1\curios-forge-5.4.2+1.20.1_mapped_parchment_2023.09.03-1.20.1.jar
+[24Dec2023 17:57:00.302] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file curios-forge-5.4.2+1.20.1_mapped_parchment_2023.09.03-1.20.1.jar with {curios} mods - versions {5.4.2+1.20.1}
+[24Dec2023 17:57:00.302] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFile/LOADING]: Loading mod file C:\Users\Phi\.gradle\caches\forge_gradle\deobf_dependencies\top\theillusivec4\curios\curios-forge\5.4.2+1.20.1_mapped_parchment_2023.09.03-1.20.1\curios-forge-5.4.2+1.20.1_mapped_parchment_2023.09.03-1.20.1.jar with languages [LanguageSpec[languageName=javafml, acceptedVersions=[41,)]]
+[24Dec2023 17:57:00.302] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: End scan trigger - transformation service fml
+[24Dec2023 17:57:00.314] [main/DEBUG] [net.minecraftforge.fml.loading.LanguageLoadingProvider/CORE]: Found 3 language providers
+[24Dec2023 17:57:00.315] [main/DEBUG] [net.minecraftforge.fml.loading.LanguageLoadingProvider/CORE]: Found language provider minecraft, version 1.0
+[24Dec2023 17:57:00.316] [main/DEBUG] [net.minecraftforge.fml.loading.LanguageLoadingProvider/CORE]: Found language provider lowcodefml, version 47
+[24Dec2023 17:57:00.316] [main/DEBUG] [net.minecraftforge.fml.loading.LanguageLoadingProvider/CORE]: Found language provider javafml, version 47
+[24Dec2023 17:57:00.326] [main/DEBUG] [net.minecraftforge.fml.loading.ModSorter/]: Configured system mods: [minecraft, forge]
+[24Dec2023 17:57:00.326] [main/DEBUG] [net.minecraftforge.fml.loading.ModSorter/]: Found system mod: minecraft
+[24Dec2023 17:57:00.326] [main/DEBUG] [net.minecraftforge.fml.loading.ModSorter/]: Found system mod: forge
+[24Dec2023 17:57:00.334] [main/DEBUG] [net.minecraftforge.fml.loading.ModSorter/LOADING]: Found 4 mod requirements (4 mandatory, 0 optional)
+[24Dec2023 17:57:00.336] [main/DEBUG] [net.minecraftforge.fml.loading.ModSorter/LOADING]: Found 0 mod requirements missing (0 mandatory, 0 optional)
+[24Dec2023 17:57:00.760] [main/DEBUG] [net.minecraftforge.fml.loading.MCPNamingService/CORE]: Loaded 34318 method mappings from methods.csv
+[24Dec2023 17:57:00.790] [main/DEBUG] [net.minecraftforge.fml.loading.MCPNamingService/CORE]: Loaded 31014 field mappings from fields.csv
+[24Dec2023 17:57:00.862] [main/DEBUG] [cpw.mods.modlauncher.TransformationServicesHandler/MODLAUNCHER]: Transformation services loading transformers
+[24Dec2023 17:57:00.863] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Initializing transformers for transformation service mixin
+[24Dec2023 17:57:00.865] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Initialized transformers for transformation service mixin
+[24Dec2023 17:57:00.865] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Initializing transformers for transformation service fml
+[24Dec2023 17:57:00.865] [main/DEBUG] [net.minecraftforge.fml.loading.FMLServiceProvider/CORE]: Loading coremod transformers
+[24Dec2023 17:57:00.866] [main/DEBUG] [net.minecraftforge.coremod.CoreModEngine/COREMOD]: Loading CoreMod from coremods/field_to_method.js
+[24Dec2023 17:57:01.208] [main/DEBUG] [net.minecraftforge.coremod.CoreModEngine/COREMOD]: CoreMod loaded successfully
+[24Dec2023 17:57:01.209] [main/DEBUG] [net.minecraftforge.coremod.CoreModEngine/COREMOD]: Loading CoreMod from coremods/field_to_instanceof.js
+[24Dec2023 17:57:01.293] [main/DEBUG] [net.minecraftforge.coremod.CoreModEngine/COREMOD]: CoreMod loaded successfully
+[24Dec2023 17:57:01.293] [main/DEBUG] [net.minecraftforge.coremod.CoreModEngine/COREMOD]: Loading CoreMod from coremods/add_bouncer_method.js
+[24Dec2023 17:57:01.333] [main/DEBUG] [net.minecraftforge.coremod.CoreModEngine/COREMOD]: CoreMod loaded successfully
+[24Dec2023 17:57:01.333] [main/DEBUG] [net.minecraftforge.coremod.CoreModEngine/COREMOD]: Loading CoreMod from coremods/method_redirector.js
+[24Dec2023 17:57:01.395] [main/DEBUG] [net.minecraftforge.coremod.CoreModEngine/COREMOD]: CoreMod loaded successfully
+[24Dec2023 17:57:01.414] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@f9f3928 to Target : CLASS {Lnet/minecraft/world/level/biome/Biome;} {} {V}
+[24Dec2023 17:57:01.416] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@5b275811 to Target : CLASS {Lnet/minecraft/world/level/levelgen/structure/Structure;} {} {V}
+[24Dec2023 17:57:01.417] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@2f0ed952 to Target : CLASS {Lnet/minecraft/world/effect/MobEffectInstance;} {} {V}
+[24Dec2023 17:57:01.417] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@6f044c58 to Target : CLASS {Lnet/minecraft/world/level/block/LiquidBlock;} {} {V}
+[24Dec2023 17:57:01.417] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@6d074b14 to Target : CLASS {Lnet/minecraft/world/item/BucketItem;} {} {V}
+[24Dec2023 17:57:01.417] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@c017175 to Target : CLASS {Lnet/minecraft/world/level/block/StairBlock;} {} {V}
+[24Dec2023 17:57:01.417] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@559cedee to Target : CLASS {Lnet/minecraft/world/level/block/FlowerPotBlock;} {} {V}
+[24Dec2023 17:57:01.417] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@18371d89 to Target : CLASS {Lnet/minecraft/world/item/ItemStack;} {} {V}
+[24Dec2023 17:57:01.418] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@4f3faa70 to Target : CLASS {Lnet/minecraft/network/play/client/CClientSettingsPacket;} {} {V}
+[24Dec2023 17:57:01.418] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@4832f03b to Target : CLASS {Lnet/minecraft/server/commands/SummonCommand;} {} {V}
+[24Dec2023 17:57:01.418] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@4832f03b to Target : CLASS {Lnet/minecraft/world/entity/monster/Evoker$EvokerSummonSpellGoal;} {} {V}
+[24Dec2023 17:57:01.418] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@4832f03b to Target : CLASS {Lnet/minecraft/server/commands/RaidCommand;} {} {V}
+[24Dec2023 17:57:01.418] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@4832f03b to Target : CLASS {Lnet/minecraft/world/entity/npc/Villager;} {} {V}
+[24Dec2023 17:57:01.418] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@4832f03b to Target : CLASS {Lnet/minecraft/world/level/levelgen/PatrolSpawner;} {} {V}
+[24Dec2023 17:57:01.418] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@4832f03b to Target : CLASS {Lnet/minecraft/world/entity/monster/ZombieVillager;} {} {V}
+[24Dec2023 17:57:01.418] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@4832f03b to Target : CLASS {Lnet/minecraft/world/entity/npc/CatSpawner;} {} {V}
+[24Dec2023 17:57:01.418] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@4832f03b to Target : CLASS {Lnet/minecraft/world/entity/raid/Raid;} {} {V}
+[24Dec2023 17:57:01.418] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@4832f03b to Target : CLASS {Lnet/minecraft/world/level/levelgen/structure/structures/OceanMonumentPieces$OceanMonumentPiece;} {} {V}
+[24Dec2023 17:57:01.418] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@4832f03b to Target : CLASS {Lnet/minecraft/world/level/levelgen/structure/templatesystem/StructureTemplate;} {} {V}
+[24Dec2023 17:57:01.418] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@4832f03b to Target : CLASS {Lnet/minecraft/world/level/levelgen/structure/structures/WoodlandMansionPieces$WoodlandMansionPiece;} {} {V}
+[24Dec2023 17:57:01.418] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@4832f03b to Target : CLASS {Lnet/minecraft/world/entity/monster/Strider;} {} {V}
+[24Dec2023 17:57:01.419] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@4832f03b to Target : CLASS {Lnet/minecraft/world/entity/EntityType;} {} {V}
+[24Dec2023 17:57:01.419] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@4832f03b to Target : CLASS {Lnet/minecraft/world/entity/ai/village/VillageSiege;} {} {V}
+[24Dec2023 17:57:01.419] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@4832f03b to Target : CLASS {Lnet/minecraft/world/entity/animal/horse/SkeletonTrapGoal;} {} {V}
+[24Dec2023 17:57:01.419] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@4832f03b to Target : CLASS {Lnet/minecraft/world/level/levelgen/structure/structures/OceanRuinPieces$OceanRuinPiece;} {} {V}
+[24Dec2023 17:57:01.419] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@4832f03b to Target : CLASS {Lnet/minecraft/world/entity/animal/frog/Tadpole;} {} {V}
+[24Dec2023 17:57:01.419] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@4832f03b to Target : CLASS {Lnet/minecraft/world/entity/monster/Spider;} {} {V}
+[24Dec2023 17:57:01.419] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@4832f03b to Target : CLASS {Lnet/minecraft/world/entity/monster/Zombie;} {} {V}
+[24Dec2023 17:57:01.419] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@4832f03b to Target : CLASS {Lnet/minecraft/world/level/NaturalSpawner;} {} {V}
+[24Dec2023 17:57:01.419] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@4832f03b to Target : CLASS {Lnet/minecraft/world/level/levelgen/PhantomSpawner;} {} {V}
+[24Dec2023 17:57:01.419] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@4832f03b to Target : CLASS {Lnet/minecraft/world/level/levelgen/structure/structures/SwampHutPiece;} {} {V}
+[24Dec2023 17:57:01.419] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Initialized transformers for transformation service fml
+[24Dec2023 17:57:01.679] [main/DEBUG] [mixin/]: Processing prepare() for PlatformAgent[MixinPlatformAgentDefault:ModLauncher Root Container(ModLauncher:4f56a0a2)]
+[24Dec2023 17:57:01.680] [main/DEBUG] [mixin/]: Processing launch tasks for PlatformAgent[MixinPlatformAgentDefault:ModLauncher Root Container(ModLauncher:4f56a0a2)]
+[24Dec2023 17:57:01.680] [main/DEBUG] [mixin/]: Adding mixin platform agents for container SecureJarResource(minecraft)
+[24Dec2023 17:57:01.680] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentMinecraftForge for SecureJarResource(minecraft)
+[24Dec2023 17:57:01.680] [main/DEBUG] [mixin/]: MixinPlatformAgentMinecraftForge rejected container SecureJarResource(minecraft)
+[24Dec2023 17:57:01.680] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentDefault for SecureJarResource(minecraft)
+[24Dec2023 17:57:01.680] [main/DEBUG] [mixin/]: MixinPlatformAgentDefault accepted container SecureJarResource(minecraft)
+[24Dec2023 17:57:01.680] [main/DEBUG] [mixin/]: Processing prepare() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(minecraft)]
+[24Dec2023 17:57:01.680] [main/DEBUG] [mixin/]: Adding mixin platform agents for container SecureJarResource(elite)
+[24Dec2023 17:57:01.680] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentMinecraftForge for SecureJarResource(elite)
+[24Dec2023 17:57:01.680] [main/DEBUG] [mixin/]: MixinPlatformAgentMinecraftForge rejected container SecureJarResource(elite)
+[24Dec2023 17:57:01.681] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentDefault for SecureJarResource(elite)
+[24Dec2023 17:57:01.681] [main/DEBUG] [mixin/]: MixinPlatformAgentDefault accepted container SecureJarResource(elite)
+[24Dec2023 17:57:01.681] [main/DEBUG] [mixin/]: Processing prepare() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(elite)]
+[24Dec2023 17:57:01.681] [main/DEBUG] [mixin/]: Adding mixin platform agents for container SecureJarResource(forge)
+[24Dec2023 17:57:01.681] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentMinecraftForge for SecureJarResource(forge)
+[24Dec2023 17:57:01.681] [main/DEBUG] [mixin/]: MixinPlatformAgentMinecraftForge rejected container SecureJarResource(forge)
+[24Dec2023 17:57:01.681] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentDefault for SecureJarResource(forge)
+[24Dec2023 17:57:01.681] [main/DEBUG] [mixin/]: MixinPlatformAgentDefault accepted container SecureJarResource(forge)
+[24Dec2023 17:57:01.681] [main/DEBUG] [mixin/]: Processing prepare() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(forge)]
+[24Dec2023 17:57:01.681] [main/DEBUG] [mixin/]: Adding mixin platform agents for container SecureJarResource(curios)
+[24Dec2023 17:57:01.681] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentMinecraftForge for SecureJarResource(curios)
+[24Dec2023 17:57:01.681] [main/DEBUG] [mixin/]: MixinPlatformAgentMinecraftForge rejected container SecureJarResource(curios)
+[24Dec2023 17:57:01.681] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentDefault for SecureJarResource(curios)
+[24Dec2023 17:57:01.681] [main/DEBUG] [mixin/]: MixinPlatformAgentDefault accepted container SecureJarResource(curios)
+[24Dec2023 17:57:01.682] [main/DEBUG] [mixin/]: Processing prepare() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(curios)]
+[24Dec2023 17:57:01.682] [main/DEBUG] [mixin/]: Registering mixin config: curios.mixins.json
+[24Dec2023 17:57:01.713] [main/DEBUG] [mixin/]: Compatibility level JAVA_17 specified by curios.mixins.json is higher than the maximum level supported by this version of mixin (JAVA_13).
+[24Dec2023 17:57:01.719] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
+[24Dec2023 17:57:01.720] [main/DEBUG] [mixin/]: inject() running with 5 agents
+[24Dec2023 17:57:01.720] [main/DEBUG] [mixin/]: Processing inject() for PlatformAgent[MixinPlatformAgentDefault:ModLauncher Root Container(ModLauncher:4f56a0a2)]
+[24Dec2023 17:57:01.720] [main/DEBUG] [mixin/]: Processing inject() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(minecraft)]
+[24Dec2023 17:57:01.720] [main/DEBUG] [mixin/]: Processing inject() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(elite)]
+[24Dec2023 17:57:01.720] [main/DEBUG] [mixin/]: Processing inject() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(forge)]
+[24Dec2023 17:57:01.720] [main/DEBUG] [mixin/]: Processing inject() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(curios)]
+[24Dec2023 17:57:01.720] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgedatauserdev' with arguments [--gameDir, ., --assetsDir, C:\Users\Phi\.gradle\caches\forge_gradle\assets, --assetIndex, 5, --mod, elite, --all, --output, C:\Users\Phi\Documents\Code\Java\Elite\src\generated\resources, --existing, C:\Users\Phi\Documents\Code\Java\Elite\src\main\resources]
+[24Dec2023 17:57:01.813] [main/DEBUG] [mixin/]: Error cleaning class output directory: .mixin.out
+[24Dec2023 17:57:01.817] [main/DEBUG] [mixin/]: Preparing mixins for MixinEnvironment[DEFAULT]
+[24Dec2023 17:57:01.817] [main/DEBUG] [mixin/]: Selecting config curios.mixins.json
+[24Dec2023 17:57:01.824] [main/DEBUG] [mixin/]: Preparing curios.mixins.json (8)
+[24Dec2023 17:57:02.014] [main/DEBUG] [mixin/]: Registering new injector for @Inject with org.spongepowered.asm.mixin.injection.struct.CallbackInjectionInfo
+[24Dec2023 17:57:02.017] [main/DEBUG] [mixin/]: Registering new injector for @ModifyArg with org.spongepowered.asm.mixin.injection.struct.ModifyArgInjectionInfo
+[24Dec2023 17:57:02.018] [main/DEBUG] [mixin/]: Registering new injector for @ModifyArgs with org.spongepowered.asm.mixin.injection.struct.ModifyArgsInjectionInfo
+[24Dec2023 17:57:02.019] [main/DEBUG] [mixin/]: Registering new injector for @Redirect with org.spongepowered.asm.mixin.injection.struct.RedirectInjectionInfo
+[24Dec2023 17:57:02.020] [main/DEBUG] [mixin/]: Registering new injector for @ModifyVariable with org.spongepowered.asm.mixin.injection.struct.ModifyVariableInjectionInfo
+[24Dec2023 17:57:02.022] [main/DEBUG] [mixin/]: Registering new injector for @ModifyConstant with org.spongepowered.asm.mixin.injection.struct.ModifyConstantInjectionInfo
+[24Dec2023 17:57:02.157] [main/DEBUG] [io.netty.util.internal.logging.InternalLoggerFactory/]: Using SLF4J as the default logging framework
+[24Dec2023 17:57:02.168] [main/DEBUG] [io.netty.util.ResourceLeakDetector/]: -Dio.netty.leakDetection.level: simple
+[24Dec2023 17:57:02.169] [main/DEBUG] [io.netty.util.ResourceLeakDetector/]: -Dio.netty.leakDetection.targetRecords: 4
+[24Dec2023 17:57:02.516] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [elite]
+[24Dec2023 17:57:02.657] [main/DEBUG] [mixin/]: Mixing AccessorEntity from curios.mixins.json into net.minecraft.world.entity.Entity
+[24Dec2023 17:57:02.680] [main/FATAL] [mixin/]: Mixin apply failed curios.mixins.json:AccessorEntity -> net.minecraft.world.entity.Entity: org.spongepowered.asm.mixin.gen.throwables.InvalidAccessorException No candidates were found matching f_19803_:Z in net/minecraft/world/entity/Entity for curios.mixins.json:AccessorEntity->@Accessor[FIELD_GETTER]::getFirstTick()Z [INJECT Applicator Phase -> curios.mixins.json:AccessorEntity -> Apply Accessors ->  -> Locate -> curios.mixins.json:AccessorEntity->@Accessor[FIELD_GETTER]::getFirstTick()Z]
+org.spongepowered.asm.mixin.gen.throwables.InvalidAccessorException: No candidates were found matching f_19803_:Z in net/minecraft/world/entity/Entity for curios.mixins.json:AccessorEntity->@Accessor[FIELD_GETTER]::getFirstTick()Z [INJECT Applicator Phase -> curios.mixins.json:AccessorEntity -> Apply Accessors ->  -> Locate -> curios.mixins.json:AccessorEntity->@Accessor[FIELD_GETTER]::getFirstTick()Z]
+	at org.spongepowered.asm.mixin.gen.AccessorInfo.findTarget(AccessorInfo.java:518) ~[mixin-0.8.5.jar:0.8.5+Jenkins-b310.git-155314e6e91465dad727e621a569906a410cd6f4]
+	at org.spongepowered.asm.mixin.gen.AccessorInfo.findTargetField(AccessorInfo.java:501) ~[mixin-0.8.5.jar:0.8.5+Jenkins-b310.git-155314e6e91465dad727e621a569906a410cd6f4]
+	at org.spongepowered.asm.mixin.gen.AccessorInfo.locate(AccessorInfo.java:475) ~[mixin-0.8.5.jar:0.8.5+Jenkins-b310.git-155314e6e91465dad727e621a569906a410cd6f4]
+	at org.spongepowered.asm.mixin.transformer.MixinTargetContext.generateAccessors(MixinTargetContext.java:1389) ~[mixin-0.8.5.jar:0.8.5+Jenkins-b310.git-155314e6e91465dad727e621a569906a410cd6f4]
+	at org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.applyAccessors(MixinApplicatorStandard.java:1060) ~[mixin-0.8.5.jar:0.8.5+Jenkins-b310.git-155314e6e91465dad727e621a569906a410cd6f4]
+	at org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.applyMixin(MixinApplicatorStandard.java:398) ~[mixin-0.8.5.jar:0.8.5+Jenkins-b310.git-155314e6e91465dad727e621a569906a410cd6f4]
+	at org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.apply(MixinApplicatorStandard.java:325) ~[mixin-0.8.5.jar:0.8.5+Jenkins-b310.git-155314e6e91465dad727e621a569906a410cd6f4]
+	at org.spongepowered.asm.mixin.transformer.TargetClassContext.apply(TargetClassContext.java:383) ~[mixin-0.8.5.jar:0.8.5+Jenkins-b310.git-155314e6e91465dad727e621a569906a410cd6f4]
+	at org.spongepowered.asm.mixin.transformer.TargetClassContext.applyMixins(TargetClassContext.java:365) ~[mixin-0.8.5.jar:0.8.5+Jenkins-b310.git-155314e6e91465dad727e621a569906a410cd6f4]
+	at org.spongepowered.asm.mixin.transformer.MixinProcessor.applyMixins(MixinProcessor.java:363) ~[mixin-0.8.5.jar:0.8.5+Jenkins-b310.git-155314e6e91465dad727e621a569906a410cd6f4]
+	at org.spongepowered.asm.mixin.transformer.MixinTransformer.transformClass(MixinTransformer.java:250) ~[mixin-0.8.5.jar:0.8.5+Jenkins-b310.git-155314e6e91465dad727e621a569906a410cd6f4]
+	at org.spongepowered.asm.service.modlauncher.MixinTransformationHandler.processClass(MixinTransformationHandler.java:131) ~[mixin-0.8.5.jar:0.8.5+Jenkins-b310.git-155314e6e91465dad727e621a569906a410cd6f4]
+	at org.spongepowered.asm.launch.MixinLaunchPluginLegacy.processClass(MixinLaunchPluginLegacy.java:131) ~[mixin-0.8.5.jar:0.8.5+Jenkins-b310.git-155314e6e91465dad727e621a569906a410cd6f4]
+	at cpw.mods.modlauncher.serviceapi.ILaunchPluginService.processClassWithFlags(ILaunchPluginService.java:156) ~[modlauncher-10.0.9.jar:10.0.9+10.0.9+main.dcd20f30]
+	at cpw.mods.modlauncher.LaunchPluginHandler.offerClassNodeToPlugins(LaunchPluginHandler.java:88) ~[modlauncher-10.0.9.jar:?]
+	at cpw.mods.modlauncher.ClassTransformer.transform(ClassTransformer.java:120) ~[modlauncher-10.0.9.jar:?]
+	at cpw.mods.modlauncher.TransformingClassLoader.maybeTransformClassBytes(TransformingClassLoader.java:50) ~[modlauncher-10.0.9.jar:?]
+	at cpw.mods.cl.ModuleClassLoader.readerToClass(ModuleClassLoader.java:113) ~[securejarhandler-2.1.10.jar:?]
+	at cpw.mods.cl.ModuleClassLoader.lambda$findClass$15(ModuleClassLoader.java:219) ~[securejarhandler-2.1.10.jar:?]
+	at cpw.mods.cl.ModuleClassLoader.loadFromModule(ModuleClassLoader.java:229) ~[securejarhandler-2.1.10.jar:?]
+	at cpw.mods.cl.ModuleClassLoader.findClass(ModuleClassLoader.java:219) ~[securejarhandler-2.1.10.jar:?]
+	at cpw.mods.cl.ModuleClassLoader.loadClass(ModuleClassLoader.java:135) ~[securejarhandler-2.1.10.jar:?]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:520) ~[?:?]
+	at net.minecraftforge.registries.GameData.init(GameData.java:109) ~[forge-1.20.1-47.2.16_mapped_parchment_2023.09.03-1.20.1-recomp.jar:?]
+	at net.minecraftforge.registries.GameData.<clinit>(GameData.java:95) ~[forge-1.20.1-47.2.16_mapped_parchment_2023.09.03-1.20.1-recomp.jar:?]
+	at net.minecraft.core.registries.BuiltInRegistries.forge(BuiltInRegistries.java:429) ~[forge-1.20.1-47.2.16_mapped_parchment_2023.09.03-1.20.1-recomp.jar:?]
+	at net.minecraft.core.registries.BuiltInRegistries.forge(BuiltInRegistries.java:409) ~[forge-1.20.1-47.2.16_mapped_parchment_2023.09.03-1.20.1-recomp.jar:?]
+	at net.minecraft.core.registries.BuiltInRegistries.<clinit>(BuiltInRegistries.java:121) ~[forge-1.20.1-47.2.16_mapped_parchment_2023.09.03-1.20.1-recomp.jar:?]
+	at net.minecraft.server.Bootstrap.bootStrap(Bootstrap.java:47) ~[forge-1.20.1-47.2.16_mapped_parchment_2023.09.03-1.20.1-recomp.jar:?]
+	at net.minecraftforge.data.loading.DatagenModLoader.begin(DatagenModLoader.java:42) ~[forge-1.20.1-47.2.16_mapped_parchment_2023.09.03-1.20.1-recomp.jar:?]
+	at net.minecraft.data.Main.main(Main.java:90) ~[forge-1.20.1-47.2.16_mapped_parchment_2023.09.03-1.20.1-recomp.jar:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?]
+	at net.minecraftforge.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:111) ~[fmlloader-1.20.1-47.2.16.jar:?]
+	at net.minecraftforge.fml.loading.targets.CommonLaunchHandler.dataService(CommonLaunchHandler.java:107) ~[fmlloader-1.20.1-47.2.16.jar:?]
+	at net.minecraftforge.fml.loading.targets.ForgeDataUserdevLaunchHandler.devService(ForgeDataUserdevLaunchHandler.java:22) ~[fmlloader-1.20.1-47.2.16.jar:?]
+	at net.minecraftforge.fml.loading.targets.CommonDevLaunchHandler.lambda$makeService$7(CommonDevLaunchHandler.java:135) ~[fmlloader-1.20.1-47.2.16.jar:?]
+	at cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30) ~[modlauncher-10.0.9.jar:?]
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) ~[modlauncher-10.0.9.jar:?]
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) ~[modlauncher-10.0.9.jar:?]
+	at cpw.mods.modlauncher.Launcher.run(Launcher.java:108) ~[modlauncher-10.0.9.jar:?]
+	at cpw.mods.modlauncher.Launcher.main(Launcher.java:78) ~[modlauncher-10.0.9.jar:?]
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) ~[modlauncher-10.0.9.jar:?]
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) ~[modlauncher-10.0.9.jar:?]
+	at cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141) ~[bootstraplauncher-1.1.2.jar:?]

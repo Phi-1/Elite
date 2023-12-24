@@ -66,7 +66,7 @@ public class AutoAnnihilationEngineCharmItem extends CharmItem {
         double z = playerPos.z;
         double dX = ThreadLocalRandom.current().nextDouble(-0.2, 0.2);
         double dZ = ThreadLocalRandom.current().nextDouble(-0.2, 0.2);
-        level.addParticle(ParticleTypes.SOUL_FIRE_FLAME, x + Math.sin((yRot + 160) / 180 * Math.PI) / 2, y, z + Math.cos((yRot + 160) / 180 * Math.PI) / 2, dX, 0, dZ);
-        level.addParticle(ParticleTypes.FLAME, x + Math.sin((yRot + 200) / 180 * Math.PI) / 2, y, z + Math.cos((yRot + 200) / 180 * Math.PI) / 2, dX, 0, dZ);
+        level.addParticle(ParticleTypes.SOUL_FIRE_FLAME, x + Math.sin((yRot + 160) / 180 * Math.PI) / 2, y, z + Math.cos((yRot + 160) / 180 * Math.PI) / 2, dX, -0.2f, dZ);
+        level.addParticle(ParticleTypes.FLAME, x + Math.sin((yRot + 200) / 180 * Math.PI) / 2, y, z + Math.cos((yRot + 200) / 180 * Math.PI) / 2, dX, -0.2f, dZ);
     }
 }
