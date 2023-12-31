@@ -92,6 +92,8 @@ public class EliteItems {
     // Charms
     public static final RegistryObject<Item> ENRAGED_WORM = ITEMS.register("enraged_worm",
             EnragedWormCharmItem::new);
+    public static final RegistryObject<Item> GOLD_TOOTH = ITEMS.register("gold_tooth",
+            GoldToothCharmItem::new);
     public static final RegistryObject<Item> PHANTOM_WING = ITEMS.register("phantom_wing",
             PhantomWingCharmItem::new);
     public static final RegistryObject<Item> ELDER_EYE = ITEMS.register("elder_eye",

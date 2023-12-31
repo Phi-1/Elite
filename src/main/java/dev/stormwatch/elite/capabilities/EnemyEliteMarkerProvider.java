@@ -8,21 +8,20 @@ import net.minecraftforge.common.capabilities.CapabilityToken;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.common.util.INBTSerializable;
 import net.minecraftforge.common.util.LazyOptional;
-import org.checkerframework.checker.units.qual.C;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class MonsterEliteMarkerProvider implements ICapabilityProvider, INBTSerializable<CompoundTag> {
+public class EnemyEliteMarkerProvider implements ICapabilityProvider, INBTSerializable<CompoundTag> {
 
-    public static final Capability<MonsterEliteMarker> CAPABILITY_TYPE = CapabilityManager.get(new CapabilityToken<MonsterEliteMarker>() {});
-    private MonsterEliteMarker monsterEliteMarker = null;
-    private final LazyOptional<MonsterEliteMarker> optional = LazyOptional.of(this::getOrCreateMonsterEliteMarker);
+    public static final Capability<EnemyEliteMarker> CAPABILITY_TYPE = CapabilityManager.get(new CapabilityToken<EnemyEliteMarker>() {});
+    private EnemyEliteMarker enemyEliteMarker = null;
+    private final LazyOptional<EnemyEliteMarker> optional = LazyOptional.of(this::getOrCreateEnemyEliteMarker);
 
-    private MonsterEliteMarker getOrCreateMonsterEliteMarker() {
-        if (this.monsterEliteMarker == null) {
-            this.monsterEliteMarker = new MonsterEliteMarker();
+    private EnemyEliteMarker getOrCreateEnemyEliteMarker() {
+        if (this.enemyEliteMarker == null) {
+            this.enemyEliteMarker = new EnemyEliteMarker();
         }
-        return this.monsterEliteMarker;
+        return this.enemyEliteMarker;
     }
 
     @Override
@@ -36,12 +35,12 @@ public class MonsterEliteMarkerProvider implements ICapabilityProvider, INBTSeri
     @Override
     public CompoundTag serializeNBT() {
         CompoundTag nbt = new CompoundTag();
-        this.getOrCreateMonsterEliteMarker().saveNBT(nbt);
+        this.getOrCreateEnemyEliteMarker().saveNBT(nbt);
         return nbt;
     }
 
     @Override
     public void deserializeNBT(CompoundTag nbt) {
-        this.getOrCreateMonsterEliteMarker().loadNBT(nbt);
+        this.getOrCreateEnemyEliteMarker().loadNBT(nbt);
     }
 }

@@ -1,30 +1,18 @@
 package dev.stormwatch.elite.systems;
 
 import dev.stormwatch.elite.Config;
-import dev.stormwatch.elite.Elite;
-import dev.stormwatch.elite.capabilities.MonsterEliteMarker;
-import dev.stormwatch.elite.capabilities.MonsterEliteMarkerProvider;
+import dev.stormwatch.elite.capabilities.EnemyEliteMarker;
+import dev.stormwatch.elite.capabilities.EnemyEliteMarkerProvider;
 import dev.stormwatch.elite.doc.MonsterEliteData;
 import dev.stormwatch.elite.util.AttributeUtil;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.ai.goal.Goal;
-import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
-import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.world.entity.monster.Phantom;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.phys.AABB;
-import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.minecraftforge.event.entity.living.MobSpawnEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
-import java.util.List;
 import java.util.UUID;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class MonsterEnhancer {
 
@@ -48,25 +36,11 @@ public class MonsterEnhancer {
     }
 
     private static void makeElite(Monster monster) {
-        MonsterEliteMarker marker = monster.getCapability(MonsterEliteMarkerProvider.CAPABILITY_TYPE).orElse(MonsterEliteMarker.EMPTY);
-        if (marker == MonsterEliteMarker.EMPTY) return;
+        EnemyEliteMarker marker = monster.getCapability(EnemyEliteMarkerProvider.CAPABILITY_TYPE).orElse(EnemyEliteMarker.EMPTY);
+        if (marker == EnemyEliteMarker.EMPTY) return;
         MonsterEliteData.Type eliteType = MonsterEliteData.getEliteTypeForMonster(monster);
         marker.setEliteType(eliteType);
         setMonsterEliteStats(monster, eliteType);
-    }
-
-    @SubscribeEvent
-    public static void onEnemySpawn(MobSpawnEvent.FinalizeSpawn event) {
-        if (event.getEntity().level().isClientSide()) return;
-        if (!(event.getEntity() instanceof Enemy enemy)) return;
-
-        // TODO
-//        setMonsterBaseStats(enemy);
-
-        if (ThreadLocalRandom.current().nextDouble() <= Config.getEliteMonsterSpawnChance()) {
-            // TODO
-//            makeElite(enemy);
-        }
     }
 
     @SubscribeEvent
@@ -78,12 +52,4 @@ public class MonsterEnhancer {
         event.setAmount((float) (event.getAmount() + event.getAmount() * Config.getBaseMonsterDamageIncrease()));
     }
 
-    @SubscribeEvent
-    public static void attachEliteTypeCapability(AttachCapabilitiesEvent<Entity> event) {
-        if (event.getObject() instanceof Monster) {
-            if (!event.getObject().getCapability(MonsterEliteMarkerProvider.CAPABILITY_TYPE).isPresent()) {
-                event.addCapability(new ResourceLocation(Elite.MOD_ID, "monster_elite_marker"), new MonsterEliteMarkerProvider());
-            }
-        }
-    }
 }

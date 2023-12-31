@@ -17,10 +17,7 @@ import dev.stormwatch.elite.items.weapons.HungeringBladeItem;
 import dev.stormwatch.elite.items.weapons.TheHeraldItem;
 import dev.stormwatch.elite.networking.EliteNetworking;
 import dev.stormwatch.elite.registry.*;
-import dev.stormwatch.elite.systems.BlockFaceClickListener;
-import dev.stormwatch.elite.systems.GameRuleSettings;
-import dev.stormwatch.elite.systems.MonsterEnhancer;
-import dev.stormwatch.elite.systems.PlayerEnhancer;
+import dev.stormwatch.elite.systems.*;
 import dev.stormwatch.elite.util.TickTasks;
 import dev.stormwatch.elite.util.TickTimers;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -43,6 +40,8 @@ import org.slf4j.Logger;
 @Mod(Elite.MOD_ID)
 public class Elite {
     // FIXME: HIGH PRIORITY, replace all Monster references with Enemy
+    // TODO: all the livinghurtevent damage modifiers may go off in weird orders, add to static class instead and execute at end of tick
+    // TODO: add armor items to trimmable tags, and datagen the armor models for each trim
 
     public static final String MOD_ID = "elite";
     private static final Logger LOGGER = LogUtils.getLogger();
@@ -63,7 +62,7 @@ public class Elite {
         MinecraftForge.EVENT_BUS.register(TickTimers.class);
         MinecraftForge.EVENT_BUS.register(TickTasks.class);
         MinecraftForge.EVENT_BUS.register(GameRuleSettings.class);
-        MinecraftForge.EVENT_BUS.register(MonsterEnhancer.class);
+        MinecraftForge.EVENT_BUS.register(EliteEnemyEvents.class);
         MinecraftForge.EVENT_BUS.register(PlayerEnhancer.class);
         MinecraftForge.EVENT_BUS.register(BlockFaceClickListener.class);
         MinecraftForge.EVENT_BUS.register(ResonantArrow.class);
@@ -149,6 +148,7 @@ public class Elite {
             event.accept(EliteItems.PHANTOM_WING);
             event.accept(EliteItems.ELDER_EYE);
             event.accept(EliteItems.ENRAGED_WORM);
+            event.accept(EliteItems.GOLD_TOOTH);
             event.accept(EliteItems.ELEMENT_115);
             event.accept(EliteItems.TECHNICIAN_GUS);
             event.accept(EliteItems.BEZOAR);
