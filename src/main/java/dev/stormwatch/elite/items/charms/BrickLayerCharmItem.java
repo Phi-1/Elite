@@ -41,7 +41,8 @@ public class BrickLayerCharmItem extends CharmItem implements ModeAbilityItem {
 
     @Override
     public void activateAbility(ItemStack stack, Player player) {
-        ModeSelectorMarker modeSelector = stack.getCapability(ModeSelectorMarkerProvider.CAPABILITY_TYPE).orElseThrow(() -> new IllegalStateException("Brick Layer does not have a mode selector marker"));
+        ModeSelectorMarker modeSelector = stack.getCapability(ModeSelectorMarkerProvider.CAPABILITY_TYPE).orElse(ModeSelectorMarker.EMPTY);
+        if (modeSelector == ModeSelectorMarker.EMPTY) return;
         modeSelector.increaseIndex();
         BrickLayerMode mode = BrickLayerMode.values()[modeSelector.getMode()];
         player.sendSystemMessage(MODE_SELECTION_COMPONENTS.get(mode));
@@ -54,7 +55,8 @@ public class BrickLayerCharmItem extends CharmItem implements ModeAbilityItem {
         ItemStack brickLayer = InventoryUtil.getEquippedCharmOfType(player, BrickLayerCharmItem.class);
         if (brickLayer == null) return;
 
-        ModeSelectorMarker modeSelector = brickLayer.getCapability(ModeSelectorMarkerProvider.CAPABILITY_TYPE).orElseThrow(() -> new IllegalStateException("Brick layer does not have a mode selector marker"));
+        ModeSelectorMarker modeSelector = brickLayer.getCapability(ModeSelectorMarkerProvider.CAPABILITY_TYPE).orElse(ModeSelectorMarker.EMPTY);
+        if (modeSelector == ModeSelectorMarker.EMPTY) return;
         BrickLayerMode mode = BrickLayerMode.values()[modeSelector.getMode()];
 
         int requiredBlocks = switch (mode) {

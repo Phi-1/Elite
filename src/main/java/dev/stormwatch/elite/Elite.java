@@ -1,6 +1,7 @@
 package dev.stormwatch.elite;
 
 import com.mojang.logging.LogUtils;
+import dev.stormwatch.elite.client.ClientEliteEnemyEvents;
 import dev.stormwatch.elite.client.EliteInputHandler;
 import dev.stormwatch.elite.client.EliteItemProperties;
 import dev.stormwatch.elite.client.EliteKeyMappings;
@@ -18,6 +19,7 @@ import dev.stormwatch.elite.items.weapons.TheHeraldItem;
 import dev.stormwatch.elite.networking.EliteNetworking;
 import dev.stormwatch.elite.registry.*;
 import dev.stormwatch.elite.systems.*;
+import dev.stormwatch.elite.systems.elites.Necromancer;
 import dev.stormwatch.elite.util.TickTasks;
 import dev.stormwatch.elite.util.TickTimers;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -26,6 +28,7 @@ import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
@@ -36,6 +39,8 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
+
+import java.util.List;
 
 @Mod(Elite.MOD_ID)
 public class Elite {
@@ -65,6 +70,7 @@ public class Elite {
         MinecraftForge.EVENT_BUS.register(EliteEnemyEvents.class);
         MinecraftForge.EVENT_BUS.register(PlayerEnhancer.class);
         MinecraftForge.EVENT_BUS.register(BlockFaceClickListener.class);
+        MinecraftForge.EVENT_BUS.register(Necromancer.class);
         MinecraftForge.EVENT_BUS.register(ResonantArrow.class);
         MinecraftForge.EVENT_BUS.register(CharmItem.class);
         MinecraftForge.EVENT_BUS.register(BezoarCharmItem.class);
@@ -190,7 +196,14 @@ public class Elite {
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE, value = Dist.CLIENT)
     public static class ClientForgeEvents {
 
+        @SubscribeEvent
+        public static void clientPlayerTick(TickEvent.PlayerTickEvent event) {
+            ClientEliteEnemyEvents.trackNearestElite(event);
+        }
 
+        // TODO: find closest among them and set as tracked mob, along with health
+        // TODO: on damage check if mob is tracked elite, and update tracked health
+        // TODO: draw ui healthbar, lerp from current health to new health (track both)
 
     }
 }

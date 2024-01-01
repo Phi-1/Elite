@@ -26,4 +26,6 @@ public class ToggleMarker {
         this.active = nbt.getBoolean("active");
     }
 
+    public static final ToggleMarker EMPTY = new ToggleMarker();
+
 }

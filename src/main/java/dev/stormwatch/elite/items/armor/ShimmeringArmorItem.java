@@ -62,10 +62,12 @@ public class ShimmeringArmorItem extends ArmorItem {
                 && InventoryUtil.hasArmorEquipped(player, EliteItems.SHIMMERING_CHESTPLATE.get(), SlotIndices.CHESTPLATE)
                 && InventoryUtil.hasArmorEquipped(player, EliteItems.SHIMMERING_HELMET.get(), SlotIndices.HELMET)
                 && !level.isClientSide()) {
-            ShimmeringCrownMarker crown = player.getCapability(ShimmeringCrownMarkerProvider.CAPABILITY_TYPE).orElseThrow(() -> new IllegalStateException("Player does not have a crown marker"));
-            gainCrownCharge(player, crown);
-            crownHealPlayer(player, crown);
-            conferCrownPassiveBuffs(player, crown);
+            ShimmeringCrownMarker crown = player.getCapability(ShimmeringCrownMarkerProvider.CAPABILITY_TYPE).orElse(ShimmeringCrownMarker.EMPTY);
+            if (crown != ShimmeringCrownMarker.EMPTY) {
+                gainCrownCharge(player, crown);
+                crownHealPlayer(player, crown);
+                conferCrownPassiveBuffs(player, crown);
+            }
         }
     }
 

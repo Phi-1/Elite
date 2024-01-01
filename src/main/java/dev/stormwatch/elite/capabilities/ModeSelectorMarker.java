@@ -31,4 +31,6 @@ public class ModeSelectorMarker {
         this.index = nbt.getInt("mode");
     }
 
+    public static final ModeSelectorMarker EMPTY = new ModeSelectorMarker(0);
+
 }

@@ -58,4 +58,7 @@ public class EnemyEliteMarker {
             }
         }
     }
+
+    public static final EnemyEliteMarker EMPTY = new EnemyEliteMarker();
+
 }

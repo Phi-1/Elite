@@ -33,7 +33,8 @@ public class ElderEyeCharmItem extends CharmItem implements ToggleAbilityItem {
         if (player.level().isClientSide()) return;
         if (!(player.level().getGameTime() % TickRates.HIGH == 0)) return;
 
-        ToggleMarker toggleMarker = stack.getCapability(ToggleMarkerProvider.CAPABILITY_TYPE).orElseThrow(() -> new IllegalStateException("Toggle ability item does not have a toggle marker"));
+        ToggleMarker toggleMarker = stack.getCapability(ToggleMarkerProvider.CAPABILITY_TYPE).orElse(ToggleMarker.EMPTY);
+        if (toggleMarker == ToggleMarker.EMPTY) return;
         if (!toggleMarker.isActive()) return;
 
         // TODO: consider making this consume something for every mob it affects. In that case increase wither amp?
@@ -52,7 +53,8 @@ public class ElderEyeCharmItem extends CharmItem implements ToggleAbilityItem {
     @Override
     public void activateAbility(ItemStack stack, Player player) {
         // TODO: sound
-        ToggleMarker toggleMarker = stack.getCapability(ToggleMarkerProvider.CAPABILITY_TYPE).orElseThrow(() -> new IllegalStateException("Toggle ability item does not have a toggle marker"));
+        ToggleMarker toggleMarker = stack.getCapability(ToggleMarkerProvider.CAPABILITY_TYPE).orElse(ToggleMarker.EMPTY);
+        if (toggleMarker == ToggleMarker.EMPTY) return;
         toggleMarker.toggle();
     }
 

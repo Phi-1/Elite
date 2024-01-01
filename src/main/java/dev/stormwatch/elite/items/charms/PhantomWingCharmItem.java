@@ -25,7 +25,8 @@ public class PhantomWingCharmItem extends CharmItem implements CooldownAbilityIt
 
     @Override
     public void activateAbility(ItemStack stack, Player player) {
-        CooldownMarker cooldownMarker = stack.getCapability(CooldownMarkerProvider.CAPABILITY_TYPE).orElseThrow(() -> new IllegalStateException("Phantom Wing does not have a cooldown marker"));
+        CooldownMarker cooldownMarker = stack.getCapability(CooldownMarkerProvider.CAPABILITY_TYPE).orElse(CooldownMarker.EMPTY);
+        if (cooldownMarker == CooldownMarker.EMPTY) return;
         if (cooldownMarker.isOnCooldown(this.getCooldownMillis())) {
             Feedback.onItemIsOnCooldown();
             return;

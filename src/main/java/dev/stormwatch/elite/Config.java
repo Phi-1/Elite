@@ -1,16 +1,9 @@
 package dev.stormwatch.elite;
 
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Item;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.config.ModConfigEvent;
-import net.minecraftforge.registries.ForgeRegistries;
-
-import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 @Mod.EventBusSubscriber(modid = Elite.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class Config {
@@ -50,6 +43,7 @@ public class Config {
             .comment("The amount of block reach each player gains per elite level. 0.1 = 10% extra, 0.5 = 50% and so on")
             .defineInRange("blockReachPerLevel", 0.1, 0,  Double.MAX_VALUE);
 
+    // TODO: delete base stat changes
     private static final ForgeConfigSpec.DoubleValue BASE_MONSTER_HEALTH_INCREASE = BUILDER
             .comment("The base health increase of every hostile mob. 0.1 = 10% extra, 0.5 = 50% and so on")
             .defineInRange("baseMonsterHealthIncrease", 0.4, 0,  Double.MAX_VALUE);
@@ -65,7 +59,7 @@ public class Config {
             .defineInRange("monsterSpawnRateIncrease", 0.5, 0,  Double.MAX_VALUE);
     private static final ForgeConfigSpec.DoubleValue ELITE_MONSTER_SPAWN_CHANCE = BUILDER
             .comment("The chance for each hostile mob to become an elite. 0.1 = 10%, 0.5 = 50% and so on")
-            .defineInRange("eliteMonsterSpawnChance", 0.01, 0,  Double.MAX_VALUE);
+            .defineInRange("eliteMonsterSpawnChance", 0.001, 0,  Double.MAX_VALUE);
 
     static final ForgeConfigSpec SPEC = BUILDER.build();
 

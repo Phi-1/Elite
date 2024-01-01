@@ -14,4 +14,6 @@ public class ShimmeringCrownMarker {
         this.charge = nbt.getInt("charge");
     }
 
+    public static final ShimmeringCrownMarker EMPTY = new ShimmeringCrownMarker();
+
 }

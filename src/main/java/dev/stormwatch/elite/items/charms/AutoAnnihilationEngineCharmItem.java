@@ -46,7 +46,9 @@ public class AutoAnnihilationEngineCharmItem extends CharmItem {
         ItemStack engine = InventoryUtil.getEquippedCharmOfType(player, AutoAnnihilationEngineCharmItem.class);
         if (engine == null) return;
 
-        FuelLevel fuel = engine.getCapability(FuelLevelProvider.CAPABILITY_TYPE).orElseThrow(() -> new IllegalStateException("Annihilation Engine does not have a fuel level"));
+        FuelLevel fuel = engine.getCapability(FuelLevelProvider.CAPABILITY_TYPE).orElse(FuelLevel.EMPTY);
+        if (fuel == FuelLevel.EMPTY) return;
+
         if (player.onGround()) {
             fuel.fuelLevel = MAX_FUEL_LEVEL;
         }

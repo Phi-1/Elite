@@ -38,7 +38,8 @@ public class ShimmeringMembraneCharmItem extends CharmItem implements CooldownAb
 
         ItemStack charm = InventoryUtil.getEquippedCharmOfType(player, ShimmeringMembraneCharmItem.class);
         if (charm == null) return;
-        CooldownMarker cooldownMarker = charm.getCapability(CooldownMarkerProvider.CAPABILITY_TYPE).orElseThrow(() -> new IllegalStateException("Shimmering Membrane does not have a cooldown marker"));
+        CooldownMarker cooldownMarker = charm.getCapability(CooldownMarkerProvider.CAPABILITY_TYPE).orElse(CooldownMarker.EMPTY);
+        if (cooldownMarker == CooldownMarker.EMPTY) return;
         if (cooldownMarker.isOnCooldown(COOLDOWN_MILLIS)) return;
 
         event.setCanceled(true);

@@ -14,4 +14,6 @@ public class FuelLevel {
         this.fuelLevel = nbt.getInt("fuel");
     }
 
+    public static final FuelLevel EMPTY = new FuelLevel();
+
 }

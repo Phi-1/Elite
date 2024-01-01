@@ -31,7 +31,8 @@ public class MarksmansMedalCharmItem extends CharmItem implements ToggleAbilityI
     @Override
     public void activateAbility(ItemStack stack, Player player) {
         // TODO: sound
-        ToggleMarker toggleMarker = stack.getCapability(ToggleMarkerProvider.CAPABILITY_TYPE).orElseThrow(() -> new IllegalStateException("Toggle ability item does not have a toggle marker"));
+        ToggleMarker toggleMarker = stack.getCapability(ToggleMarkerProvider.CAPABILITY_TYPE).orElse(ToggleMarker.EMPTY);
+        if (toggleMarker == ToggleMarker.EMPTY) return;
         toggleMarker.toggle();
     }
 
@@ -41,7 +42,8 @@ public class MarksmansMedalCharmItem extends CharmItem implements ToggleAbilityI
         if (!event.getSource().is(DamageTypeTags.IS_PROJECTILE)) return;
         ItemStack charm = InventoryUtil.getEquippedCharmOfType(player, MarksmansMedalCharmItem.class);
         if (charm == null) return;
-        ToggleMarker toggleMarker = charm.getCapability(ToggleMarkerProvider.CAPABILITY_TYPE).orElseThrow(() -> new IllegalStateException("Toggle ability item does not have a toggle marker"));
+        ToggleMarker toggleMarker = charm.getCapability(ToggleMarkerProvider.CAPABILITY_TYPE).orElse(ToggleMarker.EMPTY);
+        if (toggleMarker == ToggleMarker.EMPTY) return;
         if (!toggleMarker.isActive()) return;
         ItemStack darkIronScrap = InventoryUtil.getItemInInventory(player, EliteItems.DARK_IRON_SCRAP.get());
         if (darkIronScrap == null || darkIronScrap.getCount() < SCRAP_COST) {

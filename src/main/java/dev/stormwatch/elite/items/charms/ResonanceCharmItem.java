@@ -30,7 +30,8 @@ public class ResonanceCharmItem extends CharmItem implements CooldownAbilityItem
 
     @Override
     public void activateAbility(ItemStack stack, Player player) {
-        CooldownMarker cooldownMarker = stack.getCapability(CooldownMarkerProvider.CAPABILITY_TYPE).orElseThrow(() -> new IllegalStateException("Resonance does not have a cooldown marker"));
+        CooldownMarker cooldownMarker = stack.getCapability(CooldownMarkerProvider.CAPABILITY_TYPE).orElse(CooldownMarker.EMPTY);
+        if (cooldownMarker == CooldownMarker.EMPTY) return;
         if (cooldownMarker.isOnCooldown(getCooldownMillis())) return; // TODO: cooldown feedback
         player.level().playSound(null, player.blockPosition(), SoundEvents.WARDEN_SONIC_CHARGE, SoundSource.PLAYERS, 0.8f, 1.2f);
 

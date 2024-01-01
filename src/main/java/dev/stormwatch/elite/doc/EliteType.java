@@ -5,20 +5,24 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.CaveSpider;
+import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.monster.Skeleton;
 import net.minecraft.world.entity.monster.Zombie;
 
 public enum EliteType {
+    // TODO: Spawn chat message
 
     NONE(Component.translatable("elite.displayname.none"), null),
     MONSTROSITY(Component.translatable("elite.displayname.monstrosity"), Zombie.class),
     NECROMANCER(Component.translatable("elite.displayname.necromancer"), Skeleton.class),
-    CROOKED_SPAWN(Component.translatable("elite.displayname.crooked_spawn"), CaveSpider.class);
+    CROOKED_SPAWN(Component.translatable("elite.displayname.crooked_spawn"), CaveSpider.class),
+    SMILER(Component.translatable("elite.displayname.smiler"), Creeper.class);
 
     private static final ImmutableMap<Class<? extends LivingEntity>, EliteType> TYPE_BY_ENTITY = new ImmutableMap.Builder<Class<? extends LivingEntity>, EliteType>()
             .put(Zombie.class, MONSTROSITY)
             .put(Skeleton.class, NECROMANCER)
             .put(CaveSpider.class, CROOKED_SPAWN)
+            .put(Creeper.class, SMILER)
             .build();
 
     public static EliteType getTypeForEntity(LivingEntity entity) {
