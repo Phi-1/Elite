@@ -20,13 +20,17 @@ import dev.stormwatch.elite.networking.EliteNetworking;
 import dev.stormwatch.elite.registry.*;
 import dev.stormwatch.elite.systems.*;
 import dev.stormwatch.elite.systems.elites.Necromancer;
+import dev.stormwatch.elite.util.PotionRecipe;
 import dev.stormwatch.elite.util.TickTasks;
 import dev.stormwatch.elite.util.TickTimers;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.Potions;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -60,6 +64,7 @@ public class Elite {
         EliteItems.register(modEventBus);
         EliteBlocks.register(modEventBus);
         EliteEffects.register(modEventBus);
+        ElitePotions.register(modEventBus);
         EliteEntityTypes.register(modEventBus);
         EliteBlockEntityTypes.register(modEventBus);
 
@@ -89,6 +94,7 @@ public class Elite {
         MinecraftForge.EVENT_BUS.register(EmptinessEffect.class);
         MinecraftForge.EVENT_BUS.register(ShimmeringCrownPassivesEffect.class);
         MinecraftForge.EVENT_BUS.register(InvincibilityEffect.class);
+        MinecraftForge.EVENT_BUS.register(MarkedEffect.class);
 
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
             MinecraftForge.EVENT_BUS.register(EliteInputHandler.class);
@@ -101,7 +107,12 @@ public class Elite {
     private void commonSetup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
             EliteNetworking.register();
+            registerPotionRecipes();
         });
+    }
+
+    private void registerPotionRecipes() {
+        BrewingRecipeRegistry.addRecipe(new PotionRecipe(EliteItems.TOXIC_KINDLING.get(), Potions.WEAKNESS, ElitePotions.SMOKE_BOMB.get()));
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
@@ -115,6 +126,7 @@ public class Elite {
             event.accept(EliteBlocks.BLACK_FORGE);
         }
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(EliteItems.PALE_FUR);
             event.accept(EliteItems.SHIMMERING_SCALE);
             event.accept(EliteItems.DARK_IRON_SCRAP);
             event.accept(EliteItems.DARK_IRON_INGOT);
@@ -131,15 +143,20 @@ public class Elite {
             event.accept(EliteItems.RUNE_STAFF_OF_CHARMING);
             event.accept(EliteItems.PHANTASM);
 
-            event.accept(EliteItems.SHIMMERING_BOOTS);
-            event.accept(EliteItems.SHIMMERING_LEGGINGS);
-            event.accept(EliteItems.SHIMMERING_CHESTPLATE);
-            event.accept(EliteItems.SHIMMERING_HELMET);
+            event.accept(EliteItems.PALE_FUR_BOOTS);
+            event.accept(EliteItems.PALE_FUR_LEGGINGS);
+            event.accept(EliteItems.PALE_FUR_CHESTPLATE);
+            event.accept(EliteItems.PALE_FUR_HELMET);
 
             event.accept(EliteItems.DARK_IRON_BOOTS);
             event.accept(EliteItems.DARK_IRON_LEGGINGS);
             event.accept(EliteItems.DARK_IRON_CHESTPLATE);
             event.accept(EliteItems.DARK_IRON_HELMET);
+
+            event.accept(EliteItems.SHIMMERING_BOOTS);
+            event.accept(EliteItems.SHIMMERING_LEGGINGS);
+            event.accept(EliteItems.SHIMMERING_CHESTPLATE);
+            event.accept(EliteItems.SHIMMERING_HELMET);
 
             event.accept(EliteItems.GILDED_BOOTS);
             event.accept(EliteItems.GILDED_LEGGINGS);

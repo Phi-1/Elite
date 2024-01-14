@@ -14,13 +14,13 @@ import java.util.function.Supplier;
 
 public enum EliteArmorMaterials implements StringRepresentable, ArmorMaterial {
 
-    SHIMMERING("shimmering", 30, Util.make(new EnumMap<>(ArmorItem.Type.class), (protection) -> {
-        protection.put(ArmorItem.Type.BOOTS, 3);
-        protection.put(ArmorItem.Type.LEGGINGS, 6);
-        protection.put(ArmorItem.Type.CHESTPLATE, 8);
-        protection.put(ArmorItem.Type.HELMET, 3);
-    }), 20, SoundEvents.ARMOR_EQUIP_TURTLE, 2.0F, 0.0F, () -> {
-        return Ingredient.of(EliteItems.SHIMMERING_SCALE.get());
+    PALE_FUR("pale_fur", 16, Util.make(new EnumMap<>(ArmorItem.Type.class), (protection) -> {
+        protection.put(ArmorItem.Type.BOOTS, 2);
+        protection.put(ArmorItem.Type.LEGGINGS, 3);
+        protection.put(ArmorItem.Type.CHESTPLATE, 4);
+        protection.put(ArmorItem.Type.HELMET, 2);
+    }), 17, SoundEvents.ARMOR_EQUIP_LEATHER, 0.0F, 0.0F, () -> {
+        return Ingredient.of(EliteItems.PALE_FUR.get());
     }),
 
     DARK_IRON("dark_iron", 20, Util.make(new EnumMap<>(ArmorItem.Type.class), (protection) -> {
@@ -30,6 +30,15 @@ public enum EliteArmorMaterials implements StringRepresentable, ArmorMaterial {
         protection.put(ArmorItem.Type.HELMET, 3);
     }), 8, SoundEvents.ARMOR_EQUIP_CHAIN, 1.0F, 0.1F, () -> {
         return Ingredient.of(EliteItems.DARK_IRON_SCRAP.get());
+    }),
+
+    SHIMMERING("shimmering", 30, Util.make(new EnumMap<>(ArmorItem.Type.class), (protection) -> {
+        protection.put(ArmorItem.Type.BOOTS, 3);
+        protection.put(ArmorItem.Type.LEGGINGS, 6);
+        protection.put(ArmorItem.Type.CHESTPLATE, 8);
+        protection.put(ArmorItem.Type.HELMET, 3);
+    }), 20, SoundEvents.ARMOR_EQUIP_TURTLE, 2.0F, 0.0F, () -> {
+        return Ingredient.of(EliteItems.SHIMMERING_SCALE.get());
     }),
 
     GILDED("gilded", 40, Util.make(new EnumMap<>(ArmorItem.Type.class), (protection) -> {

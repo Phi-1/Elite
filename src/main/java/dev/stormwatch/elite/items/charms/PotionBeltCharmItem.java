@@ -26,6 +26,8 @@ public class PotionBeltCharmItem extends CharmItem implements AbilityItem {
         boolean usedPotion = false;
         for (ItemStack inventoryStack : player.getInventory().items) {
             if (inventoryStack.getItem() instanceof PotionItem potion) {
+                // FIXME: dont consume splash and lingering potions
+                // TODO: dont consume negative effects?
                 ItemStack leftover = potion.finishUsingItem(inventoryStack, player.level(), player);
                 player.getInventory().add(leftover);
                 usedPotion = true;
